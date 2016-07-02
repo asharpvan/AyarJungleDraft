@@ -34,6 +34,9 @@
 		F47A3BD31D27B87600DB2C7A /* POPSpringAnimation.mm in Sources */ = {isa = PBXBuildFile; fileRef = F47A3BBF1D27B87600DB2C7A /* POPSpringAnimation.mm */; };
 		F47A3BD41D27B87600DB2C7A /* POPVector.mm in Sources */ = {isa = PBXBuildFile; fileRef = F47A3BC31D27B87600DB2C7A /* POPVector.mm */; };
 		F47A3BD91D27B88100DB2C7A /* TransformationMatrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F47A3BD61D27B88100DB2C7A /* TransformationMatrix.cpp */; };
+		F47A3BDF1D27BDC500DB2C7A /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = F47A3BDC1D27BDC500DB2C7A /* SSKeychain.m */; };
+		F47A3BE01D27BDC500DB2C7A /* SSKeychainQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = F47A3BDE1D27BDC500DB2C7A /* SSKeychainQuery.m */; };
+		F47A3BE21D27BDCE00DB2C7A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F47A3BE11D27BDCE00DB2C7A /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +104,11 @@
 		F47A3BD61D27B88100DB2C7A /* TransformationMatrix.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TransformationMatrix.cpp; sourceTree = "<group>"; };
 		F47A3BD71D27B88100DB2C7A /* TransformationMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformationMatrix.h; sourceTree = "<group>"; };
 		F47A3BD81D27B88100DB2C7A /* UnitBezier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitBezier.h; sourceTree = "<group>"; };
+		F47A3BDB1D27BDC500DB2C7A /* SSKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychain.h; sourceTree = "<group>"; };
+		F47A3BDC1D27BDC500DB2C7A /* SSKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychain.m; sourceTree = "<group>"; };
+		F47A3BDD1D27BDC500DB2C7A /* SSKeychainQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSKeychainQuery.h; sourceTree = "<group>"; };
+		F47A3BDE1D27BDC500DB2C7A /* SSKeychainQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSKeychainQuery.m; sourceTree = "<group>"; };
+		F47A3BE11D27BDCE00DB2C7A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +178,7 @@
 		F418843A1CAE8367005F562F /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				F47A3BDA1D27BDB900DB2C7A /* Keychain */,
 				F47A3B941D27B85500DB2C7A /* Twitter Client */,
 				F47A3B931D27B84000DB2C7A /* Facebook POP */,
 			);
@@ -248,6 +257,18 @@
 			name = "Twitter Client";
 			sourceTree = "<group>";
 		};
+		F47A3BDA1D27BDB900DB2C7A /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				F47A3BE11D27BDCE00DB2C7A /* LICENSE */,
+				F47A3BDB1D27BDC500DB2C7A /* SSKeychain.h */,
+				F47A3BDC1D27BDC500DB2C7A /* SSKeychain.m */,
+				F47A3BDD1D27BDC500DB2C7A /* SSKeychainQuery.h */,
+				F47A3BDE1D27BDC500DB2C7A /* SSKeychainQuery.m */,
+			);
+			name = Keychain;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -308,6 +329,7 @@
 				F41884391CAE8098005F562F /* Default@2x.png in Resources */,
 				F41884251CAE7F21005F562F /* Assets.xcassets in Resources */,
 				F41884361CAE8097005F562F /* Default-667h@2x.png in Resources */,
+				F47A3BE21D27BDCE00DB2C7A /* LICENSE in Resources */,
 				F41884351CAE8097005F562F /* Default-568h@2x.png in Resources */,
 				F41884371CAE8097005F562F /* Default-736h@3x.png in Resources */,
 				F41884381CAE8097005F562F /* Default.png in Resources */,
@@ -340,8 +362,10 @@
 				F47A3BD01D27B87600DB2C7A /* POPLayerExtras.mm in Sources */,
 				F418841A1CAE7F21005F562F /* main.m in Sources */,
 				F47A3BCC1D27B87600DB2C7A /* POPCGUtils.mm in Sources */,
+				F47A3BDF1D27BDC500DB2C7A /* SSKeychain.m in Sources */,
 				F47A3BD11D27B87600DB2C7A /* POPMath.mm in Sources */,
 				F47A3BCD1D27B87600DB2C7A /* POPCustomAnimation.mm in Sources */,
+				F47A3BE01D27BDC500DB2C7A /* SSKeychainQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
