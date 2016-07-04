@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "STTwitter.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <STTwitterAPIOSProtocol>
 
 -(instancetype)init;
 
