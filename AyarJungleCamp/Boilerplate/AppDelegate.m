@@ -24,7 +24,6 @@
     viewToload = self.viewController;
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:viewToload];
-   
     self.window.rootViewController = self.navController;
     [self.window makeKeyAndVisible];
     return YES;

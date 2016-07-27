@@ -62,6 +62,7 @@
 		F47A3C271D27BF0B00DB2C7A /* JSONSyntaxHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = F47A3C181D27BF0B00DB2C7A /* JSONSyntaxHighlight.m */; };
 		F47A3C281D27BF0B00DB2C7A /* STHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F47A3C1A1D27BF0B00DB2C7A /* STHTTPRequest.m */; };
 		F47A3C2A1D27BF1500DB2C7A /* LICENCE.txt in Resources */ = {isa = PBXBuildFile; fileRef = F47A3C291D27BF1500DB2C7A /* LICENCE.txt */; };
+		F4B708881D4883C9006D7B86 /* EmptyScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B708871D4883C9006D7B86 /* EmptyScreenViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -178,6 +179,8 @@
 		F47A3C191D27BF0B00DB2C7A /* STHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STHTTPRequest.h; sourceTree = "<group>"; };
 		F47A3C1A1D27BF0B00DB2C7A /* STHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STHTTPRequest.m; sourceTree = "<group>"; };
 		F47A3C291D27BF1500DB2C7A /* LICENCE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE.txt; sourceTree = "<group>"; };
+		F4B708861D4883C9006D7B86 /* EmptyScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyScreenViewController.h; sourceTree = "<group>"; };
+		F4B708871D4883C9006D7B86 /* EmptyScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyScreenViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +262,8 @@
 		F41884401CAE93EA005F562F /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F4B708861D4883C9006D7B86 /* EmptyScreenViewController.h */,
+				F4B708871D4883C9006D7B86 /* EmptyScreenViewController.m */,
 			);
 			name = "Custom Classes";
 			sourceTree = "<group>";
@@ -493,6 +498,7 @@
 				F47A3C1C1D27BF0B00DB2C7A /* NSError+STTwitter.m in Sources */,
 				F41884201CAE7F21005F562F /* ViewController.m in Sources */,
 				F47A3C281D27BF0B00DB2C7A /* STHTTPRequest.m in Sources */,
+				F4B708881D4883C9006D7B86 /* EmptyScreenViewController.m in Sources */,
 				F47A3BC81D27B87600DB2C7A /* POPAnimationRuntime.mm in Sources */,
 				F47A3BD41D27B87600DB2C7A /* POPVector.mm in Sources */,
 				F47A3C201D27BF0B00DB2C7A /* STTwitterAppOnly.m in Sources */,

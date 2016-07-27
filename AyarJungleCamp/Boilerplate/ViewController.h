@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EmptyScreenViewController.h"
 #import "STTwitter.h"
 
-@interface ViewController : UIViewController <STTwitterAPIOSProtocol>
+@interface ViewController : EmptyScreenViewController <STTwitterAPIOSProtocol>
 
 -(instancetype)init;
 

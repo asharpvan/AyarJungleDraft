@@ -36,16 +36,16 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
 -(void) createSubview {
     
     UIButton *signInButton = [[UIButton alloc]initWithFrame:CGRectMake(10, 120 ,self.view.frame.size.width - (20), 60)];
-    [signInButton setTitle:@"Sign In" forState:UIControlStateNormal];
+    [signInButton setTitle:@"Sign In & Post via Oauth" forState:UIControlStateNormal];
     [signInButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [signInButton setBackgroundColor:[UIColor blueColor]];
-    [signInButton setTag:0];
+    [signInButton setTag:1];
     [self.view addSubview:signInButton];
     
     UIButton *twitterButton = [[UIButton alloc]initWithFrame:CGRectMake(10, self.view.frame.size.height - 120 ,self.view.frame.size.width - (20), 60)];
-    [twitterButton setTitle:@"Log in with Twitter" forState:UIControlStateNormal];
+    [twitterButton setTitle:@"Log in with Twitter Account" forState:UIControlStateNormal];
     [twitterButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [twitterButton setTag:1];
+    [twitterButton setTag:0];
     [twitterButton setBackgroundColor:[UIColor blueColor]];
     [self.view addSubview:twitterButton];
     
@@ -57,6 +57,7 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
 }
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -74,9 +75,9 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
     sprintAnimation.springBounciness = 20.f;
     sprintAnimation.completionBlock = ^(POPAnimation *anim, BOOL finished) {
         if([button tag] == 0)
-            [self signIn:@"Username" withPassword:@"Password"];
-        else
             [self loginWithTwitter];
+        else
+            [self signIn:@"Username" withPassword:@"Password"];
     };
     [button pop_addAnimation:sprintAnimation forKey:@"sendAnimation"];
 }
@@ -84,6 +85,23 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
 -(void) signIn:(NSString *)username withPassword:(NSString *)password {
     
     NSLog(@"Signing in %@ using %@",username,password);
+    self.twitter = nil;
+    self.twitter = [STTwitterAPI twitterAPIWithOAuthConsumerKey:@"" consumerSecret:@"" oauthToken:@"" oauthTokenSecret:@""];
+    
+    [_twitter verifyCredentialsWithUserSuccessBlock:^(NSString *username, NSString *userID) {
+        
+        NSLog(@"@%@ (%@)", username, userID);
+        [_twitter postStatusUpdate:@"Trial - \nPranav" inReplyToStatusID:nil latitude:nil longitude:nil placeID:nil displayCoordinates:nil trimUser:nil successBlock:^(NSDictionary *status) {
+            NSLog(@"Status Posted : %@",status);
+        } errorBlock:^(NSError *error) {
+            NSLog(@"Error : %@",[error localizedDescription]);
+        }];
+        
+    } errorBlock:^(NSError *error) {
+        
+        NSLog(@"error : %@",[error localizedDescription]);
+    }];
+
 }
 
 -(void) loginWithTwitter {
