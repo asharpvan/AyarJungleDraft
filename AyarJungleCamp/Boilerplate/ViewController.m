@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "POP.h"
 #import <Accounts/Accounts.h>
+#import "BookingViewController.h"
 
 typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage); // don't bother with NSError for that
 @interface ViewController ()
@@ -43,7 +44,7 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
     [self.view addSubview:signInButton];
     
     UIButton *twitterButton = [[UIButton alloc]initWithFrame:CGRectMake(10, self.view.frame.size.height - 120 ,self.view.frame.size.width - (20), 60)];
-    [twitterButton setTitle:@"Log in with Twitter Account" forState:UIControlStateNormal];
+    [twitterButton setTitle:@"Goto WebView" forState:UIControlStateNormal];
     [twitterButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [twitterButton setTag:0];
     [twitterButton setBackgroundColor:[UIColor blueColor]];
@@ -74,8 +75,15 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
     sprintAnimation.velocity = [NSValue valueWithCGPoint:CGPointMake(8, 8)];
     sprintAnimation.springBounciness = 20.f;
     sprintAnimation.completionBlock = ^(POPAnimation *anim, BOOL finished) {
-        if([button tag] == 0)
-            [self loginWithTwitter];
+        if([button tag] == 0)  {
+//            [self loginWithTwitter];
+  
+            NSLog(@"Here!!");
+            __block BookingViewController *booking = [[BookingViewController alloc]init];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                            [self.navigationController pushViewController:booking animated:TRUE];
+            });
+        }
         else
             [self signIn:@"Username" withPassword:@"Password"];
     };
