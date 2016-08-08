@@ -10,6 +10,7 @@
 #import "POP.h"
 #import <Accounts/Accounts.h>
 #import "BookingViewController.h"
+#import "DashBoardViewController.h"
 
 typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage); // don't bother with NSError for that
 @interface ViewController ()
@@ -76,12 +77,18 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
     sprintAnimation.springBounciness = 20.f;
     sprintAnimation.completionBlock = ^(POPAnimation *anim, BOOL finished) {
         if([button tag] == 0)  {
+            NSLog(@"Here!!");
 //            [self loginWithTwitter];
   
-            NSLog(@"Here!!");
-            __block BookingViewController *booking = [[BookingViewController alloc]init];
+            //Booking View Controller Exapmle
+//            __block BookingViewController *booking = [[BookingViewController alloc]init];
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                            [self.navigationController pushViewController:booking animated:TRUE];
+//            });
+            
+            __block DashBoardViewController *dashboard = [[DashBoardViewController alloc]init];
             dispatch_async(dispatch_get_main_queue(), ^{
-                            [self.navigationController pushViewController:booking animated:TRUE];
+                [self.navigationController pushViewController:dashboard animated:TRUE];
             });
         }
         else

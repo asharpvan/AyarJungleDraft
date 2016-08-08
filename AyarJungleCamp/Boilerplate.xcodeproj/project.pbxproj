@@ -62,6 +62,8 @@
 		F47A3C271D27BF0B00DB2C7A /* JSONSyntaxHighlight.m in Sources */ = {isa = PBXBuildFile; fileRef = F47A3C181D27BF0B00DB2C7A /* JSONSyntaxHighlight.m */; };
 		F47A3C281D27BF0B00DB2C7A /* STHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F47A3C1A1D27BF0B00DB2C7A /* STHTTPRequest.m */; };
 		F47A3C2A1D27BF1500DB2C7A /* LICENCE.txt in Resources */ = {isa = PBXBuildFile; fileRef = F47A3C291D27BF1500DB2C7A /* LICENCE.txt */; };
+		F4AAD8501D589DE100442221 /* DashBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AAD84F1D589DE100442221 /* DashBoardViewController.m */; };
+		F4AAD8541D589EA700442221 /* AJCDashboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4AAD8531D589EA700442221 /* AJCDashboardView.m */; };
 		F4B708881D4883C9006D7B86 /* EmptyScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4B708871D4883C9006D7B86 /* EmptyScreenViewController.m */; };
 		F4DFFDC21D4B45EC00DB6244 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DFFDB61D4B45EC00DB6244 /* AFHTTPSessionManager.m */; };
 		F4DFFDC31D4B45EC00DB6244 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DFFDB91D4B45EC00DB6244 /* AFNetworkReachabilityManager.m */; };
@@ -196,6 +198,10 @@
 		F47A3C191D27BF0B00DB2C7A /* STHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STHTTPRequest.h; sourceTree = "<group>"; };
 		F47A3C1A1D27BF0B00DB2C7A /* STHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STHTTPRequest.m; sourceTree = "<group>"; };
 		F47A3C291D27BF1500DB2C7A /* LICENCE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENCE.txt; sourceTree = "<group>"; };
+		F4AAD84E1D589DE100442221 /* DashBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashBoardViewController.h; sourceTree = "<group>"; };
+		F4AAD84F1D589DE100442221 /* DashBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashBoardViewController.m; sourceTree = "<group>"; };
+		F4AAD8521D589EA700442221 /* AJCDashboardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AJCDashboardView.h; sourceTree = "<group>"; };
+		F4AAD8531D589EA700442221 /* AJCDashboardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AJCDashboardView.m; sourceTree = "<group>"; };
 		F4B708861D4883C9006D7B86 /* EmptyScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmptyScreenViewController.h; sourceTree = "<group>"; };
 		F4B708871D4883C9006D7B86 /* EmptyScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmptyScreenViewController.m; sourceTree = "<group>"; };
 		F4DFFDB51D4B45EC00DB6244 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -272,6 +278,8 @@
 				F418841F1CAE7F21005F562F /* ViewController.m */,
 				F4DFFDE81D4B531100DB6244 /* BookingViewController.h */,
 				F4DFFDE91D4B531100DB6244 /* BookingViewController.m */,
+				F4AAD84E1D589DE100442221 /* DashBoardViewController.h */,
+				F4AAD84F1D589DE100442221 /* DashBoardViewController.m */,
 				F41884401CAE93EA005F562F /* Custom Classes */,
 				F418843A1CAE8367005F562F /* Third Party */,
 				F418842F1CAE807D005F562F /* Assets */,
@@ -318,6 +326,7 @@
 		F41884401CAE93EA005F562F /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F4AAD8511D589E6F00442221 /* DashboardView */,
 				F4B708861D4883C9006D7B86 /* EmptyScreenViewController.h */,
 				F4B708871D4883C9006D7B86 /* EmptyScreenViewController.m */,
 			);
@@ -465,6 +474,15 @@
 				F47A3C1A1D27BF0B00DB2C7A /* STHTTPRequest.m */,
 			);
 			path = Vendor;
+			sourceTree = "<group>";
+		};
+		F4AAD8511D589E6F00442221 /* DashboardView */ = {
+			isa = PBXGroup;
+			children = (
+				F4AAD8521D589EA700442221 /* AJCDashboardView.h */,
+				F4AAD8531D589EA700442221 /* AJCDashboardView.m */,
+			);
+			name = DashboardView;
 			sourceTree = "<group>";
 		};
 		F4DFFDB41D4B45D000DB6244 /* AFNetworking */ = {
@@ -630,6 +648,7 @@
 				F47A3BC61D27B87600DB2C7A /* POPAnimationEvent.mm in Sources */,
 				F4DFFDE51D4B461B00DB6244 /* UIWebView+AFNetworking.m in Sources */,
 				F4DFFDDE1D4B461B00DB6244 /* AFImageDownloader.m in Sources */,
+				F4AAD8501D589DE100442221 /* DashBoardViewController.m in Sources */,
 				F47A3BC41D27B87600DB2C7A /* POPAnimatableProperty.mm in Sources */,
 				F4DFFDE21D4B461B00DB6244 /* UIImageView+AFNetworking.m in Sources */,
 				F4DFFDE01D4B461B00DB6244 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -649,6 +668,7 @@
 				F47A3BCC1D27B87600DB2C7A /* POPCGUtils.mm in Sources */,
 				F47A3C251D27BF0B00DB2C7A /* STTwitterStreamParser.m in Sources */,
 				F4DFFDC21D4B45EC00DB6244 /* AFHTTPSessionManager.m in Sources */,
+				F4AAD8541D589EA700442221 /* AJCDashboardView.m in Sources */,
 				F47A3BDF1D27BDC500DB2C7A /* SSKeychain.m in Sources */,
 				F47A3BD11D27B87600DB2C7A /* POPMath.mm in Sources */,
 				F47A3BCD1D27B87600DB2C7A /* POPCustomAnimation.mm in Sources */,
