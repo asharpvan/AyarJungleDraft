@@ -9,18 +9,26 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 
+typedef NS_OPTIONS(NSUInteger, AJCDashboardViewOptions) {
+    AJCDashboardViewBook          = 0,
+    AJCDashboardViewInAnAround    = 1 << 0,
+    AJCDashboardViewLocalEvents   = 1 << 1,
+};
+
 @protocol AJCDashboardViewDelegate <NSObject>
 
 @optional
--(void) userTappedOnView:(NSInteger)number;
+-(void) userTappedOnView:(AJCDashboardViewOptions) ajcDashboardViewOptionPressed;
 
 @end
 
-@interface AJCDashboardView : UIView
+@interface AJCDashboardView : UIView {
+
+    AJCDashboardViewOptions identifier;
+}
 
 @property (nonatomic) id <AJCDashboardViewDelegate> delegate;
-@property (nonatomic) NSInteger identifier;
 
--(instancetype) initWithSize:(CGSize)size andTitle:(NSString *)title withIdentifier:(NSInteger)identifier;
+-(instancetype) initWithSize:(CGSize)size withIdentifier:(AJCDashboardViewOptions)identifierRecieved;
 
 @end

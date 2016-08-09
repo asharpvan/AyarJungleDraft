@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "AJCDashboardView.h"
 #import "EmptyScreenViewController.h"
+#import "AJCWeatherView.h"
 
-@interface DashBoardViewController : EmptyScreenViewController <AJCDashboardViewDelegate>
+@interface DashBoardViewController : EmptyScreenViewController <AJCDashboardViewDelegate,AJCWeatherViewDelegate>
 
 -(instancetype)init;
 

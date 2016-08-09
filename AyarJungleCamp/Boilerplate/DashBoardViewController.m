@@ -29,22 +29,36 @@
     [super loadView];
     [self.view setBackgroundColor:[UIColor whiteColor]];
     
-    AJCDashboardView *firstView = [[AJCDashboardView alloc]initWithSize:CGSizeMake(self.view.frame.size.width, self.view.frame.size.height/ 4) andTitle:@"About Ayar" withIdentifier:0];
-    [firstView setDelegate:self];
-    [firstView setCenter:CGPointMake(firstView.center.x, firstView.center.y)];
-    [self.view addSubview:firstView];
-  
-    AJCDashboardView *secondView = [[AJCDashboardView alloc]initWithSize:firstView.frame.size andTitle:@"Book @ Ayar" withIdentifier:1];
+    CGFloat weatherViewHeight = self.view.frame.size.height/3;
+    CGFloat dashboardViewHeight = (2 * (self.view.frame.size.height/3))/3;
+    CGSize weatherViewSize = CGSizeMake(self.view.frame.size.width, weatherViewHeight);
+    CGSize dashboardViewSize = CGSizeMake(self.view.frame.size.width, dashboardViewHeight);
+    
+    AJCWeatherView *weatherView = [[AJCWeatherView alloc] initWithSize:weatherViewSize];
+    [weatherView setDelegate:self];
+    [weatherView startLoading];
+    double delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [weatherView updateWeatherConditions:@"Snow" weatherIconString:@"Storm3.png" temperature:@"19˚" andCurrentDay:@"Tue, December 17"];
+        [weatherView stopLoading];
+    });
+    
+    
+    [self.view addSubview:weatherView];
+    
+   
+    AJCDashboardView *secondView = [[AJCDashboardView alloc]initWithSize:dashboardViewSize withIdentifier:AJCDashboardViewBook];
     [secondView setDelegate:self];
-    [secondView setCenter:CGPointMake(secondView.center.x, firstView.center.y+firstView.frame.size.height)];
+    [secondView setCenter:CGPointMake(secondView.center.x, weatherView.center.y + (dashboardViewSize.height + weatherViewSize.height)/2 )];
     [self.view addSubview:secondView];
     
-    AJCDashboardView *thirdView = [[AJCDashboardView alloc]initWithSize:firstView.frame.size andTitle:@"In and Around Nainital" withIdentifier:2];
+    AJCDashboardView *thirdView = [[AJCDashboardView alloc]initWithSize:dashboardViewSize withIdentifier:AJCDashboardViewInAnAround];
     [thirdView setDelegate:self];
     [thirdView setCenter:CGPointMake(thirdView.center.x, secondView.center.y + secondView.frame.size.height)];
     [self.view addSubview:thirdView];
 
-    AJCDashboardView *fourthView = [[AJCDashboardView alloc]initWithSize:firstView.frame.size andTitle:@"Local Events" withIdentifier:3];
+    AJCDashboardView *fourthView = [[AJCDashboardView alloc]initWithSize:dashboardViewSize withIdentifier:AJCDashboardViewLocalEvents];
     [fourthView setDelegate:self];
     [fourthView setCenter:CGPointMake(fourthView.center.x, thirdView.center.y+thirdView.frame.size.height)];
     [self.view addSubview:fourthView];
@@ -70,29 +84,31 @@
     [super viewDidAppear:animated];
 }
 
--(void) userTappedOnView:(NSInteger)number {
+-(void) userTappedOnView:(AJCDashboardViewOptions) ajcDashboardViewOptionPressed {
     
-    switch (number) {
-        case 0:
-            NSLog(@"Open About!!");
+    switch (ajcDashboardViewOptionPressed) {
+            
+        case AJCDashboardViewBook:
+            NSLog(@"Booking Pressed!!");
             break;
             
-        case 1:
-            NSLog(@"Open Booking!!");
+        case AJCDashboardViewInAnAround:
+            NSLog(@"In/Around Nainital Pressed!!");
             break;
             
-        case 2:
-            NSLog(@"Open In and Around Nainital!!");
-            break;
-            
-        case 3:
-            NSLog(@"Open Local Events!!");
+        case AJCDashboardViewLocalEvents:
+            NSLog(@"Local Events Pressed!!");
             break;
             
         default:
             break;
     }
+}
+
+
+-(void) userTappedOnWeatherView {
     
+     NSLog(@"User Tapped on Weather View!!");
 }
 
 @end

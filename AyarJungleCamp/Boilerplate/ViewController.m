@@ -167,7 +167,7 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
             }
             
             self.iOSAccounts = [_accountStore accountsWithAccountType:accountType];
-            NSLog(@"Twitter Accounts found in iOS Device : %lu",[_iOSAccounts count]);
+            NSLog(@"Twitter Accounts found in iOS Device : %lu",(unsigned long)[_iOSAccounts count]);
             if([_iOSAccounts count] == 1) {
                 NSLog(@"Only One Twitter Accounts found in iOS Device");
 //                ACAccount *account = [_iOSAccounts lastObject];
