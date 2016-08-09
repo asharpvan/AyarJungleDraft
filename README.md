@@ -13,6 +13,8 @@ Sample project for AJC!!
 
 **Added Public Methods**
 
+**Added AFNetworking Method for Example!!**
+
 
 #Added Dashboard View 
 

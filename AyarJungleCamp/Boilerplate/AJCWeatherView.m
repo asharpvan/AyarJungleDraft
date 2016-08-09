@@ -44,7 +44,7 @@
     
     [ajcTempLabel setTextColor:[UIColor whiteColor]];
     [ajcTempLabel setFont:[UIFont systemFontOfSize:85]];
-    [ajcTempLabel setTextAlignment:NSTextAlignmentCenter];
+    [ajcTempLabel setTextAlignment:NSTextAlignmentLeft];
     [infoView addSubview:ajcTempLabel];
     
     
@@ -88,7 +88,7 @@
     [currentWeatherConditionsLabel setText:weatherConditionString];
     [currentDayLabel setText:currentDay];
     [weatherIconImageView setImage:[UIImage imageNamed:weatherIconString]];
-    [ajcTempLabel setText:temperatureReading];
+    [ajcTempLabel setText:[NSString stringWithFormat:@"%@˚",temperatureReading]];
 
 }
 
