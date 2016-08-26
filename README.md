@@ -15,6 +15,7 @@ Sample project for AJC!!
 
 **Added AFNetworking Method for Example!!**
 
+**Added Custom API Client along with Data Models and working sample!!**
 
 #Added Dashboard View 
 

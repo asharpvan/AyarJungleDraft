@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		192C32A11D703360002C25FD /* GIAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32A01D703360002C25FD /* GIAPIClient.m */; };
+		192C32A41D7037D6002C25FD /* HotelProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32A31D7037D6002C25FD /* HotelProfile.m */; };
+		192C32A81D703A43002C25FD /* HotelRating.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32A71D703A43002C25FD /* HotelRating.m */; };
+		192C32AB1D703A53002C25FD /* HotelReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32AA1D703A53002C25FD /* HotelReview.m */; };
 		F418841A1CAE7F21005F562F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F41884191CAE7F21005F562F /* main.m */; };
 		F418841D1CAE7F21005F562F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F418841C1CAE7F21005F562F /* AppDelegate.m */; };
 		F41884201CAE7F21005F562F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F418841F1CAE7F21005F562F /* ViewController.m */; };
@@ -91,6 +95,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		192C329F1D703360002C25FD /* GIAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIAPIClient.h; sourceTree = "<group>"; };
+		192C32A01D703360002C25FD /* GIAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIAPIClient.m; sourceTree = "<group>"; };
+		192C32A21D7037D6002C25FD /* HotelProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelProfile.h; sourceTree = "<group>"; };
+		192C32A31D7037D6002C25FD /* HotelProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelProfile.m; sourceTree = "<group>"; };
+		192C32A61D703A43002C25FD /* HotelRating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelRating.h; sourceTree = "<group>"; };
+		192C32A71D703A43002C25FD /* HotelRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelRating.m; sourceTree = "<group>"; };
+		192C32A91D703A53002C25FD /* HotelReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelReview.h; sourceTree = "<group>"; };
+		192C32AA1D703A53002C25FD /* HotelReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelReview.m; sourceTree = "<group>"; };
 		F41884151CAE7F21005F562F /* Boilerplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boilerplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41884191CAE7F21005F562F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F418841B1CAE7F21005F562F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -266,6 +278,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		192C329E1D703314002C25FD /* AJC_GI_API_Client */ = {
+			isa = PBXGroup;
+			children = (
+				192C329F1D703360002C25FD /* GIAPIClient.h */,
+				192C32A01D703360002C25FD /* GIAPIClient.m */,
+			);
+			name = AJC_GI_API_Client;
+			sourceTree = "<group>";
+		};
+		192C32A51D7037DD002C25FD /* Hotel Profile Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				192C32AC1D705111002C25FD /* Hotel Rating Data Model */,
+				192C32AD1D705120002C25FD /* Hotel Review Data Model */,
+				192C32A21D7037D6002C25FD /* HotelProfile.h */,
+				192C32A31D7037D6002C25FD /* HotelProfile.m */,
+			);
+			name = "Hotel Profile Data Model";
+			sourceTree = "<group>";
+		};
+		192C32AC1D705111002C25FD /* Hotel Rating Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				192C32A61D703A43002C25FD /* HotelRating.h */,
+				192C32A71D703A43002C25FD /* HotelRating.m */,
+			);
+			name = "Hotel Rating Data Model";
+			sourceTree = "<group>";
+		};
+		192C32AD1D705120002C25FD /* Hotel Review Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				192C32A91D703A53002C25FD /* HotelReview.h */,
+				192C32AA1D703A53002C25FD /* HotelReview.m */,
+			);
+			name = "Hotel Review Data Model";
+			sourceTree = "<group>";
+		};
 		F418840C1CAE7F20005F562F = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +394,8 @@
 		F41884401CAE93EA005F562F /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				192C32A51D7037DD002C25FD /* Hotel Profile Data Model */,
+				192C329E1D703314002C25FD /* AJC_GI_API_Client */,
 				F4AAD8581D59BC3C00442221 /* Weather View */,
 				F4AAD8511D589E6F00442221 /* DashboardView */,
 				F4B708861D4883C9006D7B86 /* EmptyScreenViewController.h */,
@@ -652,6 +704,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F47A3C1D1D27BF0B00DB2C7A /* NSString+STTwitter.m in Sources */,
+				192C32A11D703360002C25FD /* GIAPIClient.m in Sources */,
 				F4DFFDDD1D4B461B00DB6244 /* AFAutoPurgingImageCache.m in Sources */,
 				F47A3C1C1D27BF0B00DB2C7A /* NSError+STTwitter.m in Sources */,
 				F41884201CAE7F21005F562F /* ViewController.m in Sources */,
@@ -673,6 +726,7 @@
 				F4DFFDE11D4B461B00DB6244 /* UIButton+AFNetworking.m in Sources */,
 				F47A3C261D27BF0B00DB2C7A /* BAVPlistNode.m in Sources */,
 				F47A3BD91D27B88100DB2C7A /* TransformationMatrix.cpp in Sources */,
+				192C32A81D703A43002C25FD /* HotelRating.m in Sources */,
 				F4DFFDDF1D4B461B00DB6244 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				F4DFFDE31D4B461B00DB6244 /* UIProgressView+AFNetworking.m in Sources */,
 				F47A3C271D27BF0B00DB2C7A /* JSONSyntaxHighlight.m in Sources */,
@@ -701,6 +755,7 @@
 				F47A3C241D27BF0B00DB2C7A /* STTwitterOSRequest.m in Sources */,
 				F47A3BCC1D27B87600DB2C7A /* POPCGUtils.mm in Sources */,
 				F47A3C251D27BF0B00DB2C7A /* STTwitterStreamParser.m in Sources */,
+				192C32AB1D703A53002C25FD /* HotelReview.m in Sources */,
 				F4DFFDC21D4B45EC00DB6244 /* AFHTTPSessionManager.m in Sources */,
 				F4AAD8541D589EA700442221 /* AJCDashboardView.m in Sources */,
 				F47A3BDF1D27BDC500DB2C7A /* SSKeychain.m in Sources */,
@@ -709,6 +764,7 @@
 				F47A3BE61D27BE3F00DB2C7A /* UIScrollView+EmptyDataSet.m in Sources */,
 				F47A3C231D27BF0B00DB2C7A /* STTwitterOS.m in Sources */,
 				F47A3BE01D27BDC500DB2C7A /* SSKeychainQuery.m in Sources */,
+				192C32A41D7037D6002C25FD /* HotelProfile.m in Sources */,
 				F4DFFDC71D4B45EC00DB6244 /* AFURLSessionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

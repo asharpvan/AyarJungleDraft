@@ -11,6 +11,9 @@
 #import <Accounts/Accounts.h>
 #import "BookingViewController.h"
 #import "DashBoardViewController.h"
+#import "AFNetworking.h"
+#import "GIAPIClient.h"
+#import "HotelProfile.h"
 
 typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage); // don't bother with NSError for that
 @interface ViewController ()
@@ -44,12 +47,19 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
     [signInButton setTag:1];
     [self.view addSubview:signInButton];
     
-    UIButton *twitterButton = [[UIButton alloc]initWithFrame:CGRectMake(10, self.view.frame.size.height - 120 ,self.view.frame.size.width - (20), 60)];
+    UIButton *twitterButton = [[UIButton alloc]initWithFrame:CGRectMake(10, signInButton.frame.size.height + signInButton.frame.origin.y + 20 ,self.view.frame.size.width - (20), 60)];
     [twitterButton setTitle:@"Goto WebView" forState:UIControlStateNormal];
     [twitterButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [twitterButton setTag:0];
     [twitterButton setBackgroundColor:[UIColor blueColor]];
     [self.view addSubview:twitterButton];
+    
+    
+    UIButton *detailsButton = [[UIButton alloc]initWithFrame:CGRectMake(10, twitterButton.frame.size.height + twitterButton.frame.origin.y + 20 ,self.view.frame.size.width - (20), 60)];
+    [detailsButton setTitle:@"Call Goibibo for Details" forState:UIControlStateNormal];
+    [detailsButton addTarget:self action:@selector(fetchDetailsFromGoibibo:) forControlEvents:UIControlEventTouchUpInside];
+    [detailsButton setBackgroundColor:[UIColor blueColor]];
+    [self.view addSubview:detailsButton];
     
 }
 - (void)viewDidLoad {
@@ -214,6 +224,27 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
 - (void)twitterAPI:(STTwitterAPI *)twitterAPI accountWasInvalidated:(ACAccount *)invalidatedAccount {
     if(twitterAPI != _twitter) return;
     NSLog(@"-- account was invalidated: %@ | %@", invalidatedAccount, invalidatedAccount.username);
+}
+
+
+#pragma mark Goibibo APIs
+
+-(void) fetchDetailsFromGoibibo:(id) sender {
+    
+    UIButton *button = (UIButton *)sender;
+    POPSpringAnimation *sprintAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+    sprintAnimation.velocity = [NSValue valueWithCGPoint:CGPointMake(8, 8)];
+    sprintAnimation.springBounciness = 20.f;
+    sprintAnimation.completionBlock = ^(POPAnimation *anim, BOOL finished) {
+        
+        NSLog(@"Call AFNetworking Call laced with GOibibo APIs");
+        GIAPIClient *apiClient = [[GIAPIClient alloc]init];
+        [apiClient fetchHotelDetailsForProfile:^(HotelProfile *ayarDetails, NSError *error) {
+            [ayarDetails displayHotelProfile];
+        }];
+        
+    };
+    [button pop_addAnimation:sprintAnimation forKey:@"sendAnimation"];
 }
 
 
