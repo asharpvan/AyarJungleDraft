@@ -34,8 +34,6 @@
     
     [manager GET:@"https://ugc.goibibo.com/api/Hotels/getRatings?app_id=9b87cc53&app_key=7ab9aeb357403ad48e687d152c878379&vid=5471802327961501541" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         
-        NSLog(@"%@",responseObject);
-      
         HotelRating *hotelRating = [HotelRating new];
         [hotelRating setAmenitiesRating:[NSNumber numberWithFloat:[[responseObject valueForKey:@"amenitiesRating"]floatValue]]];
         [hotelRating setFoodRating:[NSNumber numberWithFloat:[[responseObject valueForKey:@"fdRating"]floatValue]]];
@@ -52,10 +50,8 @@
         HotelProfile *hotelDetails = [HotelProfile new];
         [hotelDetails setHotelRating:hotelRating];
         [hotelDetails setHotelReview:hotelReview];
-        [hotelDetails setRecommendedPercentage:[NSNumber numberWithFloat:[[responseObject valueForKey:@"recommendationPercent"]floatValue]]];
-        [hotelDetails setLongitudeDegree:[NSNumber numberWithFloat:[[responseObject valueForKey:@"longitude"]floatValue]]];
-        [hotelDetails setLatitudeDegree:[NSNumber numberWithFloat:[[responseObject valueForKey:@"latitude"]floatValue]]];
-        
+        [hotelDetails setHotelRecommendedByPercentage:[NSNumber numberWithFloat:[[responseObject valueForKey:@"recommendationPercent"]floatValue]]];
+        [hotelDetails setHotelCoordinates:CLLocationCoordinate2DMake([[responseObject valueForKey:@"latitude"]floatValue], [[responseObject valueForKey:@"longitude"]floatValue])];
         
         if(complete) {
             

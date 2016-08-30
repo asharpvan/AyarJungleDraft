@@ -8,6 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EmptyScreenViewController : UIViewController
+@protocol EmptyScreenViewControllerDelegate <NSObject>
+
+@optional
+-(void) userTappedOnActionButton;
+-(void) userTappedOnBackButton;
+@end
+
+@interface EmptyScreenViewController : UIViewController <UIScrollViewDelegate,UIGestureRecognizerDelegate>
+
+@property(nonatomic, strong) UILabel *topView;
+@property(nonatomic, strong) UIView *bottomView;
+@property(nonatomic, strong) UIScrollView *emptyViewScroller;
+@property(nonatomic, assign) CGFloat topBarThreshold;
+@property(nonatomic, assign) CGFloat scrollbarHeight;
+
+@property (nonatomic) id <EmptyScreenViewControllerDelegate> delegate;
+
+-(void) updateNavTitleTo :(NSString *)newNavTitle;
 
 @end

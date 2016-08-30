@@ -14,6 +14,8 @@
 #import "AFNetworking.h"
 #import "GIAPIClient.h"
 #import "HotelProfile.h"
+#import "HotelProfileViewViewController.h"
+#import "HotelProfileViewController.h"
 
 typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage); // don't bother with NSError for that
 @interface ViewController ()
@@ -33,6 +35,7 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
        
         [self setTitle:@"Ayar Jungle Camp"];
         [self.view setBackgroundColor:[UIColor whiteColor]];
+        [self setDelegate:self];
         [self createSubview];
     }
     return self;
@@ -40,26 +43,30 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
 
 -(void) createSubview {
     
-    UIButton *signInButton = [[UIButton alloc]initWithFrame:CGRectMake(10, 120 ,self.view.frame.size.width - (20), 60)];
+    UIButton *signInButton = [[UIButton alloc]initWithFrame:CGRectMake(10, 60 ,self.view.frame.size.width - (20), 60)];
     [signInButton setTitle:@"Sign In & Post via Oauth" forState:UIControlStateNormal];
     [signInButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [signInButton setBackgroundColor:[UIColor blueColor]];
     [signInButton setTag:1];
-    [self.view addSubview:signInButton];
+    [self.emptyViewScroller addSubview:signInButton];
     
     UIButton *twitterButton = [[UIButton alloc]initWithFrame:CGRectMake(10, signInButton.frame.size.height + signInButton.frame.origin.y + 20 ,self.view.frame.size.width - (20), 60)];
     [twitterButton setTitle:@"Goto WebView" forState:UIControlStateNormal];
     [twitterButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [twitterButton setTag:0];
     [twitterButton setBackgroundColor:[UIColor blueColor]];
-    [self.view addSubview:twitterButton];
+    self.topBarThreshold = 100;
+    [self.emptyViewScroller addSubview:twitterButton];
     
     
     UIButton *detailsButton = [[UIButton alloc]initWithFrame:CGRectMake(10, twitterButton.frame.size.height + twitterButton.frame.origin.y + 20 ,self.view.frame.size.width - (20), 60)];
     [detailsButton setTitle:@"Call Goibibo for Details" forState:UIControlStateNormal];
     [detailsButton addTarget:self action:@selector(fetchDetailsFromGoibibo:) forControlEvents:UIControlEventTouchUpInside];
     [detailsButton setBackgroundColor:[UIColor blueColor]];
-    [self.view addSubview:detailsButton];
+    [self.emptyViewScroller addSubview:detailsButton];
+    
+//    [self.emptyViewScroller addSubview:self.view];
+//    [self.emptyViewScroller setContentSize:CGSizeMake(self.view.frame.size.width, self.view.frame.size.height + 100)];
     
 }
 - (void)viewDidLoad {
@@ -240,12 +247,23 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
         NSLog(@"Call AFNetworking Call laced with GOibibo APIs");
         GIAPIClient *apiClient = [[GIAPIClient alloc]init];
         [apiClient fetchHotelDetailsForProfile:^(HotelProfile *ayarDetails, NSError *error) {
+            
             [ayarDetails displayHotelProfile];
+            
+            HotelProfileViewController *hotelProfile = [[HotelProfileViewController alloc]init];
+            [self.navigationController pushViewController:hotelProfile animated:TRUE];
+
+//            HotelProfileViewViewController *hotelProfile = [[HotelProfileViewViewController alloc]initWithHotelProfile:ayarDetails];
+//            [self.navigationController pushViewController:hotelProfile animated:TRUE];
         }];
         
     };
     [button pop_addAnimation:sprintAnimation forKey:@"sendAnimation"];
 }
 
+
+-(void)userTappedOnActionButton {
+    NSLog(@"User Tapped Recieved on ViewController");
+}
 
 @end

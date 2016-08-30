@@ -11,6 +11,18 @@
 		192C32A41D7037D6002C25FD /* HotelProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32A31D7037D6002C25FD /* HotelProfile.m */; };
 		192C32A81D703A43002C25FD /* HotelRating.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32A71D703A43002C25FD /* HotelRating.m */; };
 		192C32AB1D703A53002C25FD /* HotelReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32AA1D703A53002C25FD /* HotelReview.m */; };
+		192C32B01D70C7B6002C25FD /* HotelProfileViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32AF1D70C7B6002C25FD /* HotelProfileViewViewController.m */; };
+		192C32B51D70C959002C25FD /* HotelAccommodation.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32B41D70C959002C25FD /* HotelAccommodation.m */; };
+		192C32BC1D719401002C25FD /* HotelProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32BB1D719401002C25FD /* HotelProfileView.m */; };
+		19EB85931D7442EA004EAC7F /* MXParallaxHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EB858E1D7442EA004EAC7F /* MXParallaxHeader.m */; };
+		19EB85941D7442EA004EAC7F /* MXScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EB85901D7442EA004EAC7F /* MXScrollView.m */; };
+		19EB85951D7442EA004EAC7F /* MXScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EB85921D7442EA004EAC7F /* MXScrollViewController.m */; };
+		19EB85971D7442FF004EAC7F /* LICENSE-MXParallaxHeader in Resources */ = {isa = PBXBuildFile; fileRef = 19EB85961D7442FF004EAC7F /* LICENSE-MXParallaxHeader */; };
+		19EB859A1D74433D004EAC7F /* HotelProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EB85991D74433D004EAC7F /* HotelProfileViewController.m */; };
+		19ED94161D758690002F0A55 /* AJC_Campground.png in Resources */ = {isa = PBXBuildFile; fileRef = 19ED94141D758690002F0A55 /* AJC_Campground.png */; };
+		19ED94171D758690002F0A55 /* AJC_Restaurant.png in Resources */ = {isa = PBXBuildFile; fileRef = 19ED94151D758690002F0A55 /* AJC_Restaurant.png */; };
+		19ED941C1D758ABF002F0A55 /* StarshipHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19ED941A1D758ABF002F0A55 /* StarshipHeader.xib */; };
+		19ED941E1D75904E002F0A55 /* restaurant.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 19ED941D1D75904E002F0A55 /* restaurant.jpeg */; };
 		F418841A1CAE7F21005F562F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F41884191CAE7F21005F562F /* main.m */; };
 		F418841D1CAE7F21005F562F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F418841C1CAE7F21005F562F /* AppDelegate.m */; };
 		F41884201CAE7F21005F562F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F418841F1CAE7F21005F562F /* ViewController.m */; };
@@ -103,6 +115,25 @@
 		192C32A71D703A43002C25FD /* HotelRating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelRating.m; sourceTree = "<group>"; };
 		192C32A91D703A53002C25FD /* HotelReview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelReview.h; sourceTree = "<group>"; };
 		192C32AA1D703A53002C25FD /* HotelReview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelReview.m; sourceTree = "<group>"; };
+		192C32AE1D70C7B6002C25FD /* HotelProfileViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelProfileViewViewController.h; sourceTree = "<group>"; };
+		192C32AF1D70C7B6002C25FD /* HotelProfileViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelProfileViewViewController.m; sourceTree = "<group>"; };
+		192C32B31D70C959002C25FD /* HotelAccommodation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelAccommodation.h; sourceTree = "<group>"; };
+		192C32B41D70C959002C25FD /* HotelAccommodation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelAccommodation.m; sourceTree = "<group>"; };
+		192C32BA1D719401002C25FD /* HotelProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelProfileView.h; sourceTree = "<group>"; };
+		192C32BB1D719401002C25FD /* HotelProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelProfileView.m; sourceTree = "<group>"; };
+		19EB858D1D7442EA004EAC7F /* MXParallaxHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXParallaxHeader.h; sourceTree = "<group>"; };
+		19EB858E1D7442EA004EAC7F /* MXParallaxHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXParallaxHeader.m; sourceTree = "<group>"; };
+		19EB858F1D7442EA004EAC7F /* MXScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXScrollView.h; sourceTree = "<group>"; };
+		19EB85901D7442EA004EAC7F /* MXScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXScrollView.m; sourceTree = "<group>"; };
+		19EB85911D7442EA004EAC7F /* MXScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXScrollViewController.h; sourceTree = "<group>"; };
+		19EB85921D7442EA004EAC7F /* MXScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXScrollViewController.m; sourceTree = "<group>"; };
+		19EB85961D7442FF004EAC7F /* LICENSE-MXParallaxHeader */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "LICENSE-MXParallaxHeader"; sourceTree = "<group>"; };
+		19EB85981D74433D004EAC7F /* HotelProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelProfileViewController.h; sourceTree = "<group>"; };
+		19EB85991D74433D004EAC7F /* HotelProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelProfileViewController.m; sourceTree = "<group>"; };
+		19ED94141D758690002F0A55 /* AJC_Campground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AJC_Campground.png; sourceTree = "<group>"; };
+		19ED94151D758690002F0A55 /* AJC_Restaurant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AJC_Restaurant.png; sourceTree = "<group>"; };
+		19ED941A1D758ABF002F0A55 /* StarshipHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StarshipHeader.xib; sourceTree = "<group>"; };
+		19ED941D1D75904E002F0A55 /* restaurant.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = restaurant.jpeg; sourceTree = "<group>"; };
 		F41884151CAE7F21005F562F /* Boilerplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boilerplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41884191CAE7F21005F562F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F418841B1CAE7F21005F562F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -290,6 +321,7 @@
 		192C32A51D7037DD002C25FD /* Hotel Profile Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				192C32B61D70C960002C25FD /* Hotel Accommodation Data Model */,
 				192C32AC1D705111002C25FD /* Hotel Rating Data Model */,
 				192C32AD1D705120002C25FD /* Hotel Review Data Model */,
 				192C32A21D7037D6002C25FD /* HotelProfile.h */,
@@ -314,6 +346,67 @@
 				192C32AA1D703A53002C25FD /* HotelReview.m */,
 			);
 			name = "Hotel Review Data Model";
+			sourceTree = "<group>";
+		};
+		192C32B11D70C7C2002C25FD /* UI Related */ = {
+			isa = PBXGroup;
+			children = (
+				192C32B21D70C7D2002C25FD /* Hotel Profile View Controller */,
+			);
+			name = "UI Related";
+			sourceTree = "<group>";
+		};
+		192C32B21D70C7D2002C25FD /* Hotel Profile View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				192C32AE1D70C7B6002C25FD /* HotelProfileViewViewController.h */,
+				192C32AF1D70C7B6002C25FD /* HotelProfileViewViewController.m */,
+				192C32BD1D719410002C25FD /* Hotel Profile View */,
+			);
+			name = "Hotel Profile View Controller";
+			sourceTree = "<group>";
+		};
+		192C32B61D70C960002C25FD /* Hotel Accommodation Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				192C32B31D70C959002C25FD /* HotelAccommodation.h */,
+				192C32B41D70C959002C25FD /* HotelAccommodation.m */,
+			);
+			name = "Hotel Accommodation Data Model";
+			sourceTree = "<group>";
+		};
+		192C32BD1D719410002C25FD /* Hotel Profile View */ = {
+			isa = PBXGroup;
+			children = (
+				192C32BA1D719401002C25FD /* HotelProfileView.h */,
+				192C32BB1D719401002C25FD /* HotelProfileView.m */,
+			);
+			name = "Hotel Profile View";
+			sourceTree = "<group>";
+		};
+		19EB858C1D7442BE004EAC7F /* MXParallaxHeader */ = {
+			isa = PBXGroup;
+			children = (
+				19ED941A1D758ABF002F0A55 /* StarshipHeader.xib */,
+				19EB85961D7442FF004EAC7F /* LICENSE-MXParallaxHeader */,
+				19EB858D1D7442EA004EAC7F /* MXParallaxHeader.h */,
+				19EB858E1D7442EA004EAC7F /* MXParallaxHeader.m */,
+				19EB858F1D7442EA004EAC7F /* MXScrollView.h */,
+				19EB85901D7442EA004EAC7F /* MXScrollView.m */,
+				19EB85911D7442EA004EAC7F /* MXScrollViewController.h */,
+				19EB85921D7442EA004EAC7F /* MXScrollViewController.m */,
+			);
+			name = MXParallaxHeader;
+			sourceTree = "<group>";
+		};
+		19ED94131D75867B002F0A55 /* AJC Images */ = {
+			isa = PBXGroup;
+			children = (
+				19ED94141D758690002F0A55 /* AJC_Campground.png */,
+				19ED941D1D75904E002F0A55 /* restaurant.jpeg */,
+				19ED94151D758690002F0A55 /* AJC_Restaurant.png */,
+			);
+			name = "AJC Images";
 			sourceTree = "<group>";
 		};
 		F418840C1CAE7F20005F562F = {
@@ -343,6 +436,9 @@
 				F4DFFDE91D4B531100DB6244 /* BookingViewController.m */,
 				F4AAD84E1D589DE100442221 /* DashBoardViewController.h */,
 				F4AAD84F1D589DE100442221 /* DashBoardViewController.m */,
+				19EB85981D74433D004EAC7F /* HotelProfileViewController.h */,
+				19EB85991D74433D004EAC7F /* HotelProfileViewController.m */,
+				192C32B11D70C7C2002C25FD /* UI Related */,
 				F41884401CAE93EA005F562F /* Custom Classes */,
 				F418843A1CAE8367005F562F /* Third Party */,
 				F418842F1CAE807D005F562F /* Assets */,
@@ -364,6 +460,7 @@
 		F418842F1CAE807D005F562F /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				19ED94131D75867B002F0A55 /* AJC Images */,
 				F4E5000B1D59E82900735517 /* Storm@2x.png */,
 				F4E5000D1D59EB0A00735517 /* Storm1@2x.png */,
 				F4E5000F1D59EC0700735517 /* Storm2@2x.png */,
@@ -381,6 +478,7 @@
 		F418843A1CAE8367005F562F /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				19EB858C1D7442BE004EAC7F /* MXParallaxHeader */,
 				F4DFFDB41D4B45D000DB6244 /* AFNetworking */,
 				F47A3BE91D27BE9200DB2C7A /* Bar Message */,
 				F47A3BE31D27BE3300DB2C7A /* DZNTableView */,
@@ -678,19 +776,24 @@
 				F47A3BE81D27BE5700DB2C7A /* LICENSE_DZN in Resources */,
 				F4E500141D59EF9D00735517 /* Sun@2x.png in Resources */,
 				F47A3BF61D27BEB700DB2C7A /* icon-info@2x.png in Resources */,
+				19ED941E1D75904E002F0A55 /* restaurant.jpeg in Resources */,
 				F47A3BF71D27BEB700DB2C7A /* icon-success.png in Resources */,
 				F4E500121D59EC6700735517 /* Storm3@2x.png in Resources */,
 				F4DFFDE71D4B463F00DB6244 /* LICENSE_AFNetworking in Resources */,
 				F47A3BF51D27BEB700DB2C7A /* icon-info.png in Resources */,
 				F41884251CAE7F21005F562F /* Assets.xcassets in Resources */,
+				19ED941C1D758ABF002F0A55 /* StarshipHeader.xib in Resources */,
 				F4E5000C1D59E82A00735517 /* Storm@2x.png in Resources */,
 				F47A3BF41D27BEB700DB2C7A /* icon-error@2x.png in Resources */,
 				F41884361CAE8097005F562F /* Default-667h@2x.png in Resources */,
 				F47A3BE21D27BDCE00DB2C7A /* LICENSE in Resources */,
+				19EB85971D7442FF004EAC7F /* LICENSE-MXParallaxHeader in Resources */,
 				F47A3C2A1D27BF1500DB2C7A /* LICENCE.txt in Resources */,
+				19ED94161D758690002F0A55 /* AJC_Campground.png in Resources */,
 				F41884351CAE8097005F562F /* Default-568h@2x.png in Resources */,
 				F4E5000E1D59EB0A00735517 /* Storm1@2x.png in Resources */,
 				F4E500101D59EC0700735517 /* Storm2@2x.png in Resources */,
+				19ED94171D758690002F0A55 /* AJC_Restaurant.png in Resources */,
 				F41884371CAE8097005F562F /* Default-736h@3x.png in Resources */,
 				F41884381CAE8097005F562F /* Default.png in Resources */,
 			);
@@ -707,10 +810,12 @@
 				192C32A11D703360002C25FD /* GIAPIClient.m in Sources */,
 				F4DFFDDD1D4B461B00DB6244 /* AFAutoPurgingImageCache.m in Sources */,
 				F47A3C1C1D27BF0B00DB2C7A /* NSError+STTwitter.m in Sources */,
+				192C32B01D70C7B6002C25FD /* HotelProfileViewViewController.m in Sources */,
 				F41884201CAE7F21005F562F /* ViewController.m in Sources */,
 				F47A3C281D27BF0B00DB2C7A /* STHTTPRequest.m in Sources */,
 				F4B708881D4883C9006D7B86 /* EmptyScreenViewController.m in Sources */,
 				F47A3BC81D27B87600DB2C7A /* POPAnimationRuntime.mm in Sources */,
+				19EB85951D7442EA004EAC7F /* MXScrollViewController.m in Sources */,
 				F47A3BD41D27B87600DB2C7A /* POPVector.mm in Sources */,
 				F4DFFDC51D4B45EC00DB6244 /* AFURLRequestSerialization.m in Sources */,
 				F47A3C201D27BF0B00DB2C7A /* STTwitterAppOnly.m in Sources */,
@@ -733,6 +838,8 @@
 				F4DFFDC61D4B45EC00DB6244 /* AFURLResponseSerialization.m in Sources */,
 				F47A3BC71D27B87600DB2C7A /* POPAnimationExtras.mm in Sources */,
 				F47A3BC61D27B87600DB2C7A /* POPAnimationEvent.mm in Sources */,
+				192C32BC1D719401002C25FD /* HotelProfileView.m in Sources */,
+				19EB859A1D74433D004EAC7F /* HotelProfileViewController.m in Sources */,
 				F4DFFDE51D4B461B00DB6244 /* UIWebView+AFNetworking.m in Sources */,
 				F4DFFDDE1D4B461B00DB6244 /* AFImageDownloader.m in Sources */,
 				F4AAD8501D589DE100442221 /* DashBoardViewController.m in Sources */,
@@ -762,10 +869,13 @@
 				F47A3BD11D27B87600DB2C7A /* POPMath.mm in Sources */,
 				F47A3BCD1D27B87600DB2C7A /* POPCustomAnimation.mm in Sources */,
 				F47A3BE61D27BE3F00DB2C7A /* UIScrollView+EmptyDataSet.m in Sources */,
+				19EB85931D7442EA004EAC7F /* MXParallaxHeader.m in Sources */,
 				F47A3C231D27BF0B00DB2C7A /* STTwitterOS.m in Sources */,
 				F47A3BE01D27BDC500DB2C7A /* SSKeychainQuery.m in Sources */,
+				19EB85941D7442EA004EAC7F /* MXScrollView.m in Sources */,
 				192C32A41D7037D6002C25FD /* HotelProfile.m in Sources */,
 				F4DFFDC71D4B45EC00DB6244 /* AFURLSessionManager.m in Sources */,
+				192C32B51D70C959002C25FD /* HotelAccommodation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

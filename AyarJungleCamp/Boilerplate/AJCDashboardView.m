@@ -63,8 +63,8 @@
 
 -(void) viewTapped:(id)sender {
     
-    UITapGestureRecognizer *tapRecognizer = (UITapGestureRecognizer *)sender;
-    AJCDashboardView *selectedView = (AJCDashboardView *)[tapRecognizer view];
+//    UITapGestureRecognizer *tapRecognizer = (UITapGestureRecognizer *)sender;
+//    AJCDashboardView *selectedView = (AJCDashboardView *)[tapRecognizer view];
     
     if(self.delegate && [self.delegate respondsToSelector:@selector(userTappedOnView:)]) {
     
