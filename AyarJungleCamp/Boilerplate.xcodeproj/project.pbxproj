@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		191788D41D783FBB00A00635 /* DatabaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 191788D31D783FBB00A00635 /* DatabaseClient.m */; };
+		191788D61D783FCC00A00635 /* AJCDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 191788D51D783FCC00A00635 /* AJCDatabase.sqlite */; };
+		191788D81D783FF400A00635 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 191788D71D783FF400A00635 /* libsqlite3.0.tbd */; };
 		192C32A11D703360002C25FD /* GIAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32A01D703360002C25FD /* GIAPIClient.m */; };
 		192C32A41D7037D6002C25FD /* HotelProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32A31D7037D6002C25FD /* HotelProfile.m */; };
 		192C32A81D703A43002C25FD /* HotelRating.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32A71D703A43002C25FD /* HotelRating.m */; };
@@ -23,6 +26,7 @@
 		19ED94171D758690002F0A55 /* AJC_Restaurant.png in Resources */ = {isa = PBXBuildFile; fileRef = 19ED94151D758690002F0A55 /* AJC_Restaurant.png */; };
 		19ED941C1D758ABF002F0A55 /* StarshipHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19ED941A1D758ABF002F0A55 /* StarshipHeader.xib */; };
 		19ED941E1D75904E002F0A55 /* restaurant.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 19ED941D1D75904E002F0A55 /* restaurant.jpeg */; };
+		19FD82BE1D7D5AF1009A1149 /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FD82BD1D7D5AF1009A1149 /* TopBarView.m */; };
 		F418841A1CAE7F21005F562F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F41884191CAE7F21005F562F /* main.m */; };
 		F418841D1CAE7F21005F562F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F418841C1CAE7F21005F562F /* AppDelegate.m */; };
 		F41884201CAE7F21005F562F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F418841F1CAE7F21005F562F /* ViewController.m */; };
@@ -107,6 +111,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		191788D21D783FBB00A00635 /* DatabaseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseClient.h; sourceTree = "<group>"; };
+		191788D31D783FBB00A00635 /* DatabaseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseClient.m; sourceTree = "<group>"; };
+		191788D51D783FCC00A00635 /* AJCDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = AJCDatabase.sqlite; sourceTree = "<group>"; };
+		191788D71D783FF400A00635 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		192C329F1D703360002C25FD /* GIAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIAPIClient.h; sourceTree = "<group>"; };
 		192C32A01D703360002C25FD /* GIAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIAPIClient.m; sourceTree = "<group>"; };
 		192C32A21D7037D6002C25FD /* HotelProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelProfile.h; sourceTree = "<group>"; };
@@ -134,6 +142,8 @@
 		19ED94151D758690002F0A55 /* AJC_Restaurant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AJC_Restaurant.png; sourceTree = "<group>"; };
 		19ED941A1D758ABF002F0A55 /* StarshipHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StarshipHeader.xib; sourceTree = "<group>"; };
 		19ED941D1D75904E002F0A55 /* restaurant.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = restaurant.jpeg; sourceTree = "<group>"; };
+		19FD82BC1D7D5AF0009A1149 /* TopBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBarView.h; sourceTree = "<group>"; };
+		19FD82BD1D7D5AF1009A1149 /* TopBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBarView.m; sourceTree = "<group>"; };
 		F41884151CAE7F21005F562F /* Boilerplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boilerplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41884191CAE7F21005F562F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F418841B1CAE7F21005F562F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -303,12 +313,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				191788D81D783FF400A00635 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		191788D11D783FAE00A00635 /* Database Client */ = {
+			isa = PBXGroup;
+			children = (
+				191788D51D783FCC00A00635 /* AJCDatabase.sqlite */,
+				191788D21D783FBB00A00635 /* DatabaseClient.h */,
+				191788D31D783FBB00A00635 /* DatabaseClient.m */,
+			);
+			name = "Database Client";
+			sourceTree = "<group>";
+		};
+		191788D91D784DE000A00635 /* Hotel Profile Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				192C32A21D7037D6002C25FD /* HotelProfile.h */,
+				192C32A31D7037D6002C25FD /* HotelProfile.m */,
+			);
+			name = "Hotel Profile Data Model";
+			sourceTree = "<group>";
+		};
 		192C329E1D703314002C25FD /* AJC_GI_API_Client */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,8 +354,7 @@
 				192C32B61D70C960002C25FD /* Hotel Accommodation Data Model */,
 				192C32AC1D705111002C25FD /* Hotel Rating Data Model */,
 				192C32AD1D705120002C25FD /* Hotel Review Data Model */,
-				192C32A21D7037D6002C25FD /* HotelProfile.h */,
-				192C32A31D7037D6002C25FD /* HotelProfile.m */,
+				191788D91D784DE000A00635 /* Hotel Profile Data Model */,
 			);
 			name = "Hotel Profile Data Model";
 			sourceTree = "<group>";
@@ -409,9 +438,28 @@
 			name = "AJC Images";
 			sourceTree = "<group>";
 		};
+		19FD82BF1D7D7E53009A1149 /* Top Bar */ = {
+			isa = PBXGroup;
+			children = (
+				19FD82BC1D7D5AF0009A1149 /* TopBarView.h */,
+				19FD82BD1D7D5AF1009A1149 /* TopBarView.m */,
+			);
+			name = "Top Bar";
+			sourceTree = "<group>";
+		};
+		19FD82C01D7D7E63009A1149 /* Empty View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F4B708861D4883C9006D7B86 /* EmptyScreenViewController.h */,
+				F4B708871D4883C9006D7B86 /* EmptyScreenViewController.m */,
+			);
+			name = "Empty View Controller";
+			sourceTree = "<group>";
+		};
 		F418840C1CAE7F20005F562F = {
 			isa = PBXGroup;
 			children = (
+				191788D71D783FF400A00635 /* libsqlite3.0.tbd */,
 				F41884171CAE7F21005F562F /* Boilerplate */,
 				F41884161CAE7F21005F562F /* Products */,
 			);
@@ -492,12 +540,13 @@
 		F41884401CAE93EA005F562F /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				191788D11D783FAE00A00635 /* Database Client */,
 				192C32A51D7037DD002C25FD /* Hotel Profile Data Model */,
 				192C329E1D703314002C25FD /* AJC_GI_API_Client */,
 				F4AAD8581D59BC3C00442221 /* Weather View */,
 				F4AAD8511D589E6F00442221 /* DashboardView */,
-				F4B708861D4883C9006D7B86 /* EmptyScreenViewController.h */,
-				F4B708871D4883C9006D7B86 /* EmptyScreenViewController.m */,
+				19FD82C01D7D7E63009A1149 /* Empty View Controller */,
+				19FD82BF1D7D7E53009A1149 /* Top Bar */,
 			);
 			name = "Custom Classes";
 			sourceTree = "<group>";
@@ -786,6 +835,7 @@
 				F4E5000C1D59E82A00735517 /* Storm@2x.png in Resources */,
 				F47A3BF41D27BEB700DB2C7A /* icon-error@2x.png in Resources */,
 				F41884361CAE8097005F562F /* Default-667h@2x.png in Resources */,
+				191788D61D783FCC00A00635 /* AJCDatabase.sqlite in Resources */,
 				F47A3BE21D27BDCE00DB2C7A /* LICENSE in Resources */,
 				19EB85971D7442FF004EAC7F /* LICENSE-MXParallaxHeader in Resources */,
 				F47A3C2A1D27BF1500DB2C7A /* LICENCE.txt in Resources */,
@@ -816,6 +866,7 @@
 				F4B708881D4883C9006D7B86 /* EmptyScreenViewController.m in Sources */,
 				F47A3BC81D27B87600DB2C7A /* POPAnimationRuntime.mm in Sources */,
 				19EB85951D7442EA004EAC7F /* MXScrollViewController.m in Sources */,
+				19FD82BE1D7D5AF1009A1149 /* TopBarView.m in Sources */,
 				F47A3BD41D27B87600DB2C7A /* POPVector.mm in Sources */,
 				F4DFFDC51D4B45EC00DB6244 /* AFURLRequestSerialization.m in Sources */,
 				F47A3C201D27BF0B00DB2C7A /* STTwitterAppOnly.m in Sources */,
@@ -826,6 +877,7 @@
 				F4DFFDC41D4B45EC00DB6244 /* AFSecurityPolicy.m in Sources */,
 				F4DFFDE41D4B461B00DB6244 /* UIRefreshControl+AFNetworking.m in Sources */,
 				F418841D1CAE7F21005F562F /* AppDelegate.m in Sources */,
+				191788D41D783FBB00A00635 /* DatabaseClient.m in Sources */,
 				F47A3C221D27BF0B00DB2C7A /* STTwitterOAuth.m in Sources */,
 				F47A3BCF1D27B87600DB2C7A /* POPGeometry.mm in Sources */,
 				F4DFFDE11D4B461B00DB6244 /* UIButton+AFNetworking.m in Sources */,

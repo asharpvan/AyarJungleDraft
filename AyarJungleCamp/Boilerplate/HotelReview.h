@@ -14,4 +14,6 @@
 @property(nonatomic,strong) NSNumber *negativeReviewCount;
 @property(nonatomic,strong) NSNumber *timesReviewed;
 
+
+-(BOOL) hasReviewChangedOverTime:(HotelReview *)reviewRecieved;
 @end

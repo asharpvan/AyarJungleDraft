@@ -19,4 +19,6 @@
 @property(nonatomic,strong) NSNumber *roomCapacity;
 @property(nonatomic,strong) NSNumber *roomPrice;
 
+
+-(BOOL) hasHotelAccommodationDetailsChangedOverTime:(HotelAccommodation *)accommodationRecieved;
 @end

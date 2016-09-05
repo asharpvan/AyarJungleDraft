@@ -41,7 +41,12 @@
 //@property(nonatomic,strong) NSNumber *negativeReviewCount;
 
 -(instancetype) init;
+-(instancetype) initAyarReal;
+-(instancetype) initAyarClone;
 
--(void) displayHotelProfile;
+-(void) displayCompleteHotelProfile;
+-(void) displaySelectiveHotelProfile;
+
+-(BOOL) hasProfileChangedOverTime:(HotelProfile *)profileRecieved;
 
 @end

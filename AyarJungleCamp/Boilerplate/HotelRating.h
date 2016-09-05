@@ -17,4 +17,6 @@
 @property(nonatomic,strong) NSNumber *locationRating;
 @property(nonatomic,strong) NSNumber *valueForMoneyRating;
 
+
+-(BOOL) hasRatingChangedOverTime:(HotelRating *)ratingRecieved;
 @end

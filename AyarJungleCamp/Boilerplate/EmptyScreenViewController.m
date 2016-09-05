@@ -26,7 +26,7 @@
     
     [super loadView];
 
-    self.topView = [[UILabel alloc]initWithFrame:CGRectMake(0, -60, self.view.frame.size.width, 60)];
+    self.topView = [[UILabel alloc]initWithFrame:CGRectMake(0, -64, self.view.frame.size.width, 64)];
     [self.topView setTextColor:[UIColor whiteColor]];
     [self.topView setTextAlignment:NSTextAlignmentCenter];
     [self.topView setBackgroundColor:[UIColor orangeColor]];
@@ -43,6 +43,7 @@
     self.emptyViewScroller = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
 //    [self.emptyViewScroller setBackgroundColor:[UIColor redColor]];
     [self.emptyViewScroller setDelegate:self];
+    [self.emptyViewScroller setBounces:FALSE];
     [self.view addSubview:self.emptyViewScroller];
 
     [self.view addSubview:self.topView];

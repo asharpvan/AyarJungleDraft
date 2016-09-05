@@ -16,6 +16,7 @@
 #import "HotelProfile.h"
 #import "HotelProfileViewViewController.h"
 #import "HotelProfileViewController.h"
+#import "DatabaseClient.h"
 
 typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage); // don't bother with NSError for that
 @interface ViewController ()
@@ -247,14 +248,30 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
         NSLog(@"Call AFNetworking Call laced with GOibibo APIs");
         GIAPIClient *apiClient = [[GIAPIClient alloc]init];
         [apiClient fetchHotelDetailsForProfile:^(HotelProfile *ayarDetails, NSError *error) {
-            
-            [ayarDetails displayHotelProfile];
-            
-            HotelProfileViewController *hotelProfile = [[HotelProfileViewController alloc]init];
-            [self.navigationController pushViewController:hotelProfile animated:TRUE];
 
-//            HotelProfileViewViewController *hotelProfile = [[HotelProfileViewViewController alloc]initWithHotelProfile:ayarDetails];
-//            [self.navigationController pushViewController:hotelProfile animated:TRUE];
+            [[DatabaseClient sharedInstance] openDatabase];
+            HotelProfile *profileToShow = [[DatabaseClient sharedInstance] fetchHotel];
+            [[DatabaseClient sharedInstance] closeDatabase];
+            if(!error) {
+                
+                //Check whether or not the object fetched from net has been modified since last update
+                if(!profileToShow || ( profileToShow && [profileToShow hasProfileChangedOverTime:ayarDetails])) {
+                
+                    [[DatabaseClient sharedInstance] openDatabase];
+                    [[DatabaseClient sharedInstance] saveHotelProfileLocally:ayarDetails];
+                    [[DatabaseClient sharedInstance] closeDatabase];
+                    
+                }
+                profileToShow = ayarDetails;
+            } else {
+                
+                NSLog(@"error : %@",[error localizedDescription]);
+            }
+
+            [profileToShow displaySelectiveHotelProfile];
+            
+            HotelProfileViewController *hotelProfile = [[HotelProfileViewController alloc]initWithHotelProfile:profileToShow];
+            [self.navigationController pushViewController:hotelProfile animated:TRUE];
         }];
         
     };

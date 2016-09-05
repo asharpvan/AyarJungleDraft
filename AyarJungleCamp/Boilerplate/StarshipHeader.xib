@@ -12,14 +12,14 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Spaceship" translatesAutoresizingMaskIntoConstraints="NO" id="V05-dY-Hrh">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AJC_Restaurant.png" translatesAutoresizingMaskIntoConstraints="NO" id="V05-dY-Hrh">
                     <rect key="frame" x="225" y="225" width="150" height="150"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="5lt-Ek-4H8"/>
                         <constraint firstAttribute="width" secondItem="V05-dY-Hrh" secondAttribute="height" multiplier="1:1" id="ZSI-Ws-xUX"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="restaurant.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="0rn-g5-eiJ">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AJC_Restaurant.png" translatesAutoresizingMaskIntoConstraints="NO" id="0rn-g5-eiJ">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
             </subviews>
@@ -35,7 +35,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Spaceship" width="217" height="236"/>
-        <image name="restaurant.jpeg" width="400" height="300"/>
+        <image name="AJC_Restaurant.png" width="312" height="235"/>
     </resources>
 </document>

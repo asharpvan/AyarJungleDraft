@@ -23,7 +23,7 @@
 @property(nonatomic, assign) CGFloat topBarThreshold;
 @property(nonatomic, assign) CGFloat scrollbarHeight;
 
-@property (nonatomic) id <EmptyScreenViewControllerDelegate> delegate;
+@property(nonatomic, assign) id <EmptyScreenViewControllerDelegate> delegate;
 
 -(void) updateNavTitleTo :(NSString *)newNavTitle;
 

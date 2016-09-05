@@ -72,7 +72,9 @@ static void * const kMXParallaxHeaderKVOContext = (void*)&kMXParallaxHeaderKVOCo
 
 - (void)setView:(UIView *)view {
     if (view != _view) {
+        
         _view = view;
+        
         [self updateConstraints];
     }
 }
@@ -142,11 +144,13 @@ static void * const kMXParallaxHeaderKVOContext = (void*)&kMXParallaxHeaderKVOCo
 
 - (void)updateConstraints {
     if (!self.view) {
+        
         return;
     }
     
     [self.view removeFromSuperview];
     [self.contentView addSubview:self.view];
+    NSLog(@"%f,%f",self.contentView.bounds.size.width,self.contentView.bounds.size.height);
     
     self.view.translatesAutoresizingMaskIntoConstraints = NO;
     

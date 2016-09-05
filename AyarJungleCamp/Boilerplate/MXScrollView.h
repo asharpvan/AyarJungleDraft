@@ -52,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Delegate instance that adopt the MXScrollViewDelegate.
  */
-@property (nonatomic, weak, nullable) id<MXScrollViewDelegate> delegate;
+@property (nonatomic, assign, nullable) id<MXScrollViewDelegate> delegate;
 
 @end
 

@@ -8,13 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "MXScrollView.h"
+#import "HotelProfile.h"
+#import "TopBarView.h"
 
-@interface HotelProfileViewController : UIViewController <MXScrollViewDelegate>
+@interface HotelProfileViewController : UIViewController <MXScrollViewDelegate,TopBarViewDelegate,UIScrollViewDelegate> {
+    
+}
 
 @property (nonatomic, strong) MXScrollView *scrollView;
 @property (nonatomic, strong) UIView *parallaxContentView;
-@property (nonatomic, strong) UIImageView *parallaxHeaderView;
+@property (nonatomic, strong) UIScrollView *parallaxHeaderView;//UIScrollView
+@property (nonatomic, strong) TopBarView *topView;
+//@property (nonatomic, strong) UIPageControl *pageControl;
 
--(instancetype)init;
+-(instancetype) initWithHotelProfile:(HotelProfile *) hotelProfileRecieved;
 
 @end

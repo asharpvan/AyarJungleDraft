@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "DatabaseClient.h"
+#import "HotelProfile.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +19,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UIViewController *viewToload = nil;
     self.viewController=[[ViewController alloc]init];
