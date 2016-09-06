@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		191788D41D783FBB00A00635 /* DatabaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 191788D31D783FBB00A00635 /* DatabaseClient.m */; };
-		191788D61D783FCC00A00635 /* AJCDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 191788D51D783FCC00A00635 /* AJCDatabase.sqlite */; };
 		191788D81D783FF400A00635 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 191788D71D783FF400A00635 /* libsqlite3.0.tbd */; };
 		192C32A11D703360002C25FD /* GIAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32A01D703360002C25FD /* GIAPIClient.m */; };
 		192C32A41D7037D6002C25FD /* HotelProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32A31D7037D6002C25FD /* HotelProfile.m */; };
@@ -26,6 +25,12 @@
 		19ED94171D758690002F0A55 /* AJC_Restaurant.png in Resources */ = {isa = PBXBuildFile; fileRef = 19ED94151D758690002F0A55 /* AJC_Restaurant.png */; };
 		19ED941C1D758ABF002F0A55 /* StarshipHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19ED941A1D758ABF002F0A55 /* StarshipHeader.xib */; };
 		19ED941E1D75904E002F0A55 /* restaurant.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 19ED941D1D75904E002F0A55 /* restaurant.jpeg */; };
+		19FCBAA81D7E851000919D21 /* AttractionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FCBAA71D7E851000919D21 /* AttractionListViewController.m */; };
+		19FCBAAD1D7EA38700919D21 /* AttractionDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FCBAAC1D7EA38700919D21 /* AttractionDataModel.m */; };
+		19FCBAB01D7EA45300919D21 /* AttractionListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FCBAAF1D7EA45300919D21 /* AttractionListViewCell.m */; };
+		19FCBAB41D7F40CE00919D21 /* AJCDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 19FCBAB31D7F40CE00919D21 /* AJCDatabase.sqlite */; };
+		19FCBAB61D7F412900919D21 /* AJCDatabase0.1.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 19FCBAB51D7F412900919D21 /* AJCDatabase0.1.sqlite */; };
+		19FCBAB81D7F431700919D21 /* AJCDatabase0.2.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 19FCBAB71D7F431700919D21 /* AJCDatabase0.2.sqlite */; };
 		19FD82BE1D7D5AF1009A1149 /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FD82BD1D7D5AF1009A1149 /* TopBarView.m */; };
 		F418841A1CAE7F21005F562F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F41884191CAE7F21005F562F /* main.m */; };
 		F418841D1CAE7F21005F562F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F418841C1CAE7F21005F562F /* AppDelegate.m */; };
@@ -113,7 +118,6 @@
 /* Begin PBXFileReference section */
 		191788D21D783FBB00A00635 /* DatabaseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseClient.h; sourceTree = "<group>"; };
 		191788D31D783FBB00A00635 /* DatabaseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseClient.m; sourceTree = "<group>"; };
-		191788D51D783FCC00A00635 /* AJCDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = AJCDatabase.sqlite; sourceTree = "<group>"; };
 		191788D71D783FF400A00635 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		192C329F1D703360002C25FD /* GIAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GIAPIClient.h; sourceTree = "<group>"; };
 		192C32A01D703360002C25FD /* GIAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GIAPIClient.m; sourceTree = "<group>"; };
@@ -142,6 +146,15 @@
 		19ED94151D758690002F0A55 /* AJC_Restaurant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AJC_Restaurant.png; sourceTree = "<group>"; };
 		19ED941A1D758ABF002F0A55 /* StarshipHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StarshipHeader.xib; sourceTree = "<group>"; };
 		19ED941D1D75904E002F0A55 /* restaurant.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = restaurant.jpeg; sourceTree = "<group>"; };
+		19FCBAA61D7E851000919D21 /* AttractionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttractionListViewController.h; sourceTree = "<group>"; };
+		19FCBAA71D7E851000919D21 /* AttractionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttractionListViewController.m; sourceTree = "<group>"; };
+		19FCBAAB1D7EA38700919D21 /* AttractionDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttractionDataModel.h; sourceTree = "<group>"; };
+		19FCBAAC1D7EA38700919D21 /* AttractionDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttractionDataModel.m; sourceTree = "<group>"; };
+		19FCBAAE1D7EA45300919D21 /* AttractionListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttractionListViewCell.h; sourceTree = "<group>"; };
+		19FCBAAF1D7EA45300919D21 /* AttractionListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttractionListViewCell.m; sourceTree = "<group>"; };
+		19FCBAB31D7F40CE00919D21 /* AJCDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = AJCDatabase.sqlite; sourceTree = "<group>"; };
+		19FCBAB51D7F412900919D21 /* AJCDatabase0.1.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = AJCDatabase0.1.sqlite; sourceTree = "<group>"; };
+		19FCBAB71D7F431700919D21 /* AJCDatabase0.2.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = AJCDatabase0.2.sqlite; sourceTree = "<group>"; };
 		19FD82BC1D7D5AF0009A1149 /* TopBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBarView.h; sourceTree = "<group>"; };
 		19FD82BD1D7D5AF1009A1149 /* TopBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBarView.m; sourceTree = "<group>"; };
 		F41884151CAE7F21005F562F /* Boilerplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boilerplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -323,7 +336,9 @@
 		191788D11D783FAE00A00635 /* Database Client */ = {
 			isa = PBXGroup;
 			children = (
-				191788D51D783FCC00A00635 /* AJCDatabase.sqlite */,
+				19FCBAB31D7F40CE00919D21 /* AJCDatabase.sqlite */,
+				19FCBAB51D7F412900919D21 /* AJCDatabase0.1.sqlite */,
+				19FCBAB71D7F431700919D21 /* AJCDatabase0.2.sqlite */,
 				191788D21D783FBB00A00635 /* DatabaseClient.h */,
 				191788D31D783FBB00A00635 /* DatabaseClient.m */,
 			);
@@ -438,6 +453,24 @@
 			name = "AJC Images";
 			sourceTree = "<group>";
 		};
+		19FCBAA91D7EA33E00919D21 /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				19FCBAAA1D7EA34C00919D21 /* Attractions Data Model */,
+				192C32A51D7037DD002C25FD /* Hotel Profile Data Model */,
+			);
+			name = "Data Models";
+			sourceTree = "<group>";
+		};
+		19FCBAAA1D7EA34C00919D21 /* Attractions Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				19FCBAAB1D7EA38700919D21 /* AttractionDataModel.h */,
+				19FCBAAC1D7EA38700919D21 /* AttractionDataModel.m */,
+			);
+			name = "Attractions Data Model";
+			sourceTree = "<group>";
+		};
 		19FD82BF1D7D7E53009A1149 /* Top Bar */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,6 +519,10 @@
 				F4AAD84F1D589DE100442221 /* DashBoardViewController.m */,
 				19EB85981D74433D004EAC7F /* HotelProfileViewController.h */,
 				19EB85991D74433D004EAC7F /* HotelProfileViewController.m */,
+				19FCBAA61D7E851000919D21 /* AttractionListViewController.h */,
+				19FCBAA71D7E851000919D21 /* AttractionListViewController.m */,
+				19FCBAAE1D7EA45300919D21 /* AttractionListViewCell.h */,
+				19FCBAAF1D7EA45300919D21 /* AttractionListViewCell.m */,
 				192C32B11D70C7C2002C25FD /* UI Related */,
 				F41884401CAE93EA005F562F /* Custom Classes */,
 				F418843A1CAE8367005F562F /* Third Party */,
@@ -540,8 +577,8 @@
 		F41884401CAE93EA005F562F /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
+				19FCBAA91D7EA33E00919D21 /* Data Models */,
 				191788D11D783FAE00A00635 /* Database Client */,
-				192C32A51D7037DD002C25FD /* Hotel Profile Data Model */,
 				192C329E1D703314002C25FD /* AJC_GI_API_Client */,
 				F4AAD8581D59BC3C00442221 /* Weather View */,
 				F4AAD8511D589E6F00442221 /* DashboardView */,
@@ -828,14 +865,16 @@
 				19ED941E1D75904E002F0A55 /* restaurant.jpeg in Resources */,
 				F47A3BF71D27BEB700DB2C7A /* icon-success.png in Resources */,
 				F4E500121D59EC6700735517 /* Storm3@2x.png in Resources */,
+				19FCBAB81D7F431700919D21 /* AJCDatabase0.2.sqlite in Resources */,
 				F4DFFDE71D4B463F00DB6244 /* LICENSE_AFNetworking in Resources */,
 				F47A3BF51D27BEB700DB2C7A /* icon-info.png in Resources */,
 				F41884251CAE7F21005F562F /* Assets.xcassets in Resources */,
+				19FCBAB61D7F412900919D21 /* AJCDatabase0.1.sqlite in Resources */,
 				19ED941C1D758ABF002F0A55 /* StarshipHeader.xib in Resources */,
 				F4E5000C1D59E82A00735517 /* Storm@2x.png in Resources */,
 				F47A3BF41D27BEB700DB2C7A /* icon-error@2x.png in Resources */,
 				F41884361CAE8097005F562F /* Default-667h@2x.png in Resources */,
-				191788D61D783FCC00A00635 /* AJCDatabase.sqlite in Resources */,
+				19FCBAB41D7F40CE00919D21 /* AJCDatabase.sqlite in Resources */,
 				F47A3BE21D27BDCE00DB2C7A /* LICENSE in Resources */,
 				19EB85971D7442FF004EAC7F /* LICENSE-MXParallaxHeader in Resources */,
 				F47A3C2A1D27BF1500DB2C7A /* LICENCE.txt in Resources */,
@@ -873,6 +912,7 @@
 				F4DFFDEA1D4B531100DB6244 /* BookingViewController.m in Sources */,
 				F47A3BC51D27B87600DB2C7A /* POPAnimation.mm in Sources */,
 				F47A3BC91D27B87600DB2C7A /* POPAnimationTracer.mm in Sources */,
+				19FCBAA81D7E851000919D21 /* AttractionListViewController.m in Sources */,
 				F4DFFDC31D4B45EC00DB6244 /* AFNetworkReachabilityManager.m in Sources */,
 				F4DFFDC41D4B45EC00DB6244 /* AFSecurityPolicy.m in Sources */,
 				F4DFFDE41D4B461B00DB6244 /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -887,6 +927,7 @@
 				F4DFFDDF1D4B461B00DB6244 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				F4DFFDE31D4B461B00DB6244 /* UIProgressView+AFNetworking.m in Sources */,
 				F47A3C271D27BF0B00DB2C7A /* JSONSyntaxHighlight.m in Sources */,
+				19FCBAAD1D7EA38700919D21 /* AttractionDataModel.m in Sources */,
 				F4DFFDC61D4B45EC00DB6244 /* AFURLResponseSerialization.m in Sources */,
 				F47A3BC71D27B87600DB2C7A /* POPAnimationExtras.mm in Sources */,
 				F47A3BC61D27B87600DB2C7A /* POPAnimationEvent.mm in Sources */,
@@ -904,6 +945,7 @@
 				F47A3BCA1D27B87600DB2C7A /* POPAnimator.mm in Sources */,
 				F47A3BCE1D27B87600DB2C7A /* POPDecayAnimation.mm in Sources */,
 				F47A3C1B1D27BF0B00DB2C7A /* NSDateFormatter+STTwitter.m in Sources */,
+				19FCBAB01D7EA45300919D21 /* AttractionListViewCell.m in Sources */,
 				F47A3BD31D27B87600DB2C7A /* POPSpringAnimation.mm in Sources */,
 				F4AAD8571D59BC3600442221 /* AJCWeatherView.m in Sources */,
 				F47A3BD21D27B87600DB2C7A /* POPPropertyAnimation.mm in Sources */,

@@ -46,14 +46,15 @@
 
     pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, 200 - 40, self.view.frame.size.width, 40)];
     [pageControl setBackgroundColor:[UIColor blackColor]];
+    [pageControl setUserInteractionEnabled:FALSE];
     
     self.scrollView.parallaxHeader.view = self.parallaxHeaderView;
     self.scrollView.parallaxHeader.height = 200;
     self.scrollView.parallaxHeader.mode = MXParallaxHeaderModeFill;
     self.scrollView.parallaxHeader.minimumHeight = -self.parallaxContentView.bounds.size.height ;
+    [self.scrollView.parallaxHeader.contentView addSubview:pageControl];
     [self.scrollView setBounces:FALSE];
     [self.scrollView addSubview:self.parallaxContentView];
-    [self.scrollView.parallaxHeader.contentView addSubview:pageControl];
     [self.view addSubview:_scrollView];
 }
 
@@ -102,14 +103,7 @@
         [_parallaxHeaderView setPagingEnabled:TRUE];
         [_parallaxHeaderView setContentSize:CGSizeMake(totalWidth, _parallaxHeaderView.bounds.size.height)];
         
-//        pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, 100, _parallaxHeaderView.frame.size.width, 40)];
         [pageControl setNumberOfPages:totalWidth/_parallaxHeaderView.frame.size.width];
-//        [pageControl setBackgroundColor:[UIColor grayColor]];
-//        [self.view addSubview:pageControl];
-////
-//        [self.view bringSubviewToFront:pageControl];
-        
-        
     }
     return _parallaxHeaderView;
 }
@@ -293,20 +287,18 @@
     //find the page number you are on
     CGFloat pageWidth = scrollView.frame.size.width;
     int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    NSLog(@"Decelerating - You are now on page %i",page);
-
     [pageControl setCurrentPage:page];
 }
 
-//dragging ends, please switch off paging to listen for this event
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *) targetContentOffset {
-    
-    NSLog(@"%@",[scrollView class]);
-    if([scrollView isKindOfClass:[MXScrollView class]]) return;
-    //find the page number you are on
-    CGFloat pageWidth = scrollView.frame.size.width;
-    int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    NSLog(@"Dragging - You are now on page %i",page);
-    
-}
+////dragging ends, please switch off paging to listen for this event
+//- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *) targetContentOffset {
+//    
+//    NSLog(@"%@",[scrollView class]);
+//    if([scrollView isKindOfClass:[MXScrollView class]]) return;
+//    //find the page number you are on
+//    CGFloat pageWidth = scrollView.frame.size.width;
+//    int page = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+//    NSLog(@"Dragging - You are now on page %i",page);
+//    
+//}
 @end

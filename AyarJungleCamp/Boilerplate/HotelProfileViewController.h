@@ -19,7 +19,6 @@
 @property (nonatomic, strong) UIView *parallaxContentView;
 @property (nonatomic, strong) UIScrollView *parallaxHeaderView;//UIScrollView
 @property (nonatomic, strong) TopBarView *topView;
-//@property (nonatomic, strong) UIPageControl *pageControl;
 
 -(instancetype) initWithHotelProfile:(HotelProfile *) hotelProfileRecieved;
 

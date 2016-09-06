@@ -150,8 +150,6 @@ static void * const kMXParallaxHeaderKVOContext = (void*)&kMXParallaxHeaderKVOCo
     
     [self.view removeFromSuperview];
     [self.contentView addSubview:self.view];
-    NSLog(@"%f,%f",self.contentView.bounds.size.width,self.contentView.bounds.size.height);
-    
     self.view.translatesAutoresizingMaskIntoConstraints = NO;
     
     switch (self.mode) {

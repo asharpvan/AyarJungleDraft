@@ -11,6 +11,9 @@
 
 @class HotelProfile;
 
+typedef void(^AttractionListFetchCompletion) (NSArray *, NSString *);
+typedef void(^HotelCompleteProfileFetchCompletion) (HotelProfile *, NSString *);
+
 @interface DatabaseClient : NSObject
 // variable to hold database handle
 @property(nonatomic,assign) sqlite3 *dbHandle;
@@ -30,7 +33,8 @@
 //Function to save the Records Locally
 -(BOOL) saveHotelProfileLocally:(HotelProfile *) hotelRecord;
 
-//Function to fetch the Records From Local DB
+//Functions to fetch the Records From Local DB
 -(HotelProfile *) fetchHotel;
+-(void) fetchAllAttractions: (AttractionListFetchCompletion) complete;
 
 @end

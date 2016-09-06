@@ -17,6 +17,8 @@
 #import "HotelProfileViewViewController.h"
 #import "HotelProfileViewController.h"
 #import "DatabaseClient.h"
+#import "AttractionListViewController.h"
+#import "AttractionDataModel.h"
 
 typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage); // don't bother with NSError for that
 @interface ViewController ()
@@ -66,8 +68,12 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
     [detailsButton setBackgroundColor:[UIColor blueColor]];
     [self.emptyViewScroller addSubview:detailsButton];
     
-//    [self.emptyViewScroller addSubview:self.view];
-//    [self.emptyViewScroller setContentSize:CGSizeMake(self.view.frame.size.width, self.view.frame.size.height + 100)];
+    
+    UIButton *inAndAroundNainitalButton = [[UIButton alloc]initWithFrame:CGRectMake(10, detailsButton.frame.size.height + detailsButton.frame.origin.y + 20 ,self.view.frame.size.width - (20), 60)];
+    [inAndAroundNainitalButton setTitle:@"Open Collection View" forState:UIControlStateNormal];
+    [inAndAroundNainitalButton addTarget:self action:@selector(showListofAttractions) forControlEvents:UIControlEventTouchUpInside];
+    [inAndAroundNainitalButton setBackgroundColor:[UIColor blueColor]];
+    [self.emptyViewScroller addSubview:inAndAroundNainitalButton];
     
 }
 - (void)viewDidLoad {
@@ -279,8 +285,40 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
 }
 
 
--(void)userTappedOnActionButton {
+-(void) userTappedOnActionButton {
     NSLog(@"User Tapped Recieved on ViewController");
 }
 
+-(void) showListofAttractions {
+    
+    NSLog(@"List of Attractions!!");
+    
+//    NSMutableArray *attractionListArray = [NSMutableArray new];
+//    
+//    for(int i =0; i < 25; i++) {
+//        AttractionDataModel *dataToFill;
+//        if(i%2 == 0){
+//            dataToFill = [[AttractionDataModel alloc]initLocalAttraction];
+//        } else {
+//            dataToFill = [[AttractionDataModel alloc]initAroundAttraction];
+//        }
+//        [attractionListArray addObject:dataToFill];
+//    }
+    
+    //Without CompletionHandler
+//    [[DatabaseClient sharedInstance] openDatabase];
+//    NSArray *attractionListArray = [[DatabaseClient sharedInstance] fetchAllAttractions];
+//    [[DatabaseClient sharedInstance] closeDatabase];
+//    
+//    AttractionListViewController *attractionList = [[AttractionListViewController alloc]initWithAttractionList:[attractionListArray copy]];
+//    [self.navigationController pushViewController:attractionList animated:TRUE];
+    
+    [[DatabaseClient sharedInstance] openDatabase];
+    [[DatabaseClient sharedInstance] fetchAllAttractions:^(NSArray *attractionListArray, NSString *error) {
+        if(!error && attractionListArray){
+            AttractionListViewController *attractionList = [[AttractionListViewController alloc]initWithAttractionList:[attractionListArray copy]];
+            [self.navigationController pushViewController:attractionList animated:TRUE];
+        }
+    }];
+}
 @end

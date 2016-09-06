@@ -234,12 +234,12 @@
     NSLog(@"\n************ About ****************");
     NSLog(@"Hotel Name  : %@",[self hotelName]);
     NSLog(@"Hotel Recommended by  : %@",[self hotelRecommendedByPercentage]);
-    NSLog(@"\n************ RANKING ****************");
-    NSLog(@"Hotel : %@",[[self hotelRating] hotelRating]);
-    NSLog(@"Value for Money : %@",[[self hotelRating] valueForMoneyRating]);
-    NSLog(@"\n************ REVIEW ****************");
-    NSLog(@"Positive  : %@",[[self hotelReview] positiveReviewCount]);
-    NSLog(@"Total Review Count  : %@",[[self hotelReview] timesReviewed]);
+//    NSLog(@"\n************ RANKING ****************");
+//    NSLog(@"Hotel : %@",[[self hotelRating] hotelRating]);
+//    NSLog(@"Value for Money : %@",[[self hotelRating] valueForMoneyRating]);
+//    NSLog(@"\n************ REVIEW ****************");
+//    NSLog(@"Positive  : %@",[[self hotelReview] positiveReviewCount]);
+//    NSLog(@"Total Review Count  : %@",[[self hotelReview] timesReviewed]);
     
 }
 
