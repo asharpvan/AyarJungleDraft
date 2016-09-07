@@ -16,6 +16,10 @@
 		192C32B01D70C7B6002C25FD /* HotelProfileViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32AF1D70C7B6002C25FD /* HotelProfileViewViewController.m */; };
 		192C32B51D70C959002C25FD /* HotelAccommodation.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32B41D70C959002C25FD /* HotelAccommodation.m */; };
 		192C32BC1D719401002C25FD /* HotelProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32BB1D719401002C25FD /* HotelProfileView.m */; };
+		19D768851D80923B0086499F /* AttractionsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D768841D80923B0086499F /* AttractionsDetailViewController.m */; };
+		19D768891D80B1700086499F /* RoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D768881D80B1700086499F /* RoomListViewController.m */; };
+		19D7688C1D80B2EC0086499F /* RoomListViewCellCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D7688B1D80B2EC0086499F /* RoomListViewCellCollectionViewCell.m */; };
+		19D7688F1D80B5C10086499F /* RoomDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D7688E1D80B5C10086499F /* RoomDetailsViewController.m */; };
 		19EB85931D7442EA004EAC7F /* MXParallaxHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EB858E1D7442EA004EAC7F /* MXParallaxHeader.m */; };
 		19EB85941D7442EA004EAC7F /* MXScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EB85901D7442EA004EAC7F /* MXScrollView.m */; };
 		19EB85951D7442EA004EAC7F /* MXScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EB85921D7442EA004EAC7F /* MXScrollViewController.m */; };
@@ -133,6 +137,14 @@
 		192C32B41D70C959002C25FD /* HotelAccommodation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelAccommodation.m; sourceTree = "<group>"; };
 		192C32BA1D719401002C25FD /* HotelProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelProfileView.h; sourceTree = "<group>"; };
 		192C32BB1D719401002C25FD /* HotelProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelProfileView.m; sourceTree = "<group>"; };
+		19D768831D80923B0086499F /* AttractionsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttractionsDetailViewController.h; sourceTree = "<group>"; };
+		19D768841D80923B0086499F /* AttractionsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttractionsDetailViewController.m; sourceTree = "<group>"; };
+		19D768871D80B1700086499F /* RoomListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomListViewController.h; sourceTree = "<group>"; };
+		19D768881D80B1700086499F /* RoomListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomListViewController.m; sourceTree = "<group>"; };
+		19D7688A1D80B2EC0086499F /* RoomListViewCellCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomListViewCellCollectionViewCell.h; sourceTree = "<group>"; };
+		19D7688B1D80B2EC0086499F /* RoomListViewCellCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomListViewCellCollectionViewCell.m; sourceTree = "<group>"; };
+		19D7688D1D80B5C10086499F /* RoomDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomDetailsViewController.h; sourceTree = "<group>"; };
+		19D7688E1D80B5C10086499F /* RoomDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomDetailsViewController.m; sourceTree = "<group>"; };
 		19EB858D1D7442EA004EAC7F /* MXParallaxHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXParallaxHeader.h; sourceTree = "<group>"; };
 		19EB858E1D7442EA004EAC7F /* MXParallaxHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MXParallaxHeader.m; sourceTree = "<group>"; };
 		19EB858F1D7442EA004EAC7F /* MXScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXScrollView.h; sourceTree = "<group>"; };
@@ -523,6 +535,14 @@
 				19FCBAA71D7E851000919D21 /* AttractionListViewController.m */,
 				19FCBAAE1D7EA45300919D21 /* AttractionListViewCell.h */,
 				19FCBAAF1D7EA45300919D21 /* AttractionListViewCell.m */,
+				19D768831D80923B0086499F /* AttractionsDetailViewController.h */,
+				19D768841D80923B0086499F /* AttractionsDetailViewController.m */,
+				19D768871D80B1700086499F /* RoomListViewController.h */,
+				19D768881D80B1700086499F /* RoomListViewController.m */,
+				19D7688A1D80B2EC0086499F /* RoomListViewCellCollectionViewCell.h */,
+				19D7688B1D80B2EC0086499F /* RoomListViewCellCollectionViewCell.m */,
+				19D7688D1D80B5C10086499F /* RoomDetailsViewController.h */,
+				19D7688E1D80B5C10086499F /* RoomDetailsViewController.m */,
 				192C32B11D70C7C2002C25FD /* UI Related */,
 				F41884401CAE93EA005F562F /* Custom Classes */,
 				F418843A1CAE8367005F562F /* Third Party */,
@@ -924,6 +944,7 @@
 				F47A3C261D27BF0B00DB2C7A /* BAVPlistNode.m in Sources */,
 				F47A3BD91D27B88100DB2C7A /* TransformationMatrix.cpp in Sources */,
 				192C32A81D703A43002C25FD /* HotelRating.m in Sources */,
+				19D768891D80B1700086499F /* RoomListViewController.m in Sources */,
 				F4DFFDDF1D4B461B00DB6244 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				F4DFFDE31D4B461B00DB6244 /* UIProgressView+AFNetworking.m in Sources */,
 				F47A3C271D27BF0B00DB2C7A /* JSONSyntaxHighlight.m in Sources */,
@@ -935,10 +956,13 @@
 				19EB859A1D74433D004EAC7F /* HotelProfileViewController.m in Sources */,
 				F4DFFDE51D4B461B00DB6244 /* UIWebView+AFNetworking.m in Sources */,
 				F4DFFDDE1D4B461B00DB6244 /* AFImageDownloader.m in Sources */,
+				19D7688F1D80B5C10086499F /* RoomDetailsViewController.m in Sources */,
 				F4AAD8501D589DE100442221 /* DashBoardViewController.m in Sources */,
 				F47A3BC41D27B87600DB2C7A /* POPAnimatableProperty.mm in Sources */,
+				19D768851D80923B0086499F /* AttractionsDetailViewController.m in Sources */,
 				F4DFFDE21D4B461B00DB6244 /* UIImageView+AFNetworking.m in Sources */,
 				F4DFFDE01D4B461B00DB6244 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				19D7688C1D80B2EC0086499F /* RoomListViewCellCollectionViewCell.m in Sources */,
 				F47A3C1F1D27BF0B00DB2C7A /* STTwitterAPI.m in Sources */,
 				F47A3BEC1D27BEB100DB2C7A /* TWMessageBarManager.m in Sources */,
 				F47A3C1E1D27BF0B00DB2C7A /* STHTTPRequest+STTwitter.m in Sources */,

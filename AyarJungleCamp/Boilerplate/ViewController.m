@@ -276,7 +276,7 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
 
             [profileToShow displaySelectiveHotelProfile];
             
-            HotelProfileViewController *hotelProfile = [[HotelProfileViewController alloc]initWithHotelProfile:profileToShow];
+            HotelProfileViewController *hotelProfile = [[HotelProfileViewController alloc]initWithHotelProfile:profileToShow showAsParallaxView:TRUE];
             [self.navigationController pushViewController:hotelProfile animated:TRUE];
         }];
         

@@ -13,7 +13,7 @@
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {
         
-        
+        self.accomodationType = [decoder decodeObjectForKey:@"accomodationType"];
         self.roomName = [decoder decodeObjectForKey:@"roomName"];
         self.roomPrice = [decoder decodeObjectForKey:@"roomPrice"];
         self.roomImage1 = [decoder decodeObjectForKey:@"roomImage1"];
@@ -28,7 +28,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     
-    
+    [encoder encodeObject:self.accomodationType forKey:@"accomodationType"];
     [encoder encodeObject:self.roomName forKey:@"roomName"];
     [encoder encodeObject:self.roomPrice forKey:@"roomPrice"];
     [encoder encodeObject:self.roomImage1 forKey:@"roomImage1"];
@@ -47,7 +47,8 @@
        [self.roomImage2 isEqualToString:accommodationRecieved.roomImage2] &&
        [self.roomImage3 isEqualToString:accommodationRecieved.roomImage3] &&
        [self.roomTotal isEqualToNumber:accommodationRecieved.roomTotal] &&
-       [self.roomCapacity isEqualToNumber:accommodationRecieved.roomCapacity])return FALSE;
+       [self.roomCapacity isEqualToNumber:accommodationRecieved.roomCapacity]&&
+       [self.accomodationType isEqualToNumber:accommodationRecieved.accomodationType])return FALSE;
     return TRUE;
 }
 

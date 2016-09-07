@@ -11,6 +11,8 @@
 #import "HotelRating.h"
 #import "HotelReview.h"
 #import "HotelAccommodation.h"
+#import "RoomListViewController.h"
+#import "RoomDetailsViewController.h"
 
 
 
@@ -18,6 +20,7 @@
     
     HotelProfile *hotel;
     UIPageControl *pageControl;
+    BOOL isSingleImageParallax;
     
 }
 @end
@@ -25,30 +28,33 @@
 @implementation HotelProfileViewController
 
 
--(instancetype) initWithHotelProfile:(HotelProfile *) hotelProfileRecieved {
+-(instancetype) initWithHotelProfile:(HotelProfile *) hotelProfileRecieved showAsParallaxView:(BOOL) isParallax {
     
     self = [super init];
     if(self) {
-        
         [self.view setBackgroundColor:[UIColor whiteColor]];
         hotel = hotelProfileRecieved;
-        NSLog(@"hotel : %@",hotel);
+        isSingleImageParallax = isParallax;
+        NSLog(@"hotelData : %@",hotel);
         [self createSubview];
     }
     return self;
 }
 
 -(void) createSubview {
-
-    self.topView = [[TopBarView alloc]initWithTitle:@"Ayar Jungle Camp" andSize:CGSizeMake(self.view.bounds.size.width, 64)];
+    
+    self.topView = [[TopBarView alloc]initWithTitle:[hotel hotelName] andSize:CGSizeMake(self.view.bounds.size.width, 64)];
     [self.topView setDelegate:self];
     [self.view addSubview:self.topView];
-
-    pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, 200 - 40, self.view.frame.size.width, 40)];
-    [pageControl setBackgroundColor:[UIColor blackColor]];
-    [pageControl setUserInteractionEnabled:FALSE];
     
-    self.scrollView.parallaxHeader.view = self.parallaxHeaderView;
+    if(!isSingleImageParallax) {
+        
+        pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, 200 - 40, self.view.frame.size.width, 40)];
+        [pageControl setBackgroundColor:[UIColor blackColor]];
+        [pageControl setUserInteractionEnabled:FALSE];
+    }
+    
+    self.scrollView.parallaxHeader.view = isSingleImageParallax ? self.parallaxSingleImageHeaderView : self.nonParallaxScrollHeaderView;
     self.scrollView.parallaxHeader.height = 200;
     self.scrollView.parallaxHeader.mode = MXParallaxHeaderModeFill;
     self.scrollView.parallaxHeader.minimumHeight = -self.parallaxContentView.bounds.size.height ;
@@ -82,50 +88,43 @@
     return _scrollView;
 }
 
-- (UIScrollView *)parallaxHeaderView {
+- (UIScrollView *)nonParallaxScrollHeaderView {
     
-    if(!_parallaxHeaderView) {
+    if(!_nonParallaxScrollHeaderView) {
         
-        _parallaxHeaderView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
-        [_parallaxHeaderView setShowsVerticalScrollIndicator:FALSE];
-        [_parallaxHeaderView setShowsHorizontalScrollIndicator:FALSE];
-        [_parallaxHeaderView setDelegate:self];
+        _nonParallaxScrollHeaderView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
+        [_nonParallaxScrollHeaderView setShowsVerticalScrollIndicator:FALSE];
+        [_nonParallaxScrollHeaderView setShowsHorizontalScrollIndicator:FALSE];
+        [_nonParallaxScrollHeaderView setDelegate:self];
         
         __block float totalWidth = 0;
         for(int i=0; i<3; i++){
-            UIImageView *parallaxImageView = [[UIImageView alloc]initWithFrame:CGRectMake(i * _parallaxHeaderView.frame.size.width, 0, _parallaxHeaderView.frame.size.width, _parallaxHeaderView.frame.size.height)];
+            UIImageView *parallaxImageView = [[UIImageView alloc]initWithFrame:CGRectMake(i * _nonParallaxScrollHeaderView.frame.size.width, 0, _nonParallaxScrollHeaderView.frame.size.width, _nonParallaxScrollHeaderView.frame.size.height)];
             [parallaxImageView setContentMode:UIViewContentModeScaleAspectFill];
-            [parallaxImageView setImage:[UIImage imageNamed:@"AJC_Restaurant.png"]];
-            [_parallaxHeaderView addSubview:parallaxImageView];
-            totalWidth += _parallaxHeaderView.frame.size.width;
+            [parallaxImageView setImage:[UIImage imageNamed:@"AJC_Restaurant.png"]]; //bannerPic for hotel
+            [_nonParallaxScrollHeaderView addSubview:parallaxImageView];
+            totalWidth += _nonParallaxScrollHeaderView.frame.size.width;
         }
-
-        [_parallaxHeaderView setPagingEnabled:TRUE];
-        [_parallaxHeaderView setContentSize:CGSizeMake(totalWidth, _parallaxHeaderView.bounds.size.height)];
         
-        [pageControl setNumberOfPages:totalWidth/_parallaxHeaderView.frame.size.width];
+        [_nonParallaxScrollHeaderView setPagingEnabled:TRUE];
+        [_nonParallaxScrollHeaderView setContentSize:CGSizeMake(totalWidth, _nonParallaxScrollHeaderView.bounds.size.height)];
+        
+        [pageControl setNumberOfPages:totalWidth/_nonParallaxScrollHeaderView.frame.size.width];
     }
-    return _parallaxHeaderView;
+    return _nonParallaxScrollHeaderView;
 }
 
-//- (UIImageView *)parallaxHeaderView {
-//    
-//    if(!_parallaxHeaderView) {
-//        
-//        _parallaxHeaderView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 250)];
-//        [_parallaxHeaderView setContentMode:UIViewContentModeScaleAspectFill];
-//        [_parallaxHeaderView setImage:[UIImage imageNamed:@"AJC_Restaurant.png"]];
-// 
-//        /* Add additional view here*/
-//        
-//        //        UILabel *text = [[UILabel alloc]initWithFrame:CGRectMake(0, _parallaxHeaderView.frame.size.height - 44, _parallaxHeaderView.frame.size.width, 40)];
-//        //        [text setBackgroundColor:[UIColor grayColor]];
-//        //        [_parallaxHeaderView addSubview:text];
-//        
-//    }
-//    return _parallaxHeaderView;
-//}
-
+- (UIImageView *)parallaxSingleImageHeaderView {
+    
+    if(!_parallaxSingleImageHeaderView) {
+        
+        _parallaxSingleImageHeaderView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 250)];
+        [_parallaxSingleImageHeaderView setContentMode:UIViewContentModeScaleAspectFill];
+        [_parallaxSingleImageHeaderView setImage:[UIImage imageNamed:@"AJC_Restaurant.png"]];
+        
+    }
+    return _parallaxSingleImageHeaderView;
+}
 
 - (UIView *)parallaxContentView {
    
@@ -149,94 +148,139 @@
             [_parallaxContentView addSubview:addr1Label];
             
             
-            UILabel *addr2Label = [[UILabel alloc]initWithFrame:CGRectMake(addr1Label.frame.origin.x, addr1Label.frame.origin.y + addr1Label.frame.size.height, addr1Label.frame.size.width, addr1Label.frame.size.height)];
+            UILabel *addr2Label = [[UILabel alloc]initWithFrame:[self getFrameUsing:[addr1Label frame]]];
             
             [addr2Label setFont:[UIFont systemFontOfSize:17.0f weight:0.0f]];
             [addr2Label setText:[NSString stringWithFormat:@"%@ - %@",[hotel hotelStreetAddr2],[hotel hotelPin]]];
             [_parallaxContentView addSubview:addr2Label];
             
             
-            UILabel *hotelSynopsisLabel = [[UILabel alloc]initWithFrame:CGRectMake(addr2Label.frame.origin.x, addr2Label.frame.origin.y + addr2Label.frame.size.height, addr2Label.frame.size.width, addr2Label.frame.size.height)];
+            UIButton *showAllRooms = [[UIButton alloc]initWithFrame:[self getFrameUsing:[addr2Label frame]]];
+            [showAllRooms setTitle:@"View All Rooms" forState:UIControlStateNormal];
+            [showAllRooms addTarget:self action:@selector(someButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
+            [showAllRooms setTag:HotelProfileButtonPressedAccommodationAll];
+            [showAllRooms setBackgroundColor:[UIColor blackColor]];
+            [_parallaxContentView addSubview:showAllRooms];
+            
+            
+            UILabel *hotelSynopsisLabel = [[UILabel alloc]initWithFrame:[self getFrameUsing:[showAllRooms frame]]];
             [hotelSynopsisLabel setFont:[UIFont systemFontOfSize:17.0f weight:0.0f]];
             [hotelSynopsisLabel setText:[hotel hotelSynopsis]];
             [_parallaxContentView addSubview:hotelSynopsisLabel];
             
+            UIButton *tweetUs = [[UIButton alloc]initWithFrame:[self getFrameUsing:[hotelSynopsisLabel frame]]];
+            [tweetUs setTitle:@"Tweet Us" forState:UIControlStateNormal];
+            [tweetUs addTarget:self action:@selector(someButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
+            [tweetUs setTag:HotelProfileButtonPressedTweet];
+            [tweetUs setBackgroundColor:[UIColor blackColor]];
+            [_parallaxContentView addSubview:tweetUs];
+          
+            UIButton *callUs = [[UIButton alloc]initWithFrame:[self getFrameUsing:[tweetUs frame]]];
+            [callUs setTitle:@"Call" forState:UIControlStateNormal];
+            [callUs addTarget:self action:@selector(someButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
+            [callUs setTag:HotelProfileButtonPressedCall];
+            [callUs setBackgroundColor:[UIColor blackColor]];
+            [_parallaxContentView addSubview:callUs];
             
-            UILabel *hotelHistory = [[UILabel alloc]initWithFrame:CGRectMake(hotelSynopsisLabel.frame.origin.x, hotelSynopsisLabel.frame.origin.y + hotelSynopsisLabel.frame.size.height, hotelSynopsisLabel.frame.size.width, hotelSynopsisLabel.frame.size.height)];
+            UILabel *hotelHistory = [[UILabel alloc]initWithFrame:[self getFrameUsing:[callUs frame]]];
             
             [hotelHistory setFont:[UIFont systemFontOfSize:17.0f weight:0.0f]];
             [hotelHistory setText:[hotel hotelHistory]];
             [_parallaxContentView addSubview:hotelHistory];
             
             
-            UILabel *foodRating = [[UILabel alloc]initWithFrame:CGRectMake(hotelHistory.frame.origin.x, hotelHistory.frame.origin.y + hotelHistory.frame.size.height, hotelHistory.frame.size.width, hotelHistory.frame.size.height)];
+            UILabel *foodRating = [[UILabel alloc]initWithFrame:[self getFrameUsing:[hotelHistory frame]]];
             [foodRating setFont:[UIFont systemFontOfSize:17.0f weight:0.0f]];
             [foodRating setText:[NSString stringWithFormat:@"Food - %@",[[hotel hotelRating] foodRating]]];
             [_parallaxContentView addSubview:foodRating];
             
             
-            UILabel *locationRating = [[UILabel alloc]initWithFrame:CGRectMake(foodRating.frame.origin.x, foodRating.frame.origin.y + foodRating.frame.size.height, foodRating.frame.size.width, foodRating.frame.size.height)];
+            UILabel *locationRating = [[UILabel alloc]initWithFrame:[self getFrameUsing:[foodRating frame]]];
             
             [locationRating setFont:[UIFont systemFontOfSize:17.0f weight:0.0f]];
             [locationRating setText:[NSString stringWithFormat:@"Location - %@",[[hotel hotelRating] locationRating]]];
             [_parallaxContentView addSubview:locationRating];
             
             
-            UILabel *amnetiesRating = [[UILabel alloc]initWithFrame:CGRectMake(locationRating.frame.origin.x, locationRating.frame.origin.y + locationRating.frame.size.height, locationRating.frame.size.width, locationRating.frame.size.height)];
+            UILabel *amnetiesRating = [[UILabel alloc]initWithFrame:[self getFrameUsing:[locationRating frame]]];
             [amnetiesRating setFont:[UIFont systemFontOfSize:17.0f weight:0.0f]];
             [amnetiesRating setText:[NSString stringWithFormat:@"Amneties - %@",[[hotel hotelRating] foodRating]]];
             [_parallaxContentView addSubview:amnetiesRating];
             
-            UILabel *hotelRating = [[UILabel alloc]initWithFrame:CGRectMake(amnetiesRating.frame.origin.x, amnetiesRating.frame.origin.y + amnetiesRating.frame.size.height, amnetiesRating.frame.size.width, amnetiesRating.frame.size.height)];
+            UILabel *hotelRating = [[UILabel alloc]initWithFrame:[self getFrameUsing:[amnetiesRating frame]]];
             
             [hotelRating setFont:[UIFont systemFontOfSize:17.0f weight:0.0f]];
             [hotelRating setText:[NSString stringWithFormat:@"Hotel - %@",[[hotel hotelRating] hotelRating]]];
             [_parallaxContentView addSubview:hotelRating];
             
             
-            UILabel *vfmRating = [[UILabel alloc]initWithFrame:CGRectMake(hotelRating.frame.origin.x, hotelRating.frame.origin.y + hotelRating.frame.size.height, hotelRating.frame.size.width, hotelRating.frame.size.height)];
+            UILabel *vfmRating = [[UILabel alloc]initWithFrame:[self getFrameUsing:[hotelRating frame]]];
             [vfmRating setFont:[UIFont systemFontOfSize:17.0f weight:0.0f]];
             [vfmRating setText:[NSString stringWithFormat:@"VFM - %@",[[hotel hotelRating] valueForMoneyRating]]];
             [_parallaxContentView addSubview:vfmRating];
             
             
-            UILabel *cleanlinessRating = [[UILabel alloc]initWithFrame:CGRectMake(vfmRating.frame.origin.x, vfmRating.frame.origin.y + vfmRating.frame.size.height, vfmRating.frame.size.width, vfmRating.frame.size.height)];
+            UILabel *cleanlinessRating = [[UILabel alloc]initWithFrame:[self getFrameUsing:[vfmRating frame]]];
             
             [cleanlinessRating setFont:[UIFont systemFontOfSize:17.0f weight:0.0f]];
             [cleanlinessRating setText:[NSString stringWithFormat:@"Cleanliness - %@",[[hotel hotelRating]cleanlinessRating]]];
             [_parallaxContentView addSubview:cleanlinessRating];
             
 
-            UILabel *positiveReviewCount = [[UILabel alloc]initWithFrame:CGRectMake(cleanlinessRating.frame.origin.x, cleanlinessRating.frame.origin.y + cleanlinessRating.frame.size.height, amnetiesRating.frame.size.width, cleanlinessRating.frame.size.height)];
+            UILabel *positiveReviewCount = [[UILabel alloc]initWithFrame:[self getFrameUsing:[cleanlinessRating frame]]];
             
             [positiveReviewCount setFont:[UIFont systemFontOfSize:17.0f weight:0.0f]];
             [positiveReviewCount setText:[NSString stringWithFormat:@"Positive Review Count - %@",[[hotel hotelReview]positiveReviewCount]]];
             [_parallaxContentView addSubview:positiveReviewCount];
             
             
-            UILabel *negativeReviewCount = [[UILabel alloc]initWithFrame:CGRectMake(positiveReviewCount.frame.origin.x, positiveReviewCount.frame.origin.y + positiveReviewCount.frame.size.height, positiveReviewCount.frame.size.width, positiveReviewCount.frame.size.height)];
+            UILabel *negativeReviewCount = [[UILabel alloc]initWithFrame:[self getFrameUsing:[positiveReviewCount frame]]];
             [negativeReviewCount setFont:[UIFont systemFontOfSize:17.0f weight:0.0f]];
             [negativeReviewCount setText:[NSString stringWithFormat:@"Negative Review Count - %@",[[hotel hotelReview]negativeReviewCount]]];
             [_parallaxContentView addSubview:negativeReviewCount];
             
             
-            UILabel *totalReviewCount = [[UILabel alloc]initWithFrame:CGRectMake(negativeReviewCount.frame.origin.x, negativeReviewCount.frame.origin.y + negativeReviewCount.frame.size.height, negativeReviewCount.frame.size.width, negativeReviewCount.frame.size.height)];
-            
-            [totalReviewCount setFont:[UIFont systemFontOfSize:17.0f weight:0.0f]];
-            [totalReviewCount setText:[NSString stringWithFormat:@"Total Review Count - %@",[[hotel hotelReview] timesReviewed]]];
+            UIButton *totalReviewCount = [[UIButton alloc]initWithFrame:[self getFrameUsing:[negativeReviewCount frame]]];
+            [totalReviewCount setTitle:[NSString stringWithFormat:@"Total Review Count - %@",[[hotel hotelReview] timesReviewed]] forState:UIControlStateNormal];
+            [totalReviewCount addTarget:self action:@selector(someButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
+            [totalReviewCount setTag:HotelProfileButtonPressedReview];
+            [totalReviewCount setBackgroundColor:[UIColor blackColor]];
+//            [[totalReviewCount titleLabel] setFont:[UIFont systemFontOfSize:17.0f weight:0.0f]];
+//            [[totalReviewCount titleLabel]setText:[NSString stringWithFormat:@"Total Review Count - %@",[[hotel hotelReview] timesReviewed]]];
             [_parallaxContentView addSubview:totalReviewCount];
-            
         
             __block CGFloat y = totalReviewCount.frame.origin.y + totalReviewCount.frame.size.height;
             for(HotelAccommodation *accommodationType in  [hotel hotelAccommodationList]) {
 
-                UILabel *accomodationType = [[UILabel alloc]initWithFrame:CGRectMake(totalReviewCount.frame.origin.x, y , totalReviewCount.frame.size.width, totalReviewCount.frame.size.height)];
+                UIButton *accomodationType = [[UIButton alloc]initWithFrame:CGRectMake(totalReviewCount.frame.origin.x, y + 2 , totalReviewCount.frame.size.width, totalReviewCount.frame.size.height)];
+                [accomodationType setTitle:[NSString stringWithFormat:@"%@ - INR %@ - %@ Total Rooms",[accommodationType roomName],[accommodationType roomPrice],[accommodationType roomTotal]] forState:UIControlStateNormal];
+                [accomodationType addTarget:self action:@selector(someButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
                 
-                [accomodationType setFont:[UIFont systemFontOfSize:10.0f weight:0.0f]];
-                [accomodationType setText:[NSString stringWithFormat:@"%@ - INR %@ - %@ Total Rooms",[accommodationType roomName],[accommodationType roomPrice],[accommodationType roomTotal]]];
+                if([[accommodationType accomodationType]unsignedIntegerValue] == AccommodationTypeTent){
+                
+                    [accomodationType setTag:HotelProfileButtonPressedAccommodationTent];
+                }
+                
+                if([[accommodationType accomodationType]unsignedIntegerValue] == AccommodationType2Bedded){
+                    
+                    [accomodationType setTag:HotelProfileButtonPressedAccommodation2Bedded];
+                }
+                
+                if([[accommodationType accomodationType]unsignedIntegerValue] == AccommodationType4Bedded){
+                    
+                    [accomodationType setTag:HotelProfileButtonPressedAccommodation4Bedded];
+                }
+                
+                if([[accommodationType accomodationType]unsignedIntegerValue] == AccommodationTypeMachan){
+                    
+                    [accomodationType setTag:HotelProfileButtonPressedAccommodationMachan];
+                }
+                
+                
+                [accomodationType setBackgroundColor:[UIColor blackColor]];
                 [_parallaxContentView addSubview:accomodationType];
                 
-                y += accomodationType.frame.size.height;
+                y += accomodationType.frame.size.height + 2;
             }
         
             CGRect temp = _parallaxContentView.frame;
@@ -273,13 +317,14 @@
     self.topView = nil;
     self.scrollView = nil;
     self.parallaxContentView = nil;
-    self.parallaxHeaderView = nil;
+    if(self.parallaxSingleImageHeaderView)
+        self.parallaxSingleImageHeaderView = nil;
+    else
+        self.nonParallaxScrollHeaderView = nil;
     
     [self.navigationController popViewControllerAnimated:TRUE];
     
 }
-
-
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     
@@ -290,6 +335,68 @@
     [pageControl setCurrentPage:page];
 }
 
+-(void) someButtonSelected :(id) sender {
+    
+    BOOL loadNewViewController = FALSE;
+    UIButton *buttonPressed = (UIButton *)sender;
+    
+    NSArray *allAccommodation = nil;
+    HotelAccommodation *individualAccommodation = nil;
+    
+    if(([buttonPressed tag] == HotelProfileButtonPressedAccommodationTent) ||
+       ([buttonPressed tag] == HotelProfileButtonPressedAccommodation2Bedded) ||
+       ([buttonPressed tag] == HotelProfileButtonPressedAccommodation4Bedded) ||
+       ([buttonPressed tag] == HotelProfileButtonPressedAccommodationMachan)) {
+        for(HotelAccommodation *accommodationType in  [hotel hotelAccommodationList]) {
+            if(([[accommodationType accomodationType]unsignedIntegerValue] == [buttonPressed tag])) {
+                individualAccommodation = accommodationType;
+            }
+        }
+        loadNewViewController = TRUE;
+    }
+    
+    if([buttonPressed tag] == HotelProfileButtonPressedAccommodationAll) {
+        allAccommodation = [hotel hotelAccommodationList];
+        loadNewViewController = TRUE;
+    }
+
+    if(loadNewViewController) {
+        UIViewController *viewControllerToLoad;
+        if(allAccommodation != nil) {
+            NSLog(@"Show List");
+            viewControllerToLoad = [[RoomListViewController alloc]initWithRoomList:allAccommodation];
+        }else {
+            
+            NSLog(@"Show Room Types");
+            viewControllerToLoad = [[RoomDetailsViewController alloc]initWithRoom:individualAccommodation showAsParallaxView:TRUE];
+        }
+        
+        [self.navigationController pushViewController:viewControllerToLoad animated:TRUE];
+  }
+    else {
+        switch ([buttonPressed tag]) {
+            case HotelProfileButtonPressedReview:
+                NSLog(@"Review Pressed");
+                break;
+            case HotelProfileButtonPressedCall:
+                NSLog(@"Call Pressed");
+                break;
+            case HotelProfileButtonPressedTweet:
+                NSLog(@"Tweet Pressed");
+                break;
+            default:
+                break;
+        }
+        
+    }
+    
+}
+
+
+-(CGRect) getFrameUsing:(CGRect) rectRecieved {
+    
+    return CGRectMake(rectRecieved.origin.x, rectRecieved.origin.y + rectRecieved.size.height + 2, rectRecieved.size.width, rectRecieved.size.height);
+}
 ////dragging ends, please switch off paging to listen for this event
 //- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *) targetContentOffset {
 //    

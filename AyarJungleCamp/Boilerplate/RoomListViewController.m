@@ -1,34 +1,35 @@
 //
-//  AttractionListViewController.m
+//  RoomListViewController.m
 //  Boilerplate
 //
-//  Created by Pranav Sah on 06/09/16.
+//  Created by Pranav Sah on 08/09/16.
 //  Copyright © 2016 Agatsa. All rights reserved.
 //
 
-#import "AttractionListViewController.h"
-#import "AttractionListViewCell.h"
-#import "AttractionDataModel.h"
-#import "AttractionsDetailViewController.h"
+#import "RoomListViewController.h"
+#import "HotelAccommodation.h"
+#import "RoomListViewCellCollectionViewCell.h"
+#import "RoomDetailsViewController.h"
 
-@interface AttractionListViewController () {
+@interface RoomListViewController (){
     
     UICollectionView *attractionListView;
-    NSArray *attractionList;
+    NSArray *roomList;
 }
+
+
 
 @end
 
-@implementation AttractionListViewController
+@implementation RoomListViewController
 
-
--(instancetype) initWithAttractionList:(NSArray *) listRecieved {
+-(instancetype) initWithRoomList:(NSArray *) listRecieved {
     
     self = [super init];
     if(self) {
         
         [self.view setBackgroundColor:[UIColor whiteColor]];
-        attractionList = listRecieved;
+        roomList = listRecieved;
         [self createSubview];
     }
     return self;
@@ -41,10 +42,10 @@
     [layout setMinimumLineSpacing:2];
     [layout setItemSize:CGSizeMake(self.view.frame.size.width, (self.view.frame.size.height - 64)/3)];
     
-    self.topView = [[TopBarView alloc]initWithTitle:@"In and Around Nainital" andSize:CGSizeMake(self.view.bounds.size.width, 64)];
+    self.topView = [[TopBarView alloc]initWithTitle:@"Accommodation Types" andSize:CGSizeMake(self.view.bounds.size.width, 64)];
     [self.topView setDelegate:self];
     [self.view addSubview:self.topView];
-
+    
     CGRect frameForListView = CGRectMake(0, self.topView.frame.size.height, self.topView.frame.size.width, self.view.frame.size.height - self.topView.frame.size.height);
     
     attractionListView=[[UICollectionView alloc] initWithFrame:frameForListView collectionViewLayout:layout];
@@ -54,7 +55,7 @@
     [attractionListView setContentInset:UIEdgeInsetsMake(2, 0, 0, 0)];
     [attractionListView setBackgroundColor:[UIColor whiteColor]];
     
-    [attractionListView registerClass:[AttractionListViewCell class] forCellWithReuseIdentifier:@"cellIdentifier"];
+    [attractionListView registerClass:[RoomListViewCellCollectionViewCell class] forCellWithReuseIdentifier:@"cellIdentifier"];
     [self.view addSubview:attractionListView];
 }
 
@@ -69,28 +70,28 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-   
-    return [attractionList count];
+    
+    return [roomList count];
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    AttractionListViewCell *cell= (AttractionListViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"cellIdentifier" forIndexPath:indexPath];
-   
+    RoomListViewCellCollectionViewCell *cell= (RoomListViewCellCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"cellIdentifier" forIndexPath:indexPath];
     
-    AttractionDataModel *attractionToShow = [attractionList objectAtIndex:[indexPath row]];
     
-    [cell setPlaceName:[attractionToShow attractionName]];
-    [cell setPlaceCategory:[attractionToShow isAttractionInNainital]];
-    [cell setPlaceDistance:[attractionToShow attractionDistance]];
-    [cell setPlaceBackgroundImage:[attractionToShow attractionImageName]];
+    HotelAccommodation *roomToShow = [roomList objectAtIndex:[indexPath row]];
+    
+    [cell setAccommodationName:[roomToShow roomName]];
+    [cell setAccommodationPrice:[[roomToShow roomPrice]stringValue]];
+    [cell setAccommodationCapacity:[[roomToShow roomCapacity]stringValue]];
+    [cell setAccommodationBackgroundImage:[roomToShow roomImage1]];
     
     return cell;
 }
 
 //- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    
+//
 //    return CGSizeMake(collectionView.bounds.size.width, 200);
 //}
 
@@ -101,11 +102,11 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    AttractionDataModel *attractionSelected = (AttractionDataModel *) [attractionList objectAtIndex:[indexPath row]];
-    NSLog(@"You Selected : %@",[attractionSelected attractionName]);
-    AttractionsDetailViewController *attractionDetailsVC = [[AttractionsDetailViewController alloc]initWithAttraction: attractionSelected showAsParallaxView:TRUE];
-    [self.navigationController pushViewController:attractionDetailsVC animated:TRUE];
-
+    HotelAccommodation *roomSelected = (HotelAccommodation *) [roomList objectAtIndex:[indexPath row]];
+    NSLog(@"You Selected : %@",[roomSelected roomName]);
+    RoomDetailsViewController *roomsDetailsVC = [[RoomDetailsViewController alloc]initWithRoom:roomSelected showAsParallaxView:TRUE];
+    [self.navigationController pushViewController:roomsDetailsVC animated:TRUE];
+    
 }
 
 -(void) userTappedOnBackButton {
@@ -114,5 +115,4 @@
     self.topView = nil;
     [self.navigationController popViewControllerAnimated:TRUE];
     
-}
-@end
+}@end

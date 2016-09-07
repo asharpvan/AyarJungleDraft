@@ -32,6 +32,7 @@
         
         HotelAccommodation *tent = [HotelAccommodation new];
         [tent setRoomName:@"Tent"];
+        [tent setAccomodationType:[NSNumber numberWithUnsignedInteger:AccommodationTypeTent]];
         [tent setRoomCapacity:[NSNumber numberWithInteger:2]];
         [tent setRoomPrice:[NSNumber numberWithInteger:1800]];
         [tent setRoomTotal:[NSNumber numberWithInteger:18]];
@@ -41,6 +42,7 @@
         
         HotelAccommodation *doubleBedded = [HotelAccommodation new];
         [doubleBedded setRoomName:@"Double Bedded Cottage"];
+        [doubleBedded setAccomodationType:[NSNumber numberWithUnsignedInteger:AccommodationType2Bedded]];
         [doubleBedded setRoomCapacity:[NSNumber numberWithInteger:2]];
         [doubleBedded setRoomPrice:[NSNumber numberWithInteger:3000]];
         [doubleBedded setRoomTotal:[NSNumber numberWithInteger:10]];
@@ -50,6 +52,7 @@
         
         HotelAccommodation *fourBedded = [HotelAccommodation new];
         [fourBedded setRoomName:@"Four Bedded Cottage"];
+        [fourBedded setAccomodationType:[NSNumber numberWithUnsignedInteger:AccommodationType4Bedded]];
         [fourBedded setRoomCapacity:[NSNumber numberWithInteger:4]];
         [fourBedded setRoomPrice:[NSNumber numberWithInteger:4000]];
         [fourBedded setRoomTotal:[NSNumber numberWithInteger:3]];
@@ -59,6 +62,7 @@
         
         HotelAccommodation *machaan = [HotelAccommodation new];
         [machaan setRoomName:@"Machaan"];
+        [machaan setAccomodationType:[NSNumber numberWithUnsignedInteger:AccommodationTypeMachan]];
         [machaan setRoomCapacity:[NSNumber numberWithInteger:2]];
         [machaan setRoomPrice:[NSNumber numberWithInteger:3500]];
         [machaan setRoomTotal:[NSNumber numberWithInteger:3]];
@@ -91,6 +95,7 @@
         
         HotelAccommodation *tent = [HotelAccommodation new];
         [tent setRoomName:@"Tent"];
+        [tent setAccomodationType:[NSNumber numberWithUnsignedInteger:AccommodationTypeTent]];
         [tent setRoomCapacity:[NSNumber numberWithInteger:2]];
         [tent setRoomPrice:[NSNumber numberWithInteger:1800]];
         [tent setRoomTotal:[NSNumber numberWithInteger:18]];
@@ -100,6 +105,7 @@
         
         HotelAccommodation *doubleBedded = [HotelAccommodation new];
         [doubleBedded setRoomName:@"Double Bedded Cottage"];
+        [doubleBedded setAccomodationType:[NSNumber numberWithUnsignedInteger:AccommodationType2Bedded]];
         [doubleBedded setRoomCapacity:[NSNumber numberWithInteger:2]];
         [doubleBedded setRoomPrice:[NSNumber numberWithInteger:3000]];
         [doubleBedded setRoomTotal:[NSNumber numberWithInteger:10]];
@@ -109,6 +115,7 @@
         
         HotelAccommodation *fourBedded = [HotelAccommodation new];
         [fourBedded setRoomName:@"Four Bedded Cottage"];
+        [fourBedded setAccomodationType:[NSNumber numberWithUnsignedInteger:AccommodationType4Bedded]];
         [fourBedded setRoomCapacity:[NSNumber numberWithInteger:4]];
         [fourBedded setRoomPrice:[NSNumber numberWithInteger:4000]];
         [fourBedded setRoomTotal:[NSNumber numberWithInteger:3]];
@@ -118,6 +125,7 @@
         
         HotelAccommodation *machaan = [HotelAccommodation new];
         [machaan setRoomName:@"Machaan"];
+        [machaan setAccomodationType:[NSNumber numberWithUnsignedInteger:AccommodationTypeMachan]];
         [machaan setRoomCapacity:[NSNumber numberWithInteger:2]];
         [machaan setRoomPrice:[NSNumber numberWithInteger:3500]];
         [machaan setRoomTotal:[NSNumber numberWithInteger:3]];
@@ -233,14 +241,7 @@
     
     NSLog(@"\n************ About ****************");
     NSLog(@"Hotel Name  : %@",[self hotelName]);
-    NSLog(@"Hotel Recommended by  : %@",[self hotelRecommendedByPercentage]);
-//    NSLog(@"\n************ RANKING ****************");
-//    NSLog(@"Hotel : %@",[[self hotelRating] hotelRating]);
-//    NSLog(@"Value for Money : %@",[[self hotelRating] valueForMoneyRating]);
-//    NSLog(@"\n************ REVIEW ****************");
-//    NSLog(@"Positive  : %@",[[self hotelReview] positiveReviewCount]);
-//    NSLog(@"Total Review Count  : %@",[[self hotelReview] timesReviewed]);
-    
+    NSLog(@"Hotel Recommended by  : %@",[self hotelRecommendedByPercentage]);    
 }
 
 

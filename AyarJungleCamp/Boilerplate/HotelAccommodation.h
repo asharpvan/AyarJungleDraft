@@ -8,9 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSUInteger, AccommodationType) {
+    AccommodationTypeTent = 3,
+    AccommodationType2Bedded,
+    AccommodationType4Bedded,
+    AccommodationTypeMachan
+};
+
 @interface HotelAccommodation : NSObject
 
 
+@property(nonatomic,assign) NSNumber *accomodationType;
 @property(nonatomic,strong) NSString *roomName;
 @property(nonatomic,strong) NSString *roomImage1;
 @property(nonatomic,strong) NSString *roomImage2;
