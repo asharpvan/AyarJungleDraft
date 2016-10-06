@@ -37,4 +37,6 @@ typedef void(^HotelCompleteProfileFetchCompletion) (HotelProfile *, NSString *);
 -(HotelProfile *) fetchHotel;
 -(void) fetchAllAttractions: (AttractionListFetchCompletion) complete;
 
+-(void) deleteAllRecordFromHotelProfileData;
+
 @end

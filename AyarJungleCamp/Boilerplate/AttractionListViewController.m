@@ -103,7 +103,7 @@
     
     AttractionDataModel *attractionSelected = (AttractionDataModel *) [attractionList objectAtIndex:[indexPath row]];
     NSLog(@"You Selected : %@",[attractionSelected attractionName]);
-    AttractionsDetailViewController *attractionDetailsVC = [[AttractionsDetailViewController alloc]initWithAttraction: attractionSelected showAsParallaxView:TRUE];
+    AttractionsDetailViewController *attractionDetailsVC = [[AttractionsDetailViewController alloc]initWithAttraction: attractionSelected showAsParallaxView:FALSE];
     [self.navigationController pushViewController:attractionDetailsVC animated:TRUE];
 
 }

@@ -49,6 +49,7 @@
     }
     
     self.scrollView.parallaxHeader.view = isSingleImageParallax ? self.parallaxSingleImageHeaderView : self.nonParallaxScrollHeaderView;
+//    [self.scrollView.parallaxHeader.view setBackgroundColor:[UIColor blackColor]];
     self.scrollView.parallaxHeader.height = 200;
     self.scrollView.parallaxHeader.mode = MXParallaxHeaderModeFill;
     self.scrollView.parallaxHeader.minimumHeight = -self.parallaxContentView.bounds.size.height ;
@@ -87,6 +88,7 @@
     if(!_nonParallaxScrollHeaderView) {
         
         _nonParallaxScrollHeaderView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
+        [_nonParallaxScrollHeaderView setBackgroundColor:[UIColor brownColor]];
         [_nonParallaxScrollHeaderView setShowsVerticalScrollIndicator:FALSE];
         [_nonParallaxScrollHeaderView setShowsHorizontalScrollIndicator:FALSE];
         [_nonParallaxScrollHeaderView setDelegate:self];
@@ -95,7 +97,7 @@
         for(int i=0; i<3; i++){
             UIImageView *parallaxImageView = [[UIImageView alloc]initWithFrame:CGRectMake(i * _nonParallaxScrollHeaderView.frame.size.width, 0, _nonParallaxScrollHeaderView.frame.size.width, _nonParallaxScrollHeaderView.frame.size.height)];
             [parallaxImageView setContentMode:UIViewContentModeScaleAspectFill];
-            [parallaxImageView setImage:[UIImage imageNamed:[roomData roomImage1]]];
+            [parallaxImageView setImage:[UIImage imageNamed:@"AJC_Campground.png"]];//[roomData roomImage1]]];
             [_nonParallaxScrollHeaderView addSubview:parallaxImageView];
             totalWidth += _nonParallaxScrollHeaderView.frame.size.width;
         }
@@ -113,8 +115,9 @@
     if(!_parallaxSingleImageHeaderView) {
         
         _parallaxSingleImageHeaderView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 250)];
+        [_parallaxSingleImageHeaderView setBackgroundColor:[UIColor brownColor]];
         [_parallaxSingleImageHeaderView setContentMode:UIViewContentModeScaleAspectFill];
-        [_parallaxSingleImageHeaderView setImage:[UIImage imageNamed:[roomData roomImage1]]];
+        [_parallaxSingleImageHeaderView setImage:[UIImage imageNamed:@"AJC_Campground.png"]];//[roomData roomImage1]]];
         
     }
     return _parallaxSingleImageHeaderView;

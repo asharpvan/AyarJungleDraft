@@ -44,7 +44,7 @@
     if(!isSingleImageParallax) {
 
         pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, 200 - 40, self.view.frame.size.width, 40)];
-        [pageControl setBackgroundColor:[UIColor blackColor]];
+//        [pageControl setBackgroundColor:[UIColor blackColor]];
         [pageControl setUserInteractionEnabled:FALSE];
     }
     
@@ -87,6 +87,7 @@
     if(!_nonParallaxScrollHeaderView) {
         
         _nonParallaxScrollHeaderView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 200)];
+        [_nonParallaxScrollHeaderView setBackgroundColor:[UIColor brownColor]];
         [_nonParallaxScrollHeaderView setShowsVerticalScrollIndicator:FALSE];
         [_nonParallaxScrollHeaderView setShowsHorizontalScrollIndicator:FALSE];
         [_nonParallaxScrollHeaderView setDelegate:self];
@@ -113,6 +114,7 @@
     if(!_parallaxSingleImageHeaderView) {
 
         _parallaxSingleImageHeaderView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 250)];
+        [_parallaxSingleImageHeaderView setBackgroundColor:[UIColor brownColor]];
         [_parallaxSingleImageHeaderView setContentMode:UIViewContentModeScaleAspectFill];
         [_parallaxSingleImageHeaderView setImage:[UIImage imageNamed:[attractionData attractionImageName]]];
 

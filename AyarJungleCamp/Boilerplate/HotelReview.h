@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HotelReview : NSObject
+@interface HotelReview : NSObject <NSCoding>
 
 @property(nonatomic,strong) NSNumber *positiveReviewCount;
 @property(nonatomic,strong) NSNumber *negativeReviewCount;

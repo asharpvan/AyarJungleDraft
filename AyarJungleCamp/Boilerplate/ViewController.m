@@ -75,6 +75,13 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
     [inAndAroundNainitalButton setBackgroundColor:[UIColor blueColor]];
     [self.emptyViewScroller addSubview:inAndAroundNainitalButton];
     
+    
+    UIButton *twitterFeedsbutton = [[UIButton alloc]initWithFrame:CGRectMake(10, inAndAroundNainitalButton.frame.size.height + inAndAroundNainitalButton.frame.origin.y + 20 ,self.view.frame.size.width - (20), 60)];
+    [twitterFeedsbutton setTitle:@"Fetch feeds" forState:UIControlStateNormal];
+    [twitterFeedsbutton addTarget:self action:@selector(fetchAyarJungleFeeds) forControlEvents:UIControlEventTouchUpInside];
+    [twitterFeedsbutton setBackgroundColor:[UIColor blueColor]];
+    [self.emptyViewScroller addSubview:twitterFeedsbutton];
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -101,19 +108,15 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
     sprintAnimation.springBounciness = 20.f;
     sprintAnimation.completionBlock = ^(POPAnimation *anim, BOOL finished) {
         if([button tag] == 0)  {
-            NSLog(@"Here!!");
+//            NSLog(@"Here!!");
 //            [self loginWithTwitter];
-  
-            //Booking View Controller Exapmle
-//            __block BookingViewController *booking = [[BookingViewController alloc]init];
+//  
+//            __block DashBoardViewController *dashboard = [[DashBoardViewController alloc]init];
 //            dispatch_async(dispatch_get_main_queue(), ^{
-//                            [self.navigationController pushViewController:booking animated:TRUE];
+//                [self.navigationController pushViewController:dashboard animated:TRUE];
 //            });
             
-            __block DashBoardViewController *dashboard = [[DashBoardViewController alloc]init];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.navigationController pushViewController:dashboard animated:TRUE];
-            });
+            [self sendSMS];
         }
         else
             [self signIn:@"Username" withPassword:@"Password"];
@@ -140,7 +143,6 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
         
         NSLog(@"error : %@",[error localizedDescription]);
     }];
-
 }
 
 -(void) loginWithTwitter {
@@ -171,11 +173,32 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
     [_twitter verifyCredentialsWithUserSuccessBlock:^(NSString *username, NSString *userID) {
         
         NSLog(@"@%@ (%@)", username, userID);
+        [self showMeTweets];
         
     } errorBlock:^(NSError *error) {
        
         NSLog(@"error : %@",[error localizedDescription]);
     }];
+}
+
+
+-(void) showMeTweets {
+    
+    NSString *query = @"ayar Jungle Camp";
+    NSString *searchQuery = [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"Searching For (%@)", searchQuery);
+    [_twitter getSearchTweetsWithQuery:searchQuery successBlock:^(NSDictionary *searchMetadata, NSArray *statuses) {
+        
+        NSLog(@"Search data : %@",searchMetadata);
+        NSLog(@"\n\n Status : %@",statuses);
+        
+    } errorBlock:^(NSError *error) {
+        NSLog(@"Error : %@",error);
+    }];
+    
+
+    
+    
 }
 
 - (void)chooseAccount {
@@ -194,20 +217,33 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
             NSLog(@"Twitter Accounts found in iOS Device : %lu",(unsigned long)[_iOSAccounts count]);
             if([_iOSAccounts count] == 1) {
                 NSLog(@"Only One Twitter Accounts found in iOS Device");
-//                ACAccount *account = [_iOSAccounts lastObject];
-//                _accountChooserBlock(account, nil);
+                ACAccount *account = [_iOSAccounts lastObject];
+                _accountChooserBlock(account, nil);
             } else if([_iOSAccounts count] > 1) {
                 
                 NSLog(@"Multiple Twitter Accounts found in iOS Device");
+                UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"Select an account:"  message:nil preferredStyle:UIAlertControllerStyleActionSheet];
                 
-//                UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:@"Select an account:"
-//                                                                delegate:self
-//                                                       cancelButtonTitle:@"Cancel"
-//                                                  destructiveButtonTitle:nil otherButtonTitles:nil];
-//                for(ACAccount *account in _iOSAccounts) {
-//                    [as addButtonWithTitle:[NSString stringWithFormat:@"@%@", account.username]];
-//                }
-//                [as showInView:self.view.window];
+                    UIAlertAction *cancelButton = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+                        
+                    }];
+                    [actionSheet addAction:cancelButton];
+                
+                for(ACAccount *account in _iOSAccounts) {
+                   
+                    UIAlertAction *optionButton = [UIAlertAction actionWithTitle:account.username style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                        
+                        NSLog(@"Login With : %@",account.username);
+                        [self loginWithiOSAccount:account];
+                        
+                    }];
+                    [actionSheet addAction:optionButton];
+                }
+                
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self presentViewController:actionSheet animated:YES completion:nil];
+                });
             } else {
                 
                 _accountChooserBlock(nil,@"No Twitter Accounts found in iOS Device");
@@ -255,14 +291,20 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
         GIAPIClient *apiClient = [[GIAPIClient alloc]init];
         [apiClient fetchHotelDetailsForProfile:^(HotelProfile *ayarDetails, NSError *error) {
 
+//            [[DatabaseClient sharedInstance] openDatabase];
+//            [[DatabaseClient sharedInstance] deleteAllRecordFromHotelProfileData];
+//            [[DatabaseClient sharedInstance] closeDatabase];
+            
             [[DatabaseClient sharedInstance] openDatabase];
             HotelProfile *profileToShow = [[DatabaseClient sharedInstance] fetchHotel];
             [[DatabaseClient sharedInstance] closeDatabase];
+            NSLog(@"profileToShow : %@",profileToShow);
+
             if(!error) {
                 
                 //Check whether or not the object fetched from net has been modified since last update
                 if(!profileToShow || ( profileToShow && [profileToShow hasProfileChangedOverTime:ayarDetails])) {
-                
+            
                     [[DatabaseClient sharedInstance] openDatabase];
                     [[DatabaseClient sharedInstance] saveHotelProfileLocally:ayarDetails];
                     [[DatabaseClient sharedInstance] closeDatabase];
@@ -286,8 +328,17 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
 
 
 -(void) userTappedOnActionButton {
+    
     NSLog(@"User Tapped Recieved on ViewController");
 }
+
+-(void) fetchAyarJungleFeeds {
+
+    NSLog(@"Login and Fetch Feeds");
+    [self loginWithTwitter];
+
+}
+
 
 -(void) showListofAttractions {
     
@@ -320,5 +371,19 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
             [self.navigationController pushViewController:attractionList animated:TRUE];
         }
     }];
+}
+
+
+
+-(void) sendSMS {
+    
+    NSLog(@"Send SMS");
+    
+    
+
+
+    
+    
+    
 }
 @end

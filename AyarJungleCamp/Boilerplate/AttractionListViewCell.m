@@ -21,7 +21,7 @@
         self.attractionBackgroundImage = [[UIImageView alloc] initWithFrame:self.bounds];
         [self.attractionBackgroundImage setAutoresizingMask: UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
         [self.attractionBackgroundImage setContentMode:UIViewContentModeScaleAspectFill];
-        [self.attractionBackgroundImage setBackgroundColor:[UIColor whiteColor]];
+        [self.attractionBackgroundImage setBackgroundColor:[UIColor blackColor]];
         
         self.attractionName = [[UILabel alloc] initWithFrame:CGRectMake(5, self.bounds.size.height - 40, self.bounds.size.width, 20)];
         [self.attractionName setAutoresizingMask: UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];

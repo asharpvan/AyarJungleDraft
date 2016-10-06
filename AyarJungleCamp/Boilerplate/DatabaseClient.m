@@ -78,7 +78,7 @@
 -(BOOL) saveHotelProfileLocally:(HotelProfile *) hotelRecord {
     
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:hotelRecord];
-    const char* sqliteQuery = "Insert or Replace into HotelProfile (profile) VALUES (?)";
+    const char* sqliteQuery = "Insert or Replace into HotelProfile (profile_id,profile) VALUES (1,?)";
     sqlite3_stmt* statement;
     if (sqlite3_prepare_v2(dbHandle, sqliteQuery, -1, &statement, NULL) == SQLITE_OK) {
         
@@ -100,10 +100,29 @@
     }
 }
 
+
+-(void) deleteAllRecordFromHotelProfileData {
+    
+ 
+    NSString *query = @"delete from HotelProfile";
+    const char *sqlStatement = [query UTF8String];
+    sqlite3_stmt *compiledStatement;
+    if(sqlite3_prepare_v2(dbHandle, sqlStatement, -1, &compiledStatement, NULL) == SQLITE_OK) {
+        // Loop through the results and add them to the feeds array
+        while(sqlite3_step(compiledStatement) == SQLITE_ROW) {
+            // Read the data from the result row
+            NSLog(@"result is here");
+        }
+        
+        // Release the compiled statement from memory
+        sqlite3_finalize(compiledStatement);
+    }
+}
+
 -(HotelProfile *) fetchHotel {
     
     NSLog(@"Fetching Hotel Profile Details From Local");
-    HotelProfile *fetchedProfile;
+    HotelProfile *fetchedProfile = nil;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *databasePath = [documentsDirectory stringByAppendingPathComponent: dbName];
@@ -113,9 +132,15 @@
         sqlite3_stmt *searchStatement;
         if(sqlite3_prepare_v2(dbHandle, sqlStatment, -1, &searchStatement, NULL) == SQLITE_OK){
             while(sqlite3_step(searchStatement) == SQLITE_ROW){
-               
                 NSData *data = [[NSData alloc] initWithBytes:sqlite3_column_blob(searchStatement, 1) length:sqlite3_column_bytes(searchStatement, 1)];
+//                NSLog(@"data : %d",[data length]);
+//                if([data length] < 4000) {
+
                 fetchedProfile = (HotelProfile *)[NSKeyedUnarchiver unarchiveObjectWithData:data];
+                
+                NSLog(@"FETCHED PROFILE : %@",fetchedProfile);
+//                }
+            
             }
             sqlite3_finalize(searchStatement);
         }

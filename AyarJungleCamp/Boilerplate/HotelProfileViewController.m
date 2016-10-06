@@ -10,9 +10,12 @@
 #import "HotelProfile.h"
 #import "HotelRating.h"
 #import "HotelReview.h"
+#import "ReviewDetails.h"
 #import "HotelAccommodation.h"
 #import "RoomListViewController.h"
 #import "RoomDetailsViewController.h"
+#import "GIAPIClient.h"
+#import "ReviewListViewController.h"
 
 
 
@@ -359,6 +362,10 @@
         allAccommodation = [hotel hotelAccommodationList];
         loadNewViewController = TRUE;
     }
+    
+    if([buttonPressed tag] == HotelProfileButtonPressedReview) {
+        loadNewViewController = TRUE;
+    }
 
     if(loadNewViewController) {
         UIViewController *viewControllerToLoad;
@@ -366,18 +373,26 @@
             NSLog(@"Show List");
             viewControllerToLoad = [[RoomListViewController alloc]initWithRoomList:allAccommodation];
         }else {
-            
-            NSLog(@"Show Room Types");
-            viewControllerToLoad = [[RoomDetailsViewController alloc]initWithRoom:individualAccommodation showAsParallaxView:TRUE];
+            if([buttonPressed tag] == HotelProfileButtonPressedReview) {
+
+                NSLog(@"Show Review");
+                viewControllerToLoad = [[ReviewListViewController alloc]initWithTotalReviews:[[hotel hotelReview]timesReviewed]];
+                
+            }else {
+
+                NSLog(@"Show Room Types");
+                viewControllerToLoad = [[RoomDetailsViewController alloc]initWithRoom:individualAccommodation showAsParallaxView:TRUE];
+            }
         }
         
         [self.navigationController pushViewController:viewControllerToLoad animated:TRUE];
   }
     else {
         switch ([buttonPressed tag]) {
-            case HotelProfileButtonPressedReview:
-                NSLog(@"Review Pressed");
-                break;
+//            case HotelProfileButtonPressedReview: {
+//                NSLog(@"Review Pressed");
+//             }
+//                break;
             case HotelProfileButtonPressedCall:
                 NSLog(@"Call Pressed");
                 break;

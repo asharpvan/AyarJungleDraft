@@ -16,6 +16,11 @@
 		192C32B01D70C7B6002C25FD /* HotelProfileViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32AF1D70C7B6002C25FD /* HotelProfileViewViewController.m */; };
 		192C32B51D70C959002C25FD /* HotelAccommodation.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32B41D70C959002C25FD /* HotelAccommodation.m */; };
 		192C32BC1D719401002C25FD /* HotelProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 192C32BB1D719401002C25FD /* HotelProfileView.m */; };
+		1973C0621D89A25E0001248F /* ReviewDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 1973C0611D89A25E0001248F /* ReviewDetails.m */; };
+		1973C0651D89AA0F0001248F /* ReviewListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1973C0641D89AA0F0001248F /* ReviewListViewController.m */; };
+		1973C0681D89AA960001248F /* ReviewListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1973C0671D89AA960001248F /* ReviewListViewCell.m */; };
+		1973C06B1D89CF510001248F /* ReviewLoadingViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1973C06A1D89CF510001248F /* ReviewLoadingViewCell.m */; };
+		1973C06E1D89CF670001248F /* ReviewLoadedViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1973C06D1D89CF670001248F /* ReviewLoadedViewCell.m */; };
 		19D768851D80923B0086499F /* AttractionsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D768841D80923B0086499F /* AttractionsDetailViewController.m */; };
 		19D768891D80B1700086499F /* RoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D768881D80B1700086499F /* RoomListViewController.m */; };
 		19D7688C1D80B2EC0086499F /* RoomListViewCellCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19D7688B1D80B2EC0086499F /* RoomListViewCellCollectionViewCell.m */; };
@@ -25,17 +30,14 @@
 		19EB85951D7442EA004EAC7F /* MXScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EB85921D7442EA004EAC7F /* MXScrollViewController.m */; };
 		19EB85971D7442FF004EAC7F /* LICENSE-MXParallaxHeader in Resources */ = {isa = PBXBuildFile; fileRef = 19EB85961D7442FF004EAC7F /* LICENSE-MXParallaxHeader */; };
 		19EB859A1D74433D004EAC7F /* HotelProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EB85991D74433D004EAC7F /* HotelProfileViewController.m */; };
-		19ED94161D758690002F0A55 /* AJC_Campground.png in Resources */ = {isa = PBXBuildFile; fileRef = 19ED94141D758690002F0A55 /* AJC_Campground.png */; };
-		19ED94171D758690002F0A55 /* AJC_Restaurant.png in Resources */ = {isa = PBXBuildFile; fileRef = 19ED94151D758690002F0A55 /* AJC_Restaurant.png */; };
 		19ED941C1D758ABF002F0A55 /* StarshipHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 19ED941A1D758ABF002F0A55 /* StarshipHeader.xib */; };
-		19ED941E1D75904E002F0A55 /* restaurant.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 19ED941D1D75904E002F0A55 /* restaurant.jpeg */; };
 		19FCBAA81D7E851000919D21 /* AttractionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FCBAA71D7E851000919D21 /* AttractionListViewController.m */; };
 		19FCBAAD1D7EA38700919D21 /* AttractionDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FCBAAC1D7EA38700919D21 /* AttractionDataModel.m */; };
 		19FCBAB01D7EA45300919D21 /* AttractionListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FCBAAF1D7EA45300919D21 /* AttractionListViewCell.m */; };
-		19FCBAB41D7F40CE00919D21 /* AJCDatabase.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 19FCBAB31D7F40CE00919D21 /* AJCDatabase.sqlite */; };
-		19FCBAB61D7F412900919D21 /* AJCDatabase0.1.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 19FCBAB51D7F412900919D21 /* AJCDatabase0.1.sqlite */; };
 		19FCBAB81D7F431700919D21 /* AJCDatabase0.2.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 19FCBAB71D7F431700919D21 /* AJCDatabase0.2.sqlite */; };
 		19FD82BE1D7D5AF1009A1149 /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FD82BD1D7D5AF1009A1149 /* TopBarView.m */; };
+		19FF3B691D9B8372001719F4 /* AJC_Campground.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FF3B671D9B8372001719F4 /* AJC_Campground.png */; };
+		19FF3B6A1D9B8372001719F4 /* AJC_Restaurant.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FF3B681D9B8372001719F4 /* AJC_Restaurant.png */; };
 		F418841A1CAE7F21005F562F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F41884191CAE7F21005F562F /* main.m */; };
 		F418841D1CAE7F21005F562F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F418841C1CAE7F21005F562F /* AppDelegate.m */; };
 		F41884201CAE7F21005F562F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F418841F1CAE7F21005F562F /* ViewController.m */; };
@@ -137,6 +139,16 @@
 		192C32B41D70C959002C25FD /* HotelAccommodation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelAccommodation.m; sourceTree = "<group>"; };
 		192C32BA1D719401002C25FD /* HotelProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelProfileView.h; sourceTree = "<group>"; };
 		192C32BB1D719401002C25FD /* HotelProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelProfileView.m; sourceTree = "<group>"; };
+		1973C0601D89A25E0001248F /* ReviewDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewDetails.h; sourceTree = "<group>"; };
+		1973C0611D89A25E0001248F /* ReviewDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewDetails.m; sourceTree = "<group>"; };
+		1973C0631D89AA0F0001248F /* ReviewListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewListViewController.h; sourceTree = "<group>"; };
+		1973C0641D89AA0F0001248F /* ReviewListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewListViewController.m; sourceTree = "<group>"; };
+		1973C0661D89AA960001248F /* ReviewListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewListViewCell.h; sourceTree = "<group>"; };
+		1973C0671D89AA960001248F /* ReviewListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewListViewCell.m; sourceTree = "<group>"; };
+		1973C0691D89CF510001248F /* ReviewLoadingViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewLoadingViewCell.h; sourceTree = "<group>"; };
+		1973C06A1D89CF510001248F /* ReviewLoadingViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewLoadingViewCell.m; sourceTree = "<group>"; };
+		1973C06C1D89CF670001248F /* ReviewLoadedViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReviewLoadedViewCell.h; sourceTree = "<group>"; };
+		1973C06D1D89CF670001248F /* ReviewLoadedViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReviewLoadedViewCell.m; sourceTree = "<group>"; };
 		19D768831D80923B0086499F /* AttractionsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttractionsDetailViewController.h; sourceTree = "<group>"; };
 		19D768841D80923B0086499F /* AttractionsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttractionsDetailViewController.m; sourceTree = "<group>"; };
 		19D768871D80B1700086499F /* RoomListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomListViewController.h; sourceTree = "<group>"; };
@@ -154,21 +166,18 @@
 		19EB85961D7442FF004EAC7F /* LICENSE-MXParallaxHeader */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "LICENSE-MXParallaxHeader"; sourceTree = "<group>"; };
 		19EB85981D74433D004EAC7F /* HotelProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotelProfileViewController.h; sourceTree = "<group>"; };
 		19EB85991D74433D004EAC7F /* HotelProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotelProfileViewController.m; sourceTree = "<group>"; };
-		19ED94141D758690002F0A55 /* AJC_Campground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AJC_Campground.png; sourceTree = "<group>"; };
-		19ED94151D758690002F0A55 /* AJC_Restaurant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AJC_Restaurant.png; sourceTree = "<group>"; };
 		19ED941A1D758ABF002F0A55 /* StarshipHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StarshipHeader.xib; sourceTree = "<group>"; };
-		19ED941D1D75904E002F0A55 /* restaurant.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = restaurant.jpeg; sourceTree = "<group>"; };
 		19FCBAA61D7E851000919D21 /* AttractionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttractionListViewController.h; sourceTree = "<group>"; };
 		19FCBAA71D7E851000919D21 /* AttractionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttractionListViewController.m; sourceTree = "<group>"; };
 		19FCBAAB1D7EA38700919D21 /* AttractionDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttractionDataModel.h; sourceTree = "<group>"; };
 		19FCBAAC1D7EA38700919D21 /* AttractionDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttractionDataModel.m; sourceTree = "<group>"; };
 		19FCBAAE1D7EA45300919D21 /* AttractionListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttractionListViewCell.h; sourceTree = "<group>"; };
 		19FCBAAF1D7EA45300919D21 /* AttractionListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttractionListViewCell.m; sourceTree = "<group>"; };
-		19FCBAB31D7F40CE00919D21 /* AJCDatabase.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = AJCDatabase.sqlite; sourceTree = "<group>"; };
-		19FCBAB51D7F412900919D21 /* AJCDatabase0.1.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = AJCDatabase0.1.sqlite; sourceTree = "<group>"; };
 		19FCBAB71D7F431700919D21 /* AJCDatabase0.2.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = AJCDatabase0.2.sqlite; sourceTree = "<group>"; };
 		19FD82BC1D7D5AF0009A1149 /* TopBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopBarView.h; sourceTree = "<group>"; };
 		19FD82BD1D7D5AF1009A1149 /* TopBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBarView.m; sourceTree = "<group>"; };
+		19FF3B671D9B8372001719F4 /* AJC_Campground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AJC_Campground.png; sourceTree = "<group>"; };
+		19FF3B681D9B8372001719F4 /* AJC_Restaurant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AJC_Restaurant.png; sourceTree = "<group>"; };
 		F41884151CAE7F21005F562F /* Boilerplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boilerplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41884191CAE7F21005F562F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F418841B1CAE7F21005F562F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -348,8 +357,6 @@
 		191788D11D783FAE00A00635 /* Database Client */ = {
 			isa = PBXGroup;
 			children = (
-				19FCBAB31D7F40CE00919D21 /* AJCDatabase.sqlite */,
-				19FCBAB51D7F412900919D21 /* AJCDatabase0.1.sqlite */,
 				19FCBAB71D7F431700919D21 /* AJCDatabase0.2.sqlite */,
 				191788D21D783FBB00A00635 /* DatabaseClient.h */,
 				191788D31D783FBB00A00635 /* DatabaseClient.m */,
@@ -375,15 +382,16 @@
 			name = AJC_GI_API_Client;
 			sourceTree = "<group>";
 		};
-		192C32A51D7037DD002C25FD /* Hotel Profile Data Model */ = {
+		192C32A51D7037DD002C25FD /* Hotel Related Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				1973C05F1D89A1F80001248F /* Hotel Review Details Data Model */,
 				192C32B61D70C960002C25FD /* Hotel Accommodation Data Model */,
 				192C32AC1D705111002C25FD /* Hotel Rating Data Model */,
 				192C32AD1D705120002C25FD /* Hotel Review Data Model */,
 				191788D91D784DE000A00635 /* Hotel Profile Data Model */,
 			);
-			name = "Hotel Profile Data Model";
+			name = "Hotel Related Data Model";
 			sourceTree = "<group>";
 		};
 		192C32AC1D705111002C25FD /* Hotel Rating Data Model */ = {
@@ -440,6 +448,15 @@
 			name = "Hotel Profile View";
 			sourceTree = "<group>";
 		};
+		1973C05F1D89A1F80001248F /* Hotel Review Details Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				1973C0601D89A25E0001248F /* ReviewDetails.h */,
+				1973C0611D89A25E0001248F /* ReviewDetails.m */,
+			);
+			name = "Hotel Review Details Data Model";
+			sourceTree = "<group>";
+		};
 		19EB858C1D7442BE004EAC7F /* MXParallaxHeader */ = {
 			isa = PBXGroup;
 			children = (
@@ -458,9 +475,8 @@
 		19ED94131D75867B002F0A55 /* AJC Images */ = {
 			isa = PBXGroup;
 			children = (
-				19ED94141D758690002F0A55 /* AJC_Campground.png */,
-				19ED941D1D75904E002F0A55 /* restaurant.jpeg */,
-				19ED94151D758690002F0A55 /* AJC_Restaurant.png */,
+				19FF3B671D9B8372001719F4 /* AJC_Campground.png */,
+				19FF3B681D9B8372001719F4 /* AJC_Restaurant.png */,
 			);
 			name = "AJC Images";
 			sourceTree = "<group>";
@@ -469,7 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				19FCBAAA1D7EA34C00919D21 /* Attractions Data Model */,
-				192C32A51D7037DD002C25FD /* Hotel Profile Data Model */,
+				192C32A51D7037DD002C25FD /* Hotel Related Data Model */,
 			);
 			name = "Data Models";
 			sourceTree = "<group>";
@@ -543,6 +559,14 @@
 				19D7688B1D80B2EC0086499F /* RoomListViewCellCollectionViewCell.m */,
 				19D7688D1D80B5C10086499F /* RoomDetailsViewController.h */,
 				19D7688E1D80B5C10086499F /* RoomDetailsViewController.m */,
+				1973C0631D89AA0F0001248F /* ReviewListViewController.h */,
+				1973C0641D89AA0F0001248F /* ReviewListViewController.m */,
+				1973C0661D89AA960001248F /* ReviewListViewCell.h */,
+				1973C0671D89AA960001248F /* ReviewListViewCell.m */,
+				1973C0691D89CF510001248F /* ReviewLoadingViewCell.h */,
+				1973C06A1D89CF510001248F /* ReviewLoadingViewCell.m */,
+				1973C06C1D89CF670001248F /* ReviewLoadedViewCell.h */,
+				1973C06D1D89CF670001248F /* ReviewLoadedViewCell.m */,
 				192C32B11D70C7C2002C25FD /* UI Related */,
 				F41884401CAE93EA005F562F /* Custom Classes */,
 				F418843A1CAE8367005F562F /* Third Party */,
@@ -881,29 +905,26 @@
 				F41884391CAE8098005F562F /* Default@2x.png in Resources */,
 				F47A3BE81D27BE5700DB2C7A /* LICENSE_DZN in Resources */,
 				F4E500141D59EF9D00735517 /* Sun@2x.png in Resources */,
+				19FF3B6A1D9B8372001719F4 /* AJC_Restaurant.png in Resources */,
 				F47A3BF61D27BEB700DB2C7A /* icon-info@2x.png in Resources */,
-				19ED941E1D75904E002F0A55 /* restaurant.jpeg in Resources */,
 				F47A3BF71D27BEB700DB2C7A /* icon-success.png in Resources */,
 				F4E500121D59EC6700735517 /* Storm3@2x.png in Resources */,
 				19FCBAB81D7F431700919D21 /* AJCDatabase0.2.sqlite in Resources */,
 				F4DFFDE71D4B463F00DB6244 /* LICENSE_AFNetworking in Resources */,
 				F47A3BF51D27BEB700DB2C7A /* icon-info.png in Resources */,
 				F41884251CAE7F21005F562F /* Assets.xcassets in Resources */,
-				19FCBAB61D7F412900919D21 /* AJCDatabase0.1.sqlite in Resources */,
 				19ED941C1D758ABF002F0A55 /* StarshipHeader.xib in Resources */,
 				F4E5000C1D59E82A00735517 /* Storm@2x.png in Resources */,
 				F47A3BF41D27BEB700DB2C7A /* icon-error@2x.png in Resources */,
 				F41884361CAE8097005F562F /* Default-667h@2x.png in Resources */,
-				19FCBAB41D7F40CE00919D21 /* AJCDatabase.sqlite in Resources */,
 				F47A3BE21D27BDCE00DB2C7A /* LICENSE in Resources */,
 				19EB85971D7442FF004EAC7F /* LICENSE-MXParallaxHeader in Resources */,
 				F47A3C2A1D27BF1500DB2C7A /* LICENCE.txt in Resources */,
-				19ED94161D758690002F0A55 /* AJC_Campground.png in Resources */,
 				F41884351CAE8097005F562F /* Default-568h@2x.png in Resources */,
 				F4E5000E1D59EB0A00735517 /* Storm1@2x.png in Resources */,
 				F4E500101D59EC0700735517 /* Storm2@2x.png in Resources */,
-				19ED94171D758690002F0A55 /* AJC_Restaurant.png in Resources */,
 				F41884371CAE8097005F562F /* Default-736h@3x.png in Resources */,
+				19FF3B691D9B8372001719F4 /* AJC_Campground.png in Resources */,
 				F41884381CAE8097005F562F /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -941,6 +962,7 @@
 				F47A3C221D27BF0B00DB2C7A /* STTwitterOAuth.m in Sources */,
 				F47A3BCF1D27B87600DB2C7A /* POPGeometry.mm in Sources */,
 				F4DFFDE11D4B461B00DB6244 /* UIButton+AFNetworking.m in Sources */,
+				1973C0681D89AA960001248F /* ReviewListViewCell.m in Sources */,
 				F47A3C261D27BF0B00DB2C7A /* BAVPlistNode.m in Sources */,
 				F47A3BD91D27B88100DB2C7A /* TransformationMatrix.cpp in Sources */,
 				192C32A81D703A43002C25FD /* HotelRating.m in Sources */,
@@ -949,6 +971,7 @@
 				F4DFFDE31D4B461B00DB6244 /* UIProgressView+AFNetworking.m in Sources */,
 				F47A3C271D27BF0B00DB2C7A /* JSONSyntaxHighlight.m in Sources */,
 				19FCBAAD1D7EA38700919D21 /* AttractionDataModel.m in Sources */,
+				1973C06B1D89CF510001248F /* ReviewLoadingViewCell.m in Sources */,
 				F4DFFDC61D4B45EC00DB6244 /* AFURLResponseSerialization.m in Sources */,
 				F47A3BC71D27B87600DB2C7A /* POPAnimationExtras.mm in Sources */,
 				F47A3BC61D27B87600DB2C7A /* POPAnimationEvent.mm in Sources */,
@@ -965,6 +988,7 @@
 				19D7688C1D80B2EC0086499F /* RoomListViewCellCollectionViewCell.m in Sources */,
 				F47A3C1F1D27BF0B00DB2C7A /* STTwitterAPI.m in Sources */,
 				F47A3BEC1D27BEB100DB2C7A /* TWMessageBarManager.m in Sources */,
+				1973C0651D89AA0F0001248F /* ReviewListViewController.m in Sources */,
 				F47A3C1E1D27BF0B00DB2C7A /* STHTTPRequest+STTwitter.m in Sources */,
 				F47A3BCA1D27B87600DB2C7A /* POPAnimator.mm in Sources */,
 				F47A3BCE1D27B87600DB2C7A /* POPDecayAnimation.mm in Sources */,
@@ -981,11 +1005,13 @@
 				F47A3BCC1D27B87600DB2C7A /* POPCGUtils.mm in Sources */,
 				F47A3C251D27BF0B00DB2C7A /* STTwitterStreamParser.m in Sources */,
 				192C32AB1D703A53002C25FD /* HotelReview.m in Sources */,
+				1973C0621D89A25E0001248F /* ReviewDetails.m in Sources */,
 				F4DFFDC21D4B45EC00DB6244 /* AFHTTPSessionManager.m in Sources */,
 				F4AAD8541D589EA700442221 /* AJCDashboardView.m in Sources */,
 				F47A3BDF1D27BDC500DB2C7A /* SSKeychain.m in Sources */,
 				F47A3BD11D27B87600DB2C7A /* POPMath.mm in Sources */,
 				F47A3BCD1D27B87600DB2C7A /* POPCustomAnimation.mm in Sources */,
+				1973C06E1D89CF670001248F /* ReviewLoadedViewCell.m in Sources */,
 				F47A3BE61D27BE3F00DB2C7A /* UIScrollView+EmptyDataSet.m in Sources */,
 				19EB85931D7442EA004EAC7F /* MXParallaxHeader.m in Sources */,
 				F47A3C231D27BF0B00DB2C7A /* STTwitterOS.m in Sources */,

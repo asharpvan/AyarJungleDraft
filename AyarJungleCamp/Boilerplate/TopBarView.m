@@ -30,12 +30,9 @@
     
     [self setBackgroundColor:[UIColor colorWithRed:0.0 green:0.482 blue:1.0 alpha:0.96f]];
     
-    
     [self addSubview:self.topBarTitleLabel];
     [self addSubview:self.backButtonView];
     
-    
-
 }
 
 - (UILabel *)topBarTitleLabel {
@@ -46,6 +43,7 @@
         [_topBarTitleLabel setTextColor:[UIColor whiteColor]];
         [_topBarTitleLabel setText:titleToShow];
         [_topBarTitleLabel setTextAlignment:NSTextAlignmentCenter];
+        [_topBarTitleLabel setFont:[UIFont boldSystemFontOfSize:13.0f]];
         
     }
     return _topBarTitleLabel;
@@ -59,7 +57,6 @@
         [_backButtonView setCenter:CGPointMake(42, self.center.y)];
         [_backButtonView setImage:[UIImage imageNamed:@"Storm.png"]];
         [_backButtonView setContentMode:UIViewContentModeCenter];
-//        [_backButtonView setBackgroundColor:[UIColor blackColor]];
         [_backButtonView setUserInteractionEnabled:TRUE];
         
         //Set up gesture on the view

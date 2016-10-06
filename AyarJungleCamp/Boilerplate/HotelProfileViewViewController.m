@@ -9,6 +9,7 @@
 #import "HotelProfileViewViewController.h"
 #import "HotelProfile.h"
 #import "POP.h"
+#import "ReviewListViewController.h"
 
 @interface HotelProfileViewViewController () {
     

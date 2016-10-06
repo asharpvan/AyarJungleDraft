@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HotelRating : NSObject
+@interface HotelRating : NSObject <NSCoding>
 
 @property(nonatomic,strong) NSNumber *cleanlinessRating;
 @property(nonatomic,strong) NSNumber *amenitiesRating;

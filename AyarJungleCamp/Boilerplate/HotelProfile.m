@@ -265,6 +265,8 @@
         self.hotelReview = [decoder decodeObjectForKey:@"hotelReview"];
         self.hotelAccommodationList = [decoder decodeObjectForKey:@"hotelAccommodationList"];
     }
+    
+    NSLog(@"hotel Profile : %@",self);
 
     return self;
 }

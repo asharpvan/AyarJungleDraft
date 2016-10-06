@@ -14,7 +14,7 @@
 @class HotelReview;
 @class HotelAccommodationList;
 
-@interface HotelProfile : NSObject
+@interface HotelProfile : NSObject <NSCoding>
 
 //About
 @property(nonatomic,strong) NSString *hotelName;
