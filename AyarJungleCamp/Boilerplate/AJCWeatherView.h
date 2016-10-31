@@ -17,12 +17,17 @@
 
 @interface AJCWeatherView : UIView {
     
+    UIView *infoView;
     UILabel *ajcTempLabel;
     UIImageView *weatherIconImageView;
     UILabel *currentDayLabel;
     UILabel *currentWeatherConditionsLabel;
-    UIView *infoView;
+    
+    UIView *errorView;
+    UILabel *errorLabel;
+    
     UIActivityIndicatorView *spinner;
+    UIButton *refreshButton;
     
 }
 

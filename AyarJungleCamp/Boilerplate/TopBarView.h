@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @protocol TopBarViewDelegate <NSObject>
-
 @optional
 -(void) userTappedOnBackButton;
 

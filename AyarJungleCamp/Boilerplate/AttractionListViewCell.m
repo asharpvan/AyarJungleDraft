@@ -27,12 +27,12 @@
         [self.attractionName setAutoresizingMask: UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
         [self.attractionName setFont: [UIFont boldSystemFontOfSize:21]];
         [self.attractionName setTextAlignment : NSTextAlignmentLeft];
-        [self.attractionName setTextColor:[UIColor whiteColor]];
+        [self.attractionName setTextColor:[UIColor blackColor]];
         [self.attractionName setAdjustsFontSizeToFitWidth : TRUE];
        
         self.attractionCategory = [[UILabel alloc] initWithFrame:CGRectMake(5, self.bounds.size.height - 20, self.bounds.size.width, 20)];
         [self.attractionCategory setAutoresizingMask: UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
-        [self.attractionCategory setTextColor:[UIColor whiteColor]];
+        [self.attractionCategory setTextColor:[UIColor blackColor]];
         [self.attractionCategory setTextAlignment : NSTextAlignmentLeft];
         [self.attractionCategory setAdjustsFontSizeToFitWidth : TRUE];
 
@@ -40,7 +40,7 @@
         self.attractionDistance = [[UILabel alloc] initWithFrame:CGRectMake((self.bounds.size.width/3)*2 - 5, self.bounds.size.height - 20, self.bounds.size.width/3, 20)];
         [self.attractionDistance setAutoresizingMask: UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
         [self.attractionDistance setTextAlignment : NSTextAlignmentRight];
-        [self.attractionDistance setTextColor:[UIColor whiteColor]];
+        [self.attractionDistance setTextColor:[UIColor blackColor]];
         [self.attractionDistance setAdjustsFontSizeToFitWidth : TRUE];
         
         [self addSubview:self.attractionBackgroundImage];

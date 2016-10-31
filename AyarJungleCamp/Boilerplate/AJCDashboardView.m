@@ -40,7 +40,7 @@
             title = @"In and Around Nainital";
             break;
         case AJCDashboardViewLocalEvents:
-            title = @"Local Events";
+            title = @"About Ayar Jungle Camp";
             break;
             
         default:

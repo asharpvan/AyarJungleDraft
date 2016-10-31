@@ -10,6 +10,7 @@
 #import "AJCDashboardView.h"
 #import "EmptyScreenViewController.h"
 #import "AJCWeatherView.h"
+#import "AttractionListViewController.h"
 
 @interface DashBoardViewController : EmptyScreenViewController <AJCDashboardViewDelegate,AJCWeatherViewDelegate>
 

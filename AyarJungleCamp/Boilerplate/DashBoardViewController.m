@@ -7,8 +7,13 @@
 //
 
 #import "DashBoardViewController.h"
-#import "AFNetworking.h"
+//#import "AFNetworking.h"
+#import "DatabaseClient.h"
+#import "HotelProfile.h"
+#import "RoomListViewController.h"
+#import "HotelProfileViewController.h"
 //#import "afh"
+
 
 
 @interface DashBoardViewController ()
@@ -39,34 +44,6 @@
     AJCWeatherView *weatherView = [[AJCWeatherView alloc] initWithSize:weatherViewSize];
     [weatherView setDelegate:self];
     [weatherView startLoading];
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:@"https://www.raywenderlich.com/demos/weather_sample/weather.php?format=json" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-    
-        NSDictionary *weatherDictionary = (NSDictionary *)[responseObject valueForKeyPath:@"data.current_condition"];
-        NSString * temperatureRecieved = [[weatherDictionary valueForKey:@"temp_C"] firstObject];
-        NSString * conditionRecieved = [[[weatherDictionary valueForKeyPath:@"weatherDesc.value"] firstObject] firstObject];
-        
-        [weatherView updateWeatherConditions:conditionRecieved weatherIconString:@"Storm3.png" temperature:temperatureRecieved andCurrentDay:@"Tue, December 17"];
-        [weatherView stopLoading];
-        
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
-        
-        NSLog(@"Error: %@", error);
-        [weatherView updateWeatherConditions:@"error" weatherIconString:@"Storm3.png" temperature:@"19˚" andCurrentDay:@"Tue, December 17"];
-        [weatherView stopLoading];
-    }];
-    
-    
-    
-    
-//    double delayInSeconds = 2.0;
-//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-//    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-//      
-//    });
-    
-    
     [self.view addSubview:weatherView];
     
    
@@ -110,16 +87,37 @@
     
     switch (ajcDashboardViewOptionPressed) {
             
-        case AJCDashboardViewBook:
+        case AJCDashboardViewBook: {
             NSLog(@"Booking Pressed!!");
+            [[DatabaseClient sharedInstance] openDatabase];
+            HotelProfile *profileToShow = [[DatabaseClient sharedInstance] fetchHotel];
+            [[DatabaseClient sharedInstance] closeDatabase];
+            RoomListViewController *roomList = [[RoomListViewController alloc]initWithRoomList:[profileToShow hotelAccommodationList]];
+            [self.navigationController pushViewController:roomList animated:TRUE];
+        }
             break;
             
-        case AJCDashboardViewInAnAround:
+        case AJCDashboardViewInAnAround: {
             NSLog(@"In/Around Nainital Pressed!!");
+            [[DatabaseClient sharedInstance] openDatabase];
+            [[DatabaseClient sharedInstance] fetchAllAttractions:^(NSArray *attractionListArray, NSString *error) {
+                if(!error && attractionListArray){
+                    AttractionListViewController *attractionList = [[AttractionListViewController alloc]initWithAttractionList:[attractionListArray copy]];
+                    [self.navigationController pushViewController:attractionList animated:TRUE];
+                }
+            }];
+        }
             break;
             
-        case AJCDashboardViewLocalEvents:
+        case AJCDashboardViewLocalEvents: {
             NSLog(@"Local Events Pressed!!");
+            [[DatabaseClient sharedInstance] openDatabase];
+            HotelProfile *profileToShow = [[DatabaseClient sharedInstance] fetchHotel];
+            [[DatabaseClient sharedInstance] closeDatabase];
+            HotelProfileViewController *hotelProfile = [[HotelProfileViewController alloc]initWithHotelProfile:profileToShow showAsParallaxView:TRUE];
+            [self.navigationController pushViewController:hotelProfile animated:TRUE];
+        }
+            
             break;
             
         default:

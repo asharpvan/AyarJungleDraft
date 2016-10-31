@@ -7,6 +7,7 @@
 //
 
 #import "AJCWeatherView.h"
+#import "AFNetworking.h"
 
 @implementation AJCWeatherView
 
@@ -37,7 +38,6 @@
     infoView = [[UIView alloc] initWithFrame:CGRectMake(5, 5, self.bounds.size.width - 10, self.bounds.size.height - 10)];
     [self addSubview:infoView];
     
-    //Style 2
     CGFloat widthForTempLabel = infoView.bounds.size.width/2;
     
     ajcTempLabel = [[UILabel alloc] initWithFrame:CGRectMake(infoView.bounds.size.width - widthForTempLabel,0,widthForTempLabel, infoView.bounds.size.height)];
@@ -72,6 +72,24 @@
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(viewTapped:)];
     [self addGestureRecognizer:tapGesture];
     
+
+    errorView = [[UIView alloc] initWithFrame:[infoView frame]];
+    [self addSubview:errorView];
+    
+    errorLabel = [[UILabel alloc] initWithFrame:[errorView frame]];
+    [errorLabel setTextColor:[UIColor whiteColor]];
+    [errorLabel setFont:[UIFont systemFontOfSize:20]];
+    [errorLabel setTextAlignment:NSTextAlignmentCenter];
+    [errorLabel setNumberOfLines:0];
+    [errorView addSubview:errorLabel];
+    
+    refreshButton = [[UIButton alloc]initWithFrame:CGRectMake(self.bounds.size.width - 44, self.bounds.origin.y, 44, 44)];
+    [refreshButton setImage:[UIImage imageNamed:@"Storm3.png"] forState:UIControlStateNormal];
+    [refreshButton addTarget:self action:@selector(startLoading) forControlEvents:UIControlEventTouchUpInside];
+//    [refreshButton setBackgroundColor:[UIColor blackColor]];
+    [self addSubview:refreshButton];
+    
+    
 }
 
 
@@ -89,22 +107,62 @@
     [currentDayLabel setText:currentDay];
     [weatherIconImageView setImage:[UIImage imageNamed:weatherIconString]];
     [ajcTempLabel setText:[NSString stringWithFormat:@"%@˚",temperatureReading]];
+}
 
+-(void) updateErrorLabel:(NSString *)errorString {
+    
+    [errorLabel setText:errorString];
 }
 
 
 -(void) startLoading {
+
+    if(![refreshButton isHidden])
+        [refreshButton setHidden:TRUE];
     
-    [infoView setHidden:TRUE];
+    if(![infoView isHidden])
+        [infoView setHidden:TRUE];
+
+    if(![errorView isHidden])
+        [errorView setHidden:TRUE];
+    
     [spinner startAnimating];
+//    double delayInSeconds = 5.0;
+//    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+//    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+    
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+        [manager GET:@"https://www.raywenderlich.com/demos/weather_sample/weather.php?format=json" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+            
+            NSDictionary *weatherDictionary = (NSDictionary *)[responseObject valueForKeyPath:@"data.current_condition"];
+            NSString * temperatureRecieved = [[weatherDictionary valueForKey:@"temp_C"] firstObject];
+            NSString * conditionRecieved = [[[weatherDictionary valueForKeyPath:@"weatherDesc.value"] firstObject] firstObject];
+            
+            [self updateWeatherConditions:conditionRecieved weatherIconString:@"Storm3.png" temperature:temperatureRecieved andCurrentDay:@"Tue, December 17"];
+            [self stopLoadingWithError:FALSE];
+            
+        } failure:^(NSURLSessionTask *operation, NSError *error) {
+            
+            NSLog(@"Error: %@", error);
+            [self updateErrorLabel:[error localizedDescription]];
+            [self stopLoadingWithError:TRUE];
+        }];
+
+//    });
+
+    
 }
 
 
--(void) stopLoading {
+-(void) stopLoadingWithError:(BOOL)isError {
     
     [spinner stopAnimating];
-    [infoView setHidden:FALSE];
-    
+    [refreshButton setHidden:FALSE];
+ 
+    if(!isError)
+        [infoView setHidden:FALSE];
+    else
+        [errorView setHidden:FALSE];
 }
 
 @end

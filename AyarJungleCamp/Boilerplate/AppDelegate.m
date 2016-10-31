@@ -10,6 +10,8 @@
 #import "ViewController.h"
 #import "DatabaseClient.h"
 #import "HotelProfile.h"
+#import "DashBoardViewController.h"
+#import "SendGridAPIClient.h"
 
 @interface AppDelegate ()
 
@@ -20,10 +22,26 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    
+    SendGridAPIClient *sendGrid = [[SendGridAPIClient alloc]init];
+    NSDictionary *queryDictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"3",@"numberOfAdults",@"1",@"numberOfChildren",@"29/10/2016",@"checkIn",@"31/10/2016",@"checkOut",@"Need a ramp",@"specialMessage", nil];
+    [sendGrid sendQueryFrom:@"ayarjunglecamp@gmail.com" withQuery:queryDictionary onCompletion:^(BOOL success, NSString *errorString) {
+        
+        if(success) {
+            NSLog(@"Mail Sent!!");
+        }else {
+            NSLog(@"Mail Sending failed due to : %@",errorString);
+        }
+    }];
+    
+    
+    
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UIViewController *viewToload = nil;
-    self.viewController=[[ViewController alloc]init];
-    viewToload = self.viewController;
+//    self.viewController=[[ViewController alloc]init];
+    self.dashBoard = [[DashBoardViewController alloc]init];
+    viewToload = self.dashBoard;
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:viewToload];
     self.window.rootViewController = self.navController;

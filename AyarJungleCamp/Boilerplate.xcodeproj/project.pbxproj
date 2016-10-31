@@ -38,6 +38,8 @@
 		19FD82BE1D7D5AF1009A1149 /* TopBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19FD82BD1D7D5AF1009A1149 /* TopBarView.m */; };
 		19FF3B691D9B8372001719F4 /* AJC_Campground.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FF3B671D9B8372001719F4 /* AJC_Campground.png */; };
 		19FF3B6A1D9B8372001719F4 /* AJC_Restaurant.png in Resources */ = {isa = PBXBuildFile; fileRef = 19FF3B681D9B8372001719F4 /* AJC_Restaurant.png */; };
+		A6098C601DC31D7E001296E1 /* SendGridAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A6098C5F1DC31D7E001296E1 /* SendGridAPIClient.m */; };
+		A6098C631DC31E5B001296E1 /* Mail.m in Sources */ = {isa = PBXBuildFile; fileRef = A6098C621DC31E5B001296E1 /* Mail.m */; };
 		F418841A1CAE7F21005F562F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F41884191CAE7F21005F562F /* main.m */; };
 		F418841D1CAE7F21005F562F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F418841C1CAE7F21005F562F /* AppDelegate.m */; };
 		F41884201CAE7F21005F562F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F418841F1CAE7F21005F562F /* ViewController.m */; };
@@ -178,6 +180,10 @@
 		19FD82BD1D7D5AF1009A1149 /* TopBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopBarView.m; sourceTree = "<group>"; };
 		19FF3B671D9B8372001719F4 /* AJC_Campground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AJC_Campground.png; sourceTree = "<group>"; };
 		19FF3B681D9B8372001719F4 /* AJC_Restaurant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AJC_Restaurant.png; sourceTree = "<group>"; };
+		A6098C5E1DC31D7E001296E1 /* SendGridAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendGridAPIClient.h; sourceTree = "<group>"; };
+		A6098C5F1DC31D7E001296E1 /* SendGridAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendGridAPIClient.m; sourceTree = "<group>"; };
+		A6098C611DC31E5B001296E1 /* Mail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mail.h; sourceTree = "<group>"; };
+		A6098C621DC31E5B001296E1 /* Mail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mail.m; sourceTree = "<group>"; };
 		F41884151CAE7F21005F562F /* Boilerplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boilerplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41884191CAE7F21005F562F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F418841B1CAE7F21005F562F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -486,6 +492,8 @@
 			children = (
 				19FCBAAA1D7EA34C00919D21 /* Attractions Data Model */,
 				192C32A51D7037DD002C25FD /* Hotel Related Data Model */,
+				A6098C611DC31E5B001296E1 /* Mail.h */,
+				A6098C621DC31E5B001296E1 /* Mail.m */,
 			);
 			name = "Data Models";
 			sourceTree = "<group>";
@@ -628,6 +636,8 @@
 				F4AAD8511D589E6F00442221 /* DashboardView */,
 				19FD82C01D7D7E63009A1149 /* Empty View Controller */,
 				19FD82BF1D7D7E53009A1149 /* Top Bar */,
+				A6098C5E1DC31D7E001296E1 /* SendGridAPIClient.h */,
+				A6098C5F1DC31D7E001296E1 /* SendGridAPIClient.m */,
 			);
 			name = "Custom Classes";
 			sourceTree = "<group>";
@@ -980,6 +990,7 @@
 				F4DFFDE51D4B461B00DB6244 /* UIWebView+AFNetworking.m in Sources */,
 				F4DFFDDE1D4B461B00DB6244 /* AFImageDownloader.m in Sources */,
 				19D7688F1D80B5C10086499F /* RoomDetailsViewController.m in Sources */,
+				A6098C601DC31D7E001296E1 /* SendGridAPIClient.m in Sources */,
 				F4AAD8501D589DE100442221 /* DashBoardViewController.m in Sources */,
 				F47A3BC41D27B87600DB2C7A /* POPAnimatableProperty.mm in Sources */,
 				19D768851D80923B0086499F /* AttractionsDetailViewController.m in Sources */,
@@ -1019,6 +1030,7 @@
 				19EB85941D7442EA004EAC7F /* MXScrollView.m in Sources */,
 				192C32A41D7037D6002C25FD /* HotelProfile.m in Sources */,
 				F4DFFDC71D4B45EC00DB6244 /* AFURLSessionManager.m in Sources */,
+				A6098C631DC31E5B001296E1 /* Mail.m in Sources */,
 				192C32B51D70C959002C25FD /* HotelAccommodation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
