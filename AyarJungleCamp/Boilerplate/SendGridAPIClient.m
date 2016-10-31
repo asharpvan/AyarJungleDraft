@@ -9,6 +9,7 @@
 #import "SendGridAPIClient.h"
 #import "AFNetworking.h"
 
+
 static BOOL isPerformingQuery;
 
 @implementation SendGridAPIClient{
@@ -28,23 +29,19 @@ static BOOL isPerformingQuery;
     return self;
 }
 
--(void) sendQueryFrom:(NSString *)senderEmailID withQuery:(NSDictionary *)queryReceived onCompletion:(MailSentCompletion) complete {
+-(void) sendQuery:(EmailQuery *)queryReceived onCompletion:(MailSentCompletion) complete {
     
 
     [self setisQueryExecutionState:TRUE];
     
-    NSString *mailContent = [NSString stringWithFormat:@"Dear Pranav,<br /> Please find the following details: <br /><br /> Name : Kirti Maheshwari<br /> Contact Number : 9999518091<br /> Number of Adults : %@<br /> Number of Children : %@<br /> Check In Date : %@<br /> Check Out Date : %@<br /><br /> Best Wishes, <br />NainiExplorer",[queryReceived valueForKey:@"numberOfAdults"],[queryReceived valueForKey:@"numberOfChildren"],[queryReceived valueForKey:@"checkIn"],[queryReceived valueForKey:@"checkOut"]];
+    NSString *mailContent = [NSString stringWithFormat:@"Dear Pranav,<br /> Please find the following details: <br /><br /> Name : %@<br /> Contact Number : %@<br /> Number of Adults : %@<br /> Number of Children : %@<br /> Check In Date : %@<br /> Check Out Date : %@<br /><br /> Best Wishes, <br />NainiExplorer",[queryReceived senderName],[queryReceived senderContact],[queryReceived numberOfAdults],[queryReceived numberOfChildren],[queryReceived checkInDate],[queryReceived checkOutDate]];
     
-    
-    NSString *sendToEmailId = @"sahpranav1712@gmail.com";
-    NSArray *sendToEmailArray = @[@{@"email": sendToEmailId}];
+    NSArray *sendToEmailArray = @[@{@"email": @"iospranav1712@gmail.com"}];
     NSDictionary *emailDictionary = [NSDictionary dictionaryWithObjectsAndKeys:sendToEmailArray,@"to",@"Trial Message",@"subject",nil];
     NSArray *personalisationArray = @[emailDictionary];
     
     NSArray *contentArray = @[@{@"type": @"text/html", @"value": mailContent}];
-    
-    NSDictionary *fromDetailsDictionary = [NSDictionary dictionaryWithObjectsAndKeys:senderEmailID,@"email", nil];
-  
+    NSDictionary *fromDetailsDictionary = [NSDictionary dictionaryWithObjectsAndKeys:[queryReceived senderEmail],@"email", nil];
     NSDictionary *postDataDictionary = [NSDictionary dictionaryWithObjectsAndKeys:contentArray,@"content",fromDetailsDictionary,@"from",personalisationArray,@"personalizations",nil];
     
     [manager.requestSerializer setValue:@"Bearer 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" forHTTPHeaderField:@"Authorization"];

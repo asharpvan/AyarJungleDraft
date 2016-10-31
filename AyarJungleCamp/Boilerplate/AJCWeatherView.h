@@ -39,6 +39,6 @@
 
 -(void) startLoading;
 
--(void) stopLoading;
+-(void) stopLoadingWithError:(BOOL)isError;
 
 @end

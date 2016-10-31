@@ -11,8 +11,11 @@
 #import "EmptyScreenViewController.h"
 #import "AJCWeatherView.h"
 #import "AttractionListViewController.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
 
-@interface DashBoardViewController : EmptyScreenViewController <AJCDashboardViewDelegate,AJCWeatherViewDelegate>
+@interface DashBoardViewController : EmptyScreenViewController <AJCDashboardViewDelegate,AJCWeatherViewDelegate,FBSDKLoginButtonDelegate>
 
 -(instancetype)init;
 

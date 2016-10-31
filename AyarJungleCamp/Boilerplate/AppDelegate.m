@@ -11,7 +11,9 @@
 #import "DatabaseClient.h"
 #import "HotelProfile.h"
 #import "DashBoardViewController.h"
-#import "SendGridAPIClient.h"
+#import "Backendless API.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 
 @interface AppDelegate ()
 
@@ -22,20 +24,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    
-    SendGridAPIClient *sendGrid = [[SendGridAPIClient alloc]init];
-    NSDictionary *queryDictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"3",@"numberOfAdults",@"1",@"numberOfChildren",@"29/10/2016",@"checkIn",@"31/10/2016",@"checkOut",@"Need a ramp",@"specialMessage", nil];
-    [sendGrid sendQueryFrom:@"ayarjunglecamp@gmail.com" withQuery:queryDictionary onCompletion:^(BOOL success, NSString *errorString) {
-        
-        if(success) {
-            NSLog(@"Mail Sent!!");
-        }else {
-            NSLog(@"Mail Sending failed due to : %@",errorString);
-        }
-    }];
-    
-    
-    
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     UIViewController *viewToload = nil;
@@ -67,10 +57,26 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    [FBSDKAppEvents activateApp];
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+            options:(NSDictionary *)options {
+    
+    BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                                  openURL:url
+                                                        sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                                               annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
+                    ];
+    // Add any custom logic here.
+    return handled;
 }
 
 @end

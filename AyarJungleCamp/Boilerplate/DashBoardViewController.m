@@ -12,7 +12,7 @@
 #import "HotelProfile.h"
 #import "RoomListViewController.h"
 #import "HotelProfileViewController.h"
-//#import "afh"
+
 
 
 
@@ -57,11 +57,44 @@
     [thirdView setCenter:CGPointMake(thirdView.center.x, secondView.center.y + secondView.frame.size.height)];
     [self.view addSubview:thirdView];
 
-    AJCDashboardView *fourthView = [[AJCDashboardView alloc]initWithSize:dashboardViewSize withIdentifier:AJCDashboardViewLocalEvents];
-    [fourthView setDelegate:self];
+//    AJCDashboardView *fourthView = [[AJCDashboardView alloc]initWithSize:dashboardViewSize withIdentifier:AJCDashboardViewLocalEvents];
+//    [fourthView setDelegate:self];
+//    [fourthView setCenter:CGPointMake(fourthView.center.x, thirdView.center.y+thirdView.frame.size.height)];
+//    [self.view addSubview:fourthView];
+
+    UIView *fourthView = [[UIView alloc]initWithFrame:[thirdView frame]];
     [fourthView setCenter:CGPointMake(fourthView.center.x, thirdView.center.y+thirdView.frame.size.height)];
     [self.view addSubview:fourthView];
     
+    NSLog(@"%@",[FBSDKAccessToken currentAccessToken]);
+    if(![FBSDKAccessToken currentAccessToken]) {
+        
+        
+//        FBSDKLikeControl *likeButton = [[FBSDKLikeControl alloc]init];
+//        likeButton.center = fourthView.center;
+//        likeButton.objectID = @"https://www.facebook.com/ayarjunglecamp";
+//        likeButton.likeControlStyle = FBSDKLikeControlStyleBoxCount;
+//        // Change the style to box count
+//        likeButton.likeControlHorizontalAlignment =
+//        FBSDKLikeControlHorizontalAlignmentRight;
+//        [self.view addSubview:likeButton];
+//        
+//    }else {
+
+        FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
+        // Optional: Place the button in the center of your view.
+        loginButton.center = fourthView.center;
+//        [loginButton setDelegate:self];
+        loginButton.readPermissions =@[@"public_profile", @"email",@"user_friends"];
+        [loginButton setPublishPermissions:@[@"publish_actions"]];
+        [self.view addSubview:loginButton];
+        [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
+        
+        NSLog(@"%@",[[FBSDKProfile currentProfile] firstName]);
+        NSLog(@"%@",[[FBSDKProfile currentProfile] lastName]);
+        NSLog(@"%@",[[FBSDKProfile currentProfile] userID]);
+        NSLog(@"%@",[[FBSDKProfile currentProfile] name]);
+    }
     
 }
 
@@ -131,4 +164,23 @@
      NSLog(@"User Tapped on Weather View!!");
 }
 
+- (void) loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
+    
+    if(error) {
+        NSLog(@"error : %@",error);
+    }else {
+        NSLog(@"\n**FBSDKLoginManagerLoginResult**\ntokenString :%@\nappID :%@\nuserID :%@\npermissions :%@\nexpirationDate :%@\nrefreshDate :%@\ngrantedPermissions :%@\ndeclinedPermissions :%@",result.token.tokenString,result.token.appID,result.token.userID,result.token.permissions,result.token.expirationDate,result.token.refreshDate,result.grantedPermissions,result.declinedPermissions);
+    }
+}
+
+- (void) loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
+    
+    NSLog(@"Loggesd out!!");
+    
+}
+
+- (BOOL) loginButtonWillLogin:(FBSDKLoginButton *)loginButton {
+
+    return TRUE;
+}
 @end

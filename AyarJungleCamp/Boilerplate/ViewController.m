@@ -108,13 +108,13 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
     sprintAnimation.springBounciness = 20.f;
     sprintAnimation.completionBlock = ^(POPAnimation *anim, BOOL finished) {
         if([button tag] == 0)  {
-//            NSLog(@"Here!!");
-//            [self loginWithTwitter];
-//  
-//            __block DashBoardViewController *dashboard = [[DashBoardViewController alloc]init];
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [self.navigationController pushViewController:dashboard animated:TRUE];
-//            });
+            NSLog(@"Here!!");
+            [self loginWithTwitter];
+  
+            __block DashBoardViewController *dashboard = [[DashBoardViewController alloc]init];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.navigationController pushViewController:dashboard animated:TRUE];
+            });
             
             [self sendSMS];
         }
@@ -377,13 +377,7 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
 
 -(void) sendSMS {
     
-    NSLog(@"Send SMS");
-    
-    
-
-
-    
-    
-    
+    NSLog(@"Send SMS");    
 }
+
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "EmailQuery.h"
 
 typedef void(^MailSentCompletion) (BOOL, NSString *);
 
@@ -14,7 +15,30 @@ typedef void(^MailSentCompletion) (BOOL, NSString *);
 
 -(instancetype)init;
 
--(void) sendQueryFrom:(NSString *)senderEmailID withQuery:(NSDictionary *)queryReceived onCompletion:(MailSentCompletion) complete;
+-(void) sendQuery:(EmailQuery *)queryReceived onCompletion:(MailSentCompletion) complete;
+
+/*   To call the above method use the following
+ 
+ //    SendGridAPIClient *sendGrid = [[SendGridAPIClient alloc]init];
+ //
+ //    EmailQuery *emailQuery = [EmailQuery new];
+ //    [emailQuery setSenderName:@"Kirti Maheshwari"];
+ //    [emailQuery setSenderEmail:@"sahpranav@gmail.com"];
+ //    [emailQuery setSenderContact:@9999518091];
+ //    [emailQuery setNumberOfAdults:@3];
+ //    [emailQuery setNumberOfChildren:@1];
+ //    [emailQuery setCheckInDate:[NSDate date]];
+ //    [emailQuery setCheckOutDate:[NSDate date]];
+ //
+ //    [sendGrid sendQuery:emailQuery onCompletion:^(BOOL success, NSString *errorString) {
+ //
+ //        if(success) {
+ //            NSLog(@"Mail Sent!!");
+ //        }else {
+ //            NSLog(@"Mail Sending failed due to : %@",errorString);
+ //        }
+ //    }];
+ */
 
 //Getter method query exectution state
 - (BOOL)getIsQueryExecuting;
