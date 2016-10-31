@@ -44,7 +44,7 @@ static BOOL isPerformingQuery;
     NSDictionary *fromDetailsDictionary = [NSDictionary dictionaryWithObjectsAndKeys:[queryReceived senderEmail],@"email", nil];
     NSDictionary *postDataDictionary = [NSDictionary dictionaryWithObjectsAndKeys:contentArray,@"content",fromDetailsDictionary,@"from",personalisationArray,@"personalizations",nil];
     
-    [manager.requestSerializer setValue:@"Bearer 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" forHTTPHeaderField:@"Authorization"];
+    [manager.requestSerializer setValue:@"xxxxxx" forHTTPHeaderField:@"Authorization"];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
   
     [manager POST:@"https://api.sendgrid.com/v3/mail/send" parameters:postDataDictionary progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
