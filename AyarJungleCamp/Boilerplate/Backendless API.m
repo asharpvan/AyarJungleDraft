@@ -67,14 +67,14 @@ static BOOL isPerformingQuery;
     
    NSString *access_Token_page = @"  EAAFw3tkLZAZCQBAHMaEmFt0MnLYRaD7tPYZCMJpXrYbFEvIqScbydvDqAWv5czZBjdhEDpSTTtknB1guKYgPB2IP4BlPNRX9NoSZCi38oNS9JUGJF6nUBDUooeHRMZBQa71aaaT4hkaokh64aNcjVfSPXSSqKnM7IZD";
     
-    NSString *pageURI = [NSString stringWithFormat:@"https://graph.facebook.com/v2.8/157060791031852?access_token=%@",]
+    NSString *pageURI = [NSString stringWithFormat:@"https://graph.facebook.com/v2.8/157060791031852?access_token=%@",access_Token_page];
     
     [self setisQueryExecutionState:TRUE];
     
     
     NSDictionary *postDataDictionary = @{ @"fields": @"were_here_count,talking_about_count,rating_count,overall_star_rating,new_like_count,id,ratings{rating,review_text,reviewer,created_time}"};
     
-    [manager GET:@"https://graph.facebook.com/v2.8/157060791031852?access_token=EAAFw3tkLZAZCQBAHMaEmFt0MnLYRaD7tPYZCMJpXrYbFEvIqScbydvDqAWv5czZBjdhEDpSTTtknB1guKYgPB2IP4BlPNRX9NoSZCi38oNS9JUGJF6nUBDUooeHRMZBQa71aaaT4hkaokh64aNcjVfSPXSSqKnM7IZD" parameters:postDataDictionary progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [manager GET:pageURI parameters:postDataDictionary progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSLog(@"%@", responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
